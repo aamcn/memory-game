@@ -11,8 +11,10 @@ function GamePage(){
     const [fullPokemonList, setFullPokemonList] = useState([])
     const [chosenPokemon, setChosenPokemon] = useState([])
     const [cardObjects, setCardObjects] = useState([])
-    const [gameResults, setGameResults] = useState(null)
+    const [gameResults, setGameResults] = useState(false)
     const [currentScore, setCurrentScore] = useState(0)
+    const [highScore, setHighScore] = useState(0)
+    const [gameStarted, setGameStarted] = useState(false)
 
     const theNumber = 12
 
@@ -47,8 +49,10 @@ function GamePage(){
     }, [])
 
     const handleStartClick = () => {
+        setGameStarted(true)
         setGameResults(false)
         choosePokemon()
+        setCurrentScore(0)
     }
 
     useEffect(() => {
@@ -67,14 +71,22 @@ function GamePage(){
         if(gameResults){
           setCardObjects([])
         }
-    }, [currentScore, gameResults])
+        setGameStarted(false)
+    }, [gameResults])
+
+    useEffect(() => {
+      if(currentScore > highScore){
+        setHighScore(currentScore)
+      }
+      setGameStarted(false)
+  }, [currentScore])
     
     return(
         <>
             
             <Header />
             <Navbar />
-            <GameDisplay gameResults={gameResults} handleStartClick={handleStartClick} currentScore={currentScore} setGameResults={setGameResults} setCurrentScore={setCurrentScore} chosenPokemon={cardObjects}/>
+            <GameDisplay highScore={highScore} gameStarted={gameStarted} setGameStarted={setGameStarted} gameResults={gameResults} handleStartClick={handleStartClick} currentScore={currentScore} setGameResults={setGameResults} setCurrentScore={setCurrentScore} chosenPokemon={cardObjects}/>
         </>
     )
 }

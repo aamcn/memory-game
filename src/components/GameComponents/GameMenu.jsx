@@ -9,6 +9,11 @@ function GameMenu({ handleStartClick }){
                 <div id="menu-title">
                     <h2>Menu</h2>    
                 </div>
+                <div>
+                    <button>Easy</button>
+                    <button>Medium</button>
+                    <button>Hard</button>
+                </div>
                 <div id="menu-buttons-container">
                     <button onClick={handleStartClick}>start</button>
                 </div>

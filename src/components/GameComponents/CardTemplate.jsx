@@ -2,7 +2,6 @@
 function CardTemplate({ pokemonCardDetails, setCurrentScore, currentScore, setGameResults }){
     
     const handleCardClick = (e) => {
-        console.log(pokemonCardDetails.name)
         if(pokemonCardDetails.isClicked != true){
             setCurrentScore(currentScore +1)
             pokemonCardDetails.isClicked = true

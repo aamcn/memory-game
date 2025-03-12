@@ -1,15 +1,17 @@
 import CardDisplay from "./CardDisplay";
 import GameLostWindow from "./GameLostWindow";
 import GameMenu from "./GameMenu";
+import ScoreBoard from "./ScoreBoard";
 
-function GameDisplay({ handleStartClick, chosenPokemon, setCurrentScore, currentScore, setGameResults, gameResults}){
+function GameDisplay({ highScore, gameStarted, handleStartClick, chosenPokemon, setCurrentScore, currentScore, setGameResults, gameResults}){
 
     
     return(
-        <>
+        <>  
+            <ScoreBoard highScore={highScore} currentScore={currentScore} />
             {gameResults && <GameLostWindow />}
             <CardDisplay setCurrentScore={setCurrentScore} setGameResults={setGameResults} currentScore={currentScore} chosenPokemonCardData={chosenPokemon}/>
-            <GameMenu handleStartClick={handleStartClick}/>
+            {!gameStarted && <GameMenu handleStartClick={handleStartClick}/>}
             
         </>
     )
