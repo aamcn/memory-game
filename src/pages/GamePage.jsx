@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
+import GameDisplay from "../components/GameComponents/GameDisplay";
 
 
 function GamePage(){
@@ -9,7 +10,7 @@ function GamePage(){
     return(
         <>
         <Navbar />
-        <p>game</p>
+        <GameDisplay />
         </>
     )
 }
