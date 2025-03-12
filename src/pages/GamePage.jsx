@@ -8,7 +8,6 @@ function GamePage(){
 
     const [fullPokemonList, setFullPokemonList] = useState([])
     const [chosenPokemon, setChosenPokemon] = useState([])
-    const [randomNumbers, setRandomNumbers] = useState([])
 
     function fetchIndividualPokedata(pokemonUrl) {
         fetch(pokemonUrl, { mode: "cors" })
@@ -51,8 +50,9 @@ function GamePage(){
  
     return(
         <>
-        <Navbar />
-        <GameDisplay handleStartClick={handleStartClick}/>
+            <Navbar />
+            
+            <GameDisplay handleStartClick={handleStartClick} chosenPokemon={chosenPokemon}/>
         </>
     )
 }
