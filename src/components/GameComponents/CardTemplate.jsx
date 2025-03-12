@@ -1,12 +1,16 @@
 
 function CardTemplate({ pokemonCardDetails }){
 
+    const handleCardClick = (e) => {
+        console.log(pokemonCardDetails.name)
+    }
+
     console.log(pokemonCardDetails)
     return(
         <>
             {pokemonCardDetails  &&  
             <div>
-                <p>{pokemonCardDetails.name}</p>
+                <p onClick={handleCardClick} value={pokemonCardDetails.name}>{pokemonCardDetails.name}</p>
             </div>
             }
         </>
