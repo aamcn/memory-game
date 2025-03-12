@@ -3,7 +3,6 @@ import GameMenu from "./GameMenu";
 
 function GameDisplay({ handleStartClick, chosenPokemon }){
 
-    console.log(chosenPokemon)
     
     return(
         <>

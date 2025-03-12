@@ -2,12 +2,16 @@ import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import GameDisplay from "../components/GameComponents/GameDisplay";
 import { getRandomInt } from "../modules/randomNumber";
-
+import Header from "../components/Header/Header";
+import { v4 as uuidv4 } from 'uuid';
+import { PokemonCardObject } from "../modules/cardConstructor";
 
 function GamePage(){
 
     const [fullPokemonList, setFullPokemonList] = useState([])
     const [chosenPokemon, setChosenPokemon] = useState([])
+    const [cardObjects, setCardObjects] = useState([])
+    const theNumber = 12
 
     function fetchIndividualPokedata(pokemonUrl) {
         fetch(pokemonUrl, { mode: "cors" })
@@ -21,7 +25,7 @@ function GamePage(){
       function choosePokemon() {
         setChosenPokemon([]);
         let pokeUrls = [];
-        while (pokeUrls.length < 12) {
+        while (pokeUrls.length < theNumber) {
           let integer = getRandomInt(150);
           if (!pokeUrls.includes(fullPokemonList.results[integer])) {
             pokeUrls.push(fullPokemonList.results[integer]);
@@ -44,15 +48,26 @@ function GamePage(){
     }
 
     useEffect(() => {
-        console.log(chosenPokemon)
+        if(chosenPokemon.length === theNumber){
+            chosenPokemon.map(pokemon => {
+                let newId = uuidv4()
+                let imageUrl = pokemon.sprites.other.dream_world.front_default
+                let name = pokemon.name
+                const newCard = new PokemonCardObject(name, imageUrl, newId)
+                setCardObjects(cardObjects => [...cardObjects, newCard])
+            })    
+        }
     }, [chosenPokemon])
   
- 
+    useEffect(() => {
+    }, [cardObjects])
+    
     return(
         <>
-            <Navbar />
             
-            <GameDisplay handleStartClick={handleStartClick} chosenPokemon={chosenPokemon}/>
+            <Header />
+            <Navbar />
+            <GameDisplay handleStartClick={handleStartClick} chosenPokemon={cardObjects}/>
         </>
     )
 }

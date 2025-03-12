@@ -3,14 +3,19 @@ function CardTemplate({ pokemonCardDetails }){
 
     const handleCardClick = (e) => {
         console.log(pokemonCardDetails.name)
+        if(pokemonCardDetails.isClicked != true){
+            pokemonCardDetails.isClicked = true
+        } else{
+            console.log('game over')
+        }
     }
 
-    console.log(pokemonCardDetails)
     return(
         <>
             {pokemonCardDetails  &&  
-            <div>
-                <p onClick={handleCardClick} value={pokemonCardDetails.name}>{pokemonCardDetails.name}</p>
+            <div onClick={handleCardClick}>
+                <p  value={pokemonCardDetails.name}>{pokemonCardDetails.name}</p>
+                <img width="50px" src={pokemonCardDetails.imageUrl}></img>
             </div>
             }
         </>
