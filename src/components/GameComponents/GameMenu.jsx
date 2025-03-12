@@ -1,6 +1,6 @@
 import Button from "../../elements/Button";
 
-function GameMenu(){
+function GameMenu({ handleStartClick }){
 
     return(
         <>
@@ -10,7 +10,7 @@ function GameMenu(){
                     <h2>Menu</h2>    
                 </div>
                 <div id="menu-buttons-container">
-                    <Button buttonText={"Start Game"} ></Button>
+                    <button onClick={handleStartClick}>start</button>
                 </div>
             </div>
         </>

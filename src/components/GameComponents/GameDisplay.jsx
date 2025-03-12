@@ -1,11 +1,12 @@
 import GameMenu from "./GameMenu";
 
-function GameDisplay(){
+function GameDisplay({ handleStartClick }){
 
+    
     
     return(
         <>
-            <GameMenu />
+            <GameMenu handleStartClick={handleStartClick}/>
         </>
     )
 }
