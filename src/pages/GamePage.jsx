@@ -11,6 +11,9 @@ function GamePage(){
     const [fullPokemonList, setFullPokemonList] = useState([])
     const [chosenPokemon, setChosenPokemon] = useState([])
     const [cardObjects, setCardObjects] = useState([])
+    const [gameResults, setGameResults] = useState(null)
+    const [currentScore, setCurrentScore] = useState(0)
+
     const theNumber = 12
 
     function fetchIndividualPokedata(pokemonUrl) {
@@ -44,6 +47,7 @@ function GamePage(){
     }, [])
 
     const handleStartClick = () => {
+        setGameResults(false)
         choosePokemon()
     }
 
@@ -60,14 +64,17 @@ function GamePage(){
     }, [chosenPokemon])
   
     useEffect(() => {
-    }, [cardObjects])
+        if(gameResults){
+          setCardObjects([])
+        }
+    }, [currentScore, gameResults])
     
     return(
         <>
             
             <Header />
             <Navbar />
-            <GameDisplay handleStartClick={handleStartClick} chosenPokemon={cardObjects}/>
+            <GameDisplay gameResults={gameResults} handleStartClick={handleStartClick} currentScore={currentScore} setGameResults={setGameResults} setCurrentScore={setCurrentScore} chosenPokemon={cardObjects}/>
         </>
     )
 }
