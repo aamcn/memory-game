@@ -6,7 +6,7 @@ function Navbar(){
         <Link to="/">
             Home
         </Link>
-        <Link to="/game-display"> 
+        <Link to="/game-page"> 
             Game
         </Link>
         </>

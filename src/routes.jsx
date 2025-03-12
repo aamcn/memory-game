@@ -1,6 +1,6 @@
 import App from "./App";
-import LandingPage from "./components/LandingPage";
-import GameDisplay from "./components/GameDisplay";
+import LandingPage from "./pages/LandingPage";
+import GamePage from "./pages/GamePage";
 
 const routes = [
     {
@@ -9,7 +9,7 @@ const routes = [
         children: [
           { path: "landing-page", element: <LandingPage /> },
           { index: true, element: <LandingPage /> },
-          { path: "game-display", element: <GameDisplay/> },
+          { path: "game-page", element: <GamePage /> },
         ],
       },
 ];
