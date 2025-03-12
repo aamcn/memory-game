@@ -10,25 +10,30 @@ function GamePage(){
     const [chosenPokemon, setChosenPokemon] = useState([])
     const [randomNumbers, setRandomNumbers] = useState([])
 
-    const getRandomNumbers = () => {
-        let numbersArray = []
-        for(let i = 0; numbersArray.length < 8; i++){
-            const newNumber = getRandomInt(150)
-            if(!numbersArray.includes(newNumber)){
-                numbersArray.push(newNumber)
-            }
-        }
-        setRandomNumbers(numbersArray)
-    }
+    function fetchIndividualPokedata(pokemonUrl) {
+        fetch(pokemonUrl, { mode: "cors" })
+          .then((response) => response.json())
+          .then((response) =>
+            setChosenPokemon((chosenPokemon) => [...chosenPokemon, response]),
+          )
+          .catch((error) => console.error(error));
+      }
 
-    const choosePokemon = () => {
-        randomNumbers.forEach(number => {
-            setChosenPokemon(chosenPokemon => [...chosenPokemon, fullPokemonList.results[number]])
-        })
-    }
+      function choosePokemon() {
+        setChosenPokemon([]);
+        let pokeUrls = [];
+        while (pokeUrls.length < 12) {
+          let integer = getRandomInt(150);
+          if (!pokeUrls.includes(fullPokemonList.results[integer])) {
+            pokeUrls.push(fullPokemonList.results[integer]);
+          }
+        }
+        pokeUrls.map((item) => {
+          fetchIndividualPokedata(item.url);
+        });
+      }
 
     useEffect(() => {
-        getRandomNumbers()
         fetch('https://pokeapi.co/api/v2/pokemon?limit=150&offset=0', {mode: "cors"})
         .then((response) => response.json())
         .then((response) => setFullPokemonList(response))
@@ -40,18 +45,10 @@ function GamePage(){
     }
 
     useEffect(() => {
-        console.log(randomNumbers)
-        console.log(fullPokemonList)
-    }, [fullPokemonList])
-  
-    useEffect(() => {
-    
         console.log(chosenPokemon)
-        
     }, [chosenPokemon])
   
-    
-
+ 
     return(
         <>
         <Navbar />
