@@ -12,6 +12,8 @@ function GameDisplay({
   currentScore,
   setGameResults,
   gameResults,
+  cardTotal,
+  setCardTotal
 }) {
   return (
     <>
@@ -23,7 +25,7 @@ function GameDisplay({
         currentScore={currentScore}
         chosenPokemonCardData={chosenPokemon}
       />
-      {!gameStarted && <GameMenu handleStartClick={handleStartClick} />}
+      {!gameStarted && <GameMenu handleStartClick={handleStartClick} cardTotal={cardTotal} setCardTotal={setCardTotal}/>}
     </>
   );
 }

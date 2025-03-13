@@ -14,8 +14,8 @@ function GamePage() {
   const [currentScore, setCurrentScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
-
-  const theNumber = 12;
+  const [cardTotal, setCardTotal] = useState(3)
+  
 
   function fetchIndividualPokedata(pokemonUrl) {
     fetch(pokemonUrl, { mode: "cors" })
@@ -29,7 +29,7 @@ function GamePage() {
   function choosePokemon() {
     setChosenPokemon([]);
     let pokeUrls = [];
-    while (pokeUrls.length < theNumber) {
+    while (pokeUrls.length < parseInt(cardTotal)) {
       let integer = getRandomInt(150);
       if (!pokeUrls.includes(fullPokemonList.results[integer])) {
         pokeUrls.push(fullPokemonList.results[integer]);
@@ -54,10 +54,11 @@ function GamePage() {
     setGameResults(false);
     choosePokemon();
     setCurrentScore(0);
+    console.log(cardTotal)
   };
 
   useEffect(() => {
-    if (chosenPokemon.length === theNumber) {
+    if (chosenPokemon.length === cardTotal) {
       chosenPokemon.map((pokemon) => {
         let newId = uuidv4();
         let imageUrl = pokemon.sprites.other.dream_world.front_default;
@@ -90,6 +91,8 @@ function GamePage() {
       <Header />
       <Navbar />
       <GameDisplay
+        cardTotal={cardTotal}
+        setCardTotal={setCardTotal}
         highScore={highScore}
         gameStarted={gameStarted}
         setGameStarted={setGameStarted}
