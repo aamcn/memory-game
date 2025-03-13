@@ -18,8 +18,8 @@ function GameMenu({ handleStartClick, cardTotal, setCardTotal}) {
           <p>{cardTotal} cards</p>
           <div className={styles.difficultyButtons}>
             <button className={styles.optionButton} onClick={handleClickDifficulty} value={3}>Easy</button>
-            <button className={styles.optionButton}  onClick={handleClickDifficulty} value={9}>Medium</button>
-            <button className={styles.optionButton}  onClick={handleClickDifficulty} value={16}>Hard</button>
+            <button className={styles.optionButton}  onClick={handleClickDifficulty} value={6}>Medium</button>
+            <button className={styles.optionButton}  onClick={handleClickDifficulty} value={9}>Hard</button>
           </div>
         </div>
         <div id="menu-buttons-container">

@@ -1,3 +1,5 @@
+import styles from "../../cssModules/cardTemplate.module.css"
+
 function CardTemplate({
   pokemonCardDetails,
   setCurrentScore,
@@ -17,10 +19,9 @@ function CardTemplate({
   return (
     <>
       {pokemonCardDetails && (
-        <div onClick={handleCardClick}>
+        <div  className={styles.cardContainer} onClick={handleCardClick}>
+          <img className={styles.cardImage} width="50px" src={pokemonCardDetails.imageUrl}></img>
           <p value={pokemonCardDetails.name}>{pokemonCardDetails.name}</p>
-          <img width="50px" src={pokemonCardDetails.imageUrl}></img>
-          <p>{pokemonCardDetails.type}</p>
         </div>
       )}
     </>
