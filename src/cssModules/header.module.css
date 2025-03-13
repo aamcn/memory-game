@@ -1,0 +1,30 @@
+
+
+.headerContainer{
+    position: relative;
+    top: 0px;
+    left: 0px;
+    display: grid;
+    grid-template-columns: 10fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    width:100%;
+    margin-bottom: 2em;
+}
+
+.navbarContainer{
+    display: flex;
+    justify-content: space-evenly;
+    grid-column: 1;
+    grid-row:2;
+}
+
+.titleContainer{
+    grid-row: 1;
+}
+
+.gameTitle{
+   
+    color: red;
+}

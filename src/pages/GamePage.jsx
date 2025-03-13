@@ -63,7 +63,8 @@ function GamePage() {
         let newId = uuidv4();
         let imageUrl = pokemon.sprites.other.dream_world.front_default;
         let name = pokemon.name;
-        const newCard = new PokemonCardObject(name, imageUrl, newId);
+        let type = pokemon.types[0].type.name;
+        const newCard = new PokemonCardObject(name, imageUrl, newId, type);
         setCardObjects((cardObjects) => [...cardObjects, newCard]);
       });
     }
@@ -89,7 +90,6 @@ function GamePage() {
   return (
     <>
       <Header />
-      <Navbar />
       <GameDisplay
         cardTotal={cardTotal}
         setCardTotal={setCardTotal}

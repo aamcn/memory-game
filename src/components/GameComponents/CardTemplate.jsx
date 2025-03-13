@@ -20,6 +20,7 @@ function CardTemplate({
         <div onClick={handleCardClick}>
           <p value={pokemonCardDetails.name}>{pokemonCardDetails.name}</p>
           <img width="50px" src={pokemonCardDetails.imageUrl}></img>
+          <p>{pokemonCardDetails.type}</p>
         </div>
       )}
     </>
