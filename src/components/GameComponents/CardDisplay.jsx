@@ -7,7 +7,7 @@ function CardDisplay({
   setGameResults,
 }) {
   return (
-    <>
+    <div>
       {chosenPokemonCardData &&
         chosenPokemonCardData.map((pokemonCardDetails) => {
           return (
@@ -20,7 +20,7 @@ function CardDisplay({
             />
           );
         })}
-    </>
+    </div>
   );
 }
 

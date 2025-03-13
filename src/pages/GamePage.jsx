@@ -74,7 +74,6 @@ function GamePage() {
     if (gameResults) {
       setCardObjects([]);
     }
-    setGameStarted(false);
   }, [gameResults]);
 
   useEffect(
@@ -82,7 +81,6 @@ function GamePage() {
       if (currentScore > highScore) {
         setHighScore(currentScore);
       }
-      setGameStarted(false);
     },
     [highScore, currentScore],
   );
