@@ -20,9 +20,15 @@ function CardTemplate({
     <>
       {pokemonCardDetails && (
         <div  className={styles.cardContainer} onClick={handleCardClick}>
-          <img className={styles.cardImage} width="50px" src={pokemonCardDetails.imageUrl}></img>
-          <p value={pokemonCardDetails.name}>{pokemonCardDetails.name}</p>
+         <div>
+          </div> <div className={styles.imageContainer}>
+             <img className={styles.cardImage} src={pokemonCardDetails.imageUrl}></img>
+          </div>
+          <div className={styles.cardTitleContainer}>
+            <p value={pokemonCardDetails.name}>{pokemonCardDetails.name}</p>
+          </div>
         </div>
+        
       )}
     </>
   );
