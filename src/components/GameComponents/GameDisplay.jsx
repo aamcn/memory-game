@@ -18,6 +18,7 @@ function GameDisplay({
   cardTotal,
   setCardTotal
 }) {
+  
   return (
     <div className={styles.gameDisplay}>
       <ScoreBoard highScore={highScore} currentScore={currentScore} />

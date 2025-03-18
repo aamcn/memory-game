@@ -6,7 +6,9 @@ function CardTemplate({
   currentScore,
   setGameResults,
   cardObjects,
-  setCardObjects
+  setCardObjects,
+  isHidden,
+  setIsHidden
 }) {
 
   /* When the card is clicked, if it is the first time, the isClicked state is 
@@ -19,7 +21,7 @@ function CardTemplate({
       setCurrentScore(currentScore + 1);
       pokemonCardDetails.isClicked = true;
       setCardObjects((cardObjects) => shuffleArray(cardObjects))
-
+      setIsHidden(true)
     } else {
       setGameResults(true);
       console.log("game over");
