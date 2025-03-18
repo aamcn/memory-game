@@ -4,6 +4,9 @@ import styles from "../../cssModules/gameLostWindow.module.css"
 
 function GameLostWindow({gameresults, setGameResults, setGameStarted}) {
 
+  /* Setting gameResults to false hides the GameLostWindow component 
+  setting gameStarted displays the gameMenu component starting the game over
+  */
   const handleClickRetry = () => {
     setGameResults(false)
     setGameStarted(false)

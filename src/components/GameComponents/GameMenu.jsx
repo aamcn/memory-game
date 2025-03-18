@@ -1,9 +1,10 @@
-import Button from "../../elements/Button";
 import styles from "../../cssModules/gameMenu.module.css"
 
 function GameMenu({ handleStartClick, cardTotal, setCardTotal}) {
 
-
+/* The difficulty of the game is set by the cardTotal, this limits how many cards 
+are drawn, the value of the button clicked is stored as the cardTotal.
+*/ 
   const handleClickDifficulty = (event) => {
     setCardTotal(parseInt(event.target.value))
   }

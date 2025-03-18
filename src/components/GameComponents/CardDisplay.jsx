@@ -1,11 +1,15 @@
 import CardTemplate from "./CardTemplate";
 import styles from "../../cssModules/cardDisplay.module.css"
+
+
 function CardDisplay({
   chosenPokemonCardData,
   setCurrentScore,
   currentScore,
   setGameResults,
 }) {
+
+  
   return (
     <div className={styles.cardsContainer}>
       {chosenPokemonCardData &&
