@@ -5,7 +5,7 @@ function Header() {
     
     <div className={styles.headerContainer}>
       <div className={styles.titleContainer}>
-        <h1 className={styles.gameTitle}>Title</h1>
+        <h1 className={styles.gameTitle}>Poke-Mem</h1>
       </div>
       <div className={styles.navbarContainer}>
         <Navbar />

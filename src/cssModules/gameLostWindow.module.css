@@ -1,0 +1,47 @@
+
+.lostGameWindow{
+    background-color: rgb(201, 230, 255);
+    position:absolute;
+    justify-self: center;
+    align-self: center;   
+    z-index: 3;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    border:solid ;
+    border-radius: 15px;
+    padding:1em;
+    animation: menuAppear 1s ;
+    box-shadow: 1px 5px 5px 1px;
+}
+
+.gameOverTitle{
+    font-size: x-large;
+}
+
+.gameOverText{
+
+}
+
+@keyframes menuAppear {
+    0%{
+        opacity: 0; 
+        scale: 0;
+    }  
+    100%{
+        scale:1;
+        opacity: 1;
+    }
+  }
+
+@keyframes buttonFade {
+    0%{
+        scale:0; 
+    }
+    50%{
+        scale:1.2;
+    }
+    100%{
+        scale:1;
+    }
+}
+  
