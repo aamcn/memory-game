@@ -3,9 +3,11 @@ import GameLostWindow from "./GameLostWindow";
 import GameMenu from "./GameMenu";
 import ScoreBoard from "./ScoreBoard";
 import styles from "../../cssModules/gameDisplay.module.css"
+
 function GameDisplay({
   highScore,
   gameStarted,
+  setGameStarted,
   handleStartClick,
   chosenPokemon,
   setCurrentScore,
@@ -18,13 +20,13 @@ function GameDisplay({
   return (
     <div className={styles.gameDisplay}>
       <ScoreBoard highScore={highScore} currentScore={currentScore} />
-      {gameResults && <GameLostWindow />}
       <CardDisplay
         setCurrentScore={setCurrentScore}
         setGameResults={setGameResults}
         currentScore={currentScore}
         chosenPokemonCardData={chosenPokemon}
       />
+      {gameResults && <GameLostWindow setGameStarted={setGameStarted} gameResults={gameResults} setGameResults={setGameResults}/>}
       {!gameStarted && <GameMenu handleStartClick={handleStartClick} cardTotal={cardTotal} setCardTotal={setCardTotal}/>}
     </div>
   );

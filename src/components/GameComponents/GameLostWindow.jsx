@@ -1,6 +1,14 @@
 import styles from "../../cssModules/gameLostWindow.module.css"
 
-function GameLostWindow() {
+
+
+function GameLostWindow({gameresults, setGameResults, setGameStarted}) {
+
+  const handleClickRetry = () => {
+    setGameResults(false)
+    setGameStarted(false)
+  }
+
   return (
     <div className={styles.lostGameWindow}>
       <h3 className={styles.gameOverTitle}>Game Over</h3>
@@ -11,7 +19,7 @@ function GameLostWindow() {
       <div>
         <p>Would you like to try again?</p>
         <br></br>
-        <button>Retry?</button>
+        <button onClick={handleClickRetry}>Retry?</button>
       </div>
     </div>
   );
