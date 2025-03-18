@@ -14,7 +14,7 @@ function CardDisplay({
 
   const [isHidden, setIsHidden] = useState(false)
 
-  
+  //When isHidden is updated to true, it is reverted back to false after 0.5 seconds.
   useEffect(() => {
     if(isHidden != false){
       setTimeout(() => {
