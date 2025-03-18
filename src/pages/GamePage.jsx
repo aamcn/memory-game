@@ -106,6 +106,7 @@ function GamePage() {
         setHighScore(currentScore);
       }
     },
+
     [highScore, currentScore],
   );
 
@@ -123,7 +124,8 @@ function GamePage() {
         currentScore={currentScore}
         setGameResults={setGameResults}
         setCurrentScore={setCurrentScore}
-        chosenPokemon={cardObjects}
+        cardObjects={cardObjects}
+        setCardObjects={setCardObjects}
       />
     </>
   );

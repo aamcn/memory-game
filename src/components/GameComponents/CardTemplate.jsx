@@ -1,10 +1,12 @@
 import styles from "../../cssModules/cardTemplate.module.css"
-
+import { shuffleArray } from "../../modules/shuffleArray";
 function CardTemplate({
   pokemonCardDetails,
   setCurrentScore,
   currentScore,
   setGameResults,
+  cardObjects,
+  setCardObjects
 }) {
 
   /* When the card is clicked, if it is the first time, the isClicked state is 
@@ -16,6 +18,8 @@ function CardTemplate({
     if (pokemonCardDetails.isClicked != true) {
       setCurrentScore(currentScore + 1);
       pokemonCardDetails.isClicked = true;
+      setCardObjects((cardObjects) => shuffleArray(cardObjects))
+
     } else {
       setGameResults(true);
       console.log("game over");

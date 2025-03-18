@@ -9,7 +9,8 @@ function GameDisplay({
   gameStarted,
   setGameStarted,
   handleStartClick,
-  chosenPokemon,
+  cardObjects,
+  setCardObjects,
   setCurrentScore,
   currentScore,
   setGameResults,
@@ -24,7 +25,9 @@ function GameDisplay({
         setCurrentScore={setCurrentScore}
         setGameResults={setGameResults}
         currentScore={currentScore}
-        chosenPokemonCardData={chosenPokemon}
+        chosenPokemonCardData={cardObjects}
+        cardObjects={cardObjects}
+        setCardObjects={setCardObjects}
       />
       {gameResults && <GameLostWindow setGameStarted={setGameStarted} gameResults={gameResults} setGameResults={setGameResults}/>}
       {!gameStarted && <GameMenu handleStartClick={handleStartClick} cardTotal={cardTotal} setCardTotal={setCardTotal}/>}

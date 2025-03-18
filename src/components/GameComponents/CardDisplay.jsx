@@ -7,9 +7,11 @@ function CardDisplay({
   setCurrentScore,
   currentScore,
   setGameResults,
+  cardObjects,
+  setCardObjects
 }) {
 
-  
+
   return (
     <div className={styles.cardsContainer}>
       {chosenPokemonCardData &&
@@ -21,6 +23,8 @@ function CardDisplay({
               currentScore={currentScore}
               setCurrentScore={setCurrentScore}
               pokemonCardDetails={pokemonCardDetails}
+              cardObjects={cardObjects}
+              setCardObjects={setCardObjects}
             />
           );
         })}
