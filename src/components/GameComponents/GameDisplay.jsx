@@ -3,6 +3,7 @@ import GameOverPopUp from "./GameOverPopUp";
 import GameMenu from "./GameMenu";
 import ScoreBoard from "./ScoreBoard";
 import styles from "../../cssModules/gameDisplay.module.css";
+import PropTypes from "prop-types";
 
 function GameDisplay({
   highScore,
@@ -45,6 +46,21 @@ function GameDisplay({
       )}
     </div>
   );
+}
+
+GameDisplay.propTypes = {
+  cardObjects: PropTypes.array.isRequired,
+  gameResults: PropTypes.bool.isRequired,
+  gameStarted: PropTypes.bool.isRequired,
+  handleStartClick: PropTypes.func.isRequired,
+  setCardObjects: PropTypes.func.isRequired,
+  setCardTotal: PropTypes.func.isRequired,
+  setCurrentScore: PropTypes.func.isRequired,
+  setGameResults: PropTypes.func.isRequired,
+  setGameStarted: PropTypes.func.isRequired,
+  cardTotal: PropTypes.number.isRequired,
+  currentScore: PropTypes.number.isRequired,
+  highScore: PropTypes.number.isRequired
 }
 
 export default GameDisplay;
