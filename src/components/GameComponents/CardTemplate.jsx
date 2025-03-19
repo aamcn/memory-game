@@ -21,14 +21,13 @@ function CardTemplate({
       setIsHidden(true);
     } else {
       setGameResults(true);
-      console.log("game over");
     }
   };
 
   return (
     <>
       {pokemonCardDetails && (
-        <div className={styles.cardContainer} onClick={handleCardClick}>
+        <div data-testid="playingCard" className={styles.cardContainer} onClick={handleCardClick}>
           <div></div>{" "}
           <div className={styles.imageContainer}>
             <img
