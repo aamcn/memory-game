@@ -1,10 +1,7 @@
-
-.gameDisplay{
-    border:solid;
-    display: grid;
-    grid-template-rows: 1fr 8fr 1fr;
-    height: 70svh;
-    background-color: rgb(107, 177, 182);
-    
+.gameDisplay {
+  border: solid;
+  display: grid;
+  grid-template-rows: 1fr 8fr 1fr;
+  height: 70svh;
+  background-color: rgb(107, 177, 182);
 }
-

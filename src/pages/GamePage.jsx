@@ -6,8 +6,6 @@ import Header from "../components/Header/Header";
 import { v4 as uuidv4 } from "uuid";
 import { PokemonCardObject } from "../modules/cardConstructor";
 
-
-
 function GamePage() {
   const [fullPokemonList, setFullPokemonList] = useState([]);
   const [chosenPokemon, setChosenPokemon] = useState([]);
@@ -16,8 +14,7 @@ function GamePage() {
   const [currentScore, setCurrentScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
-  const [cardTotal, setCardTotal] = useState(3)
-
+  const [cardTotal, setCardTotal] = useState(3);
 
   /* On render the initial pokemon list is fetched and stored, this contains pokemon 
   name and its individual api url only. */
@@ -31,7 +28,6 @@ function GamePage() {
       .catch((error) => console.error(error));
   }, []);
 
-
   // Function to choose random pokemon from the pre fetched pokemon list.
   function choosePokemon() {
     //Reset chosenPokemon state.
@@ -44,12 +40,11 @@ function GamePage() {
         pokeUrls.push(fullPokemonList.results[randomNumber]);
       }
     }
-    //Once pokeUrls length reaches cardTotal the individual pokemon api data is fetched. 
+    //Once pokeUrls length reaches cardTotal the individual pokemon api data is fetched.
     pokeUrls.map((item) => {
       fetchIndividualPokedata(item.url);
     });
   }
-
 
   // Fetches individiual pokemon API and inserts it into chosenPokemon state.
   function fetchIndividualPokedata(pokemonUrl) {
@@ -61,7 +56,6 @@ function GamePage() {
       .catch((error) => console.error(error));
   }
 
-
   /* When the game is started the currentScore is reset to 0, theGameStarted state
   is set to true (hiding the game menu).
   */
@@ -70,7 +64,6 @@ function GamePage() {
     setCurrentScore(0);
     choosePokemon();
   };
-
 
   /* When the length of the chosenPokemon array reaches the card total, 
   each array entry's name, imageUrl and type along with a unique id are passed to the
@@ -90,7 +83,6 @@ function GamePage() {
     }
   }, [chosenPokemon]);
 
-
   //When the gameResults state is changed the cardObjects are wiped.
   useEffect(() => {
     if (gameResults) {
@@ -100,15 +92,11 @@ function GamePage() {
 
   /* If the currentScore is greater than the highScore the highScore is updated to 
   match currentScore */
-  useEffect(
-    () => {
-      if (currentScore > highScore) {
-        setHighScore(currentScore);
-      }
-    },
-
-    [highScore, currentScore],
-  );
+  useEffect(() => {
+    if (currentScore > highScore) {
+      setHighScore(currentScore);
+    }
+  }, [highScore, currentScore]);
 
   return (
     <>

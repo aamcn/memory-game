@@ -1,29 +1,26 @@
-
-
-.headerContainer{
-    position: relative;
-    top: 0px;
-    left: 0px;
-    display: grid;
-    grid-template-columns: 10fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-rows: 1fr;
-    align-items: center;
-    margin-bottom: 2em;
+.headerContainer {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  display: grid;
+  grid-template-columns: 10fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  margin-bottom: 2em;
 }
 
-.navbarContainer{
-    display: flex;
-    justify-content: space-evenly;
-    grid-column: 1;
-    grid-row:2;
+.navbarContainer {
+  display: flex;
+  justify-content: space-evenly;
+  grid-column: 1;
+  grid-row: 2;
 }
 
-.titleContainer{
-    grid-row: 1;
+.titleContainer {
+  grid-row: 1;
 }
 
-.gameTitle{
-   
-    color: red;
+.gameTitle {
+  color: red;
 }

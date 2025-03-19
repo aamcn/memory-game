@@ -1,10 +1,9 @@
-
-.cardsContainer{
-    justify-self: center;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
-    flex-direction: row;
-    height: 100%;
-    margin-top: 1em;
+.cardsContainer {
+  justify-self: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  flex-direction: row;
+  height: 100%;
+  margin-top: 1em;
 }

@@ -1,8 +1,8 @@
-.scoreBoardContainer{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    height:fit-content;
-    background-color: lightblue;
-    box-shadow: 1px 1px 1px 5px;
+.scoreBoardContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  height: fit-content;
+  background-color: lightblue;
+  box-shadow: 1px 1px 1px 5px;
 }

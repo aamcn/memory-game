@@ -1,7 +1,6 @@
 import CardTemplate from "./CardTemplate";
-import styles from "../../cssModules/cardDisplay.module.css"
+import styles from "../../cssModules/cardDisplay.module.css";
 import { useEffect, useState } from "react";
-
 
 function CardDisplay({
   chosenPokemonCardData,
@@ -9,19 +8,18 @@ function CardDisplay({
   currentScore,
   setGameResults,
   cardObjects,
-  setCardObjects
+  setCardObjects,
 }) {
-
-  const [isHidden, setIsHidden] = useState(false)
+  const [isHidden, setIsHidden] = useState(false);
 
   //When isHidden is updated to true, it is reverted back to false after 0.5 seconds.
   useEffect(() => {
-    if(isHidden != false){
+    if (isHidden != false) {
       setTimeout(() => {
-        setIsHidden(false)
+        setIsHidden(false);
       }, 500);
     }
-  }, [isHidden])
+  }, [isHidden]);
 
   return (
     <div className={styles.cardsContainer}>
@@ -29,19 +27,20 @@ function CardDisplay({
         chosenPokemonCardData.map((pokemonCardDetails) => {
           return (
             <>
-            {!isHidden && <CardTemplate
-            key={pokemonCardDetails.id}
-            setGameResults={setGameResults}
-            currentScore={currentScore}
-            setCurrentScore={setCurrentScore}
-            pokemonCardDetails={pokemonCardDetails}
-            cardObjects={cardObjects}
-            setCardObjects={setCardObjects}
-            isHidden={isHidden}
-            setIsHidden={setIsHidden}
-          />}
+              {!isHidden && (
+                <CardTemplate
+                  key={pokemonCardDetails.id}
+                  setGameResults={setGameResults}
+                  currentScore={currentScore}
+                  setCurrentScore={setCurrentScore}
+                  pokemonCardDetails={pokemonCardDetails}
+                  cardObjects={cardObjects}
+                  setCardObjects={setCardObjects}
+                  isHidden={isHidden}
+                  setIsHidden={setIsHidden}
+                />
+              )}
             </>
-            
           );
         })}
     </div>
