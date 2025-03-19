@@ -1,8 +1,9 @@
-import { render, screen } from '@testing-library/react';
+import { render, rerender, screen } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import userEvent from "@testing-library/user-event";
 
 import GameMenu from './GameMenu';
+import { createDataTransfer } from '@testing-library/user-event/dist/cjs/utils/index.js';
 
 describe('Easy Button', () => {
   it('Should render "Easy Button"', () => {
@@ -10,45 +11,58 @@ describe('Easy Button', () => {
     render(<GameMenu  cardTotal={3}/>);
     
     const button = screen.getByRole("button", { name: "Easy" });
+    console.log(button.value)
     expect(button).toBeInTheDocument();
 
   });
 
 
-    it("Should call the onClick function when 'Easy Button' is clicked", async () => {
-        const setCardTotal = vi.fn()
+    it("Should update cardTotal to '3' when the Easy button is clickec", async () => {
+        let cardTotal = 0
+        const setCardTotal = (number) => {cardTotal = number}
         const user = userEvent.setup()
         
-        render(<GameMenu setCardTotal={setCardTotal}/>);
+        render(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />);
+           
             const easyButton = screen.getByRole("button", { name: "Easy" });
             await user.click(easyButton);
-    
-        expect(setCardTotal).toHaveBeenCalled();
+            expect(cardTotal).toBe(3);
       });
 
-      it("Should NOT call the onClick function when 'Easy Button' is NOT clicked", async () => {
-        const setCardTotal = vi.fn()
-        const user = userEvent.setup()
-        
-        render(<GameMenu setCardTotal={setCardTotal}/>);
+      it("Should NOT update cardTotal to '3' when the Easy button is NOT clickec", async () => {
+        let cardTotal = 0
+        const setCardTotal = (number) => {cardTotal = number}
+        render(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />);
             const easyButton = screen.getByRole("button", { name: "Easy" });
-    
-        expect(setCardTotal).not.toHaveBeenCalled();
+            expect(cardTotal).not.toBe(3);
       });
 
     it("Should change difficulty text to '3 Cards' when 'Easy button' is clicked", async () => {
-        let cardTotal = 10
-        const setCardTotal = () => {cardTotal = 3}
-        const onClick = setCardTotal()
+        let cardTotal = 0
+        const setCardTotal = (number) => {cardTotal = number}
         const user = userEvent.setup()
        
-        render(<GameMenu setCardTotal={setCardTotal} onClick={onClick} cardTotal={cardTotal}/>);
+        const {rerender} =  render(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal}/>);
             const easyButton = screen.getByRole("button", { name: "Easy" });
-            const difficultyText = screen.getByTestId("difficultyText")
             await user.click(easyButton);
-        
+        rerender(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal}/>);
+            const difficultyText = screen.getByTestId("difficultyText")
         expect(difficultyText.textContent).not.toStrictEqual("10 Cards")
         expect(difficultyText.textContent).toStrictEqual("3 Cards");
+    });
+
+    it("Should change difficulty text to '3 Cards' when 'Easy button' is clicked", async () => {
+        let cardTotal = 0
+        const setCardTotal = (number) => {cardTotal = number}
+    
+        const {rerender} =  render(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal}/>);
+            const easyButton = screen.getByRole("button", { name: "Easy" });
+
+        rerender(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal}/>);
+            const difficultyText = screen.getByTestId("difficultyText")
+ 
+        expect(difficultyText.textContent).toStrictEqual("0 Cards")
+        expect(difficultyText.textContent).not.toStrictEqual("3 Cards");
     });
 
 });
@@ -62,41 +76,56 @@ describe('Medium Button', () => {
   
     });
 
-    it("Should call the onClick function when 'Medium Button' is clicked", async () => {
-        const setCardTotal = vi.fn()
+    it("Should change the cardTotal to '6' when Medium button is NOT clicked", async () => {
+        let cardTotal = 0
+        const setCardTotal = (number) => {cardTotal = number}
         const user = userEvent.setup()
         
-        render(<GameMenu setCardTotal={setCardTotal}  />);
+        render(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal}/>);
             const mediumButton = screen.getByRole("button", { name: "Medium" });
             await user.click(mediumButton);
-            expect(setCardTotal).toHaveBeenCalled();
-    });
-    
-    it("Should NOT call the onClick function when 'Medium Button' is NOT clicked", async () => {
-        const setCardTotal = vi.fn()
-        const user = userEvent.setup()
-        
-        render(<GameMenu setCardTotal={setCardTotal}  />);
-            const mediumButton = screen.getByRole("button", { name: "Medium" });
-            
-            expect(setCardTotal).not.toHaveBeenCalled();
+
+            expect(cardTotal).toBe(6);
     });
 
+    it("Should NOT change the cardTotal to '6' if Medium button is NOT clicked", async () => {
+        let cardTotal = 0
+        const setCardTotal = (number) => {cardTotal = number}
     
+        render(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal}/>);
+            const mediumButton = screen.getByRole("button", { name: "Medium" });
+
+
+            expect(cardTotal).toBe(0);
+    });
+
     it("Should change difficulty text to '6 Cards' when 'Medium button' is clicked", async () => {
-        let cardTotal = 10
-        const setCardTotal = () => {cardTotal = 6}
-        const onClick = setCardTotal()
+        let cardTotal = 0
+        const setCardTotal = (number) => {cardTotal = number}
         const user = userEvent.setup()
-        
-        render(<GameMenu setCardTotal={setCardTotal} onClick={onClick} cardTotal={cardTotal}/>);
+       
+        const {rerender} =  render(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal}/>);
             const mediumButton = screen.getByRole("button", { name: "Medium" });
-            const difficultyText = screen.getByTestId("difficultyText")
             await user.click(mediumButton);
-
-        expect(difficultyText.textContent).not.toStrictEqual("10 Cards")
+        rerender(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal}/>);
+            const difficultyText = screen.getByTestId("difficultyText")
+        expect(difficultyText.textContent).not.toStrictEqual("0 Cards")
         expect(difficultyText.textContent).toStrictEqual("6 Cards");
     });
+
+    it("Should NOT change difficulty text to '6 Cards' if 'Medium button' is NOT clicked", async () => {
+        let cardTotal = 0
+        const setCardTotal = (number) => {cardTotal = number}
+    
+        const {rerender} =  render(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal}/>);
+            const mediumButton = screen.getByRole("button", { name: "Medium" });
+
+        rerender(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal}/>);
+            const difficultyText = screen.getByTestId("difficultyText")
+        expect(difficultyText.textContent).not.toStrictEqual("6 Cards")
+        expect(difficultyText.textContent).toStrictEqual("0 Cards");
+    });
+
 })
 
 describe('Hard Button', () => {
@@ -108,39 +137,53 @@ describe('Hard Button', () => {
   
     });
 
-    it("Should call the onClick function when 'Hard Button' is clicked", async () => {
-        const setCardTotal = vi.fn()
+    it("Should change the cardTotal to '9' when Hard button is clicked", async () => {
+        let cardTotal = 0
+        const setCardTotal = (number) => {cardTotal = number}
         const user = userEvent.setup()
         
-        render(<GameMenu setCardTotal={setCardTotal}  />);
+        render(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal}/>);
             const hardButton = screen.getByRole("button", { name: "Hard" });
             await user.click(hardButton);
-            expect(setCardTotal).toHaveBeenCalled();
-      });
 
-      it("Should NOT call the onClick function when 'Hard Button' is NOT clicked", async () => {
-        const setCardTotal = vi.fn()
-        const user = userEvent.setup()
-        
-        render(<GameMenu setCardTotal={setCardTotal}  />);
-            const hardButton = screen.getByRole("button", { name: "Hard" });
-           
-            expect(setCardTotal).not.toHaveBeenCalled();
-      });
+            expect(cardTotal).toBe(9);
+    });
 
-    it("Should change difficulty text to '9 Cards' when 'Hard button' is clicked", async () => {
-        let cardTotal = 10
-        const setCardTotal = () => {cardTotal = 9}
-        const onClick = setCardTotal()
-        const user = userEvent.setup()
-        
-        render(<GameMenu setCardTotal={setCardTotal} onClick={onClick} cardTotal={cardTotal}/>);
+    it("Should NOT change the cardTotal to '9' when Hard button is NOT clicked", async () => {
+        let cardTotal = 0
+        const setCardTotal = (number) => {cardTotal = number}
+  
+        render(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal}/>);
             const hardButton = screen.getByRole("button", { name: "Hard" });
+
+            expect(cardTotal).toBe(0);
+    });
+
+    it("Should change difficulty text to '6 Cards' when 'Medium button' is clicked", async () => {
+        let cardTotal = 0
+        const setCardTotal = (number) => {cardTotal = number}
+        const user = userEvent.setup()
+       
+        const {rerender} =  render(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal}/>);
+            const hardButton = screen.getByRole("button", { name: "Hard" });
+            await user.click(hardButton);
+        rerender(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal}/>);
             const difficultyText = screen.getByTestId("difficultyText")
-            await user.click(hardButton);
-    
-        expect(difficultyText.textContent).not.toStrictEqual("10 Cards")
+        expect(difficultyText.textContent).not.toStrictEqual("0 Cards")
         expect(difficultyText.textContent).toStrictEqual("9 Cards");
+    });
+
+    it("Should change difficulty text to '6 Cards' when 'Medium button' is clicked", async () => {
+        let cardTotal = 0
+        const setCardTotal = (number) => {cardTotal = number}
+    
+        const {rerender} =  render(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal}/>);
+            const hardButton = screen.getByRole("button", { name: "Hard" });
+            
+        rerender(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal}/>);
+            const difficultyText = screen.getByTestId("difficultyText")
+        expect(difficultyText.textContent).not.toStrictEqual("9 Cards")
+        expect(difficultyText.textContent).toStrictEqual("0 Cards");
     });
 })
 
@@ -153,7 +196,7 @@ describe('Start Button', () => {
   
     });
 
-    it('Should call "handleStartClick" function when clicked', async () => {
+    it('Should call "handleStartClick" function when Start button is clicked', async () => {
         const handleStartClick = vi.fn()
         const user = userEvent.setup() 
         render(<GameMenu handleStartClick={handleStartClick}/>);
@@ -162,9 +205,9 @@ describe('Start Button', () => {
             expect(handleStartClick).toHaveBeenCalled();
     }) 
     
-    it('Should NOT call "handleStartClick" function if NOT clicked', async () => {
+    it('Should NOT call "handleStartClick" function if Start button is NOT clicked', async () => {
         const handleStartClick = vi.fn()
-        const user = userEvent.setup() 
+         
         render(<GameMenu handleStartClick={handleStartClick}/>);
             const startButton = screen.getByRole("button", {name: "Start"});
             
