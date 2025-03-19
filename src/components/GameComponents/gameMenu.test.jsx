@@ -1,4 +1,4 @@
-import { render, rerender, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import userEvent from "@testing-library/user-event";
 
@@ -33,7 +33,6 @@ describe("Easy Button", () => {
       cardTotal = number;
     };
     render(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />);
-    const easyButton = screen.getByRole("button", { name: "Easy" });
     expect(cardTotal).not.toBe(3);
   });
 
@@ -64,7 +63,6 @@ describe("Easy Button", () => {
     const { rerender } = render(
       <GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />,
     );
-    const easyButton = screen.getByRole("button", { name: "Easy" });
 
     rerender(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />);
     const difficultyText = screen.getByTestId("difficultyText");
@@ -102,7 +100,6 @@ describe("Medium Button", () => {
     };
 
     render(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />);
-    const mediumButton = screen.getByRole("button", { name: "Medium" });
 
     expect(cardTotal).toBe(0);
   });
@@ -134,7 +131,6 @@ describe("Medium Button", () => {
     const { rerender } = render(
       <GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />,
     );
-    const mediumButton = screen.getByRole("button", { name: "Medium" });
 
     rerender(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />);
     const difficultyText = screen.getByTestId("difficultyText");
@@ -171,7 +167,6 @@ describe("Hard Button", () => {
     };
 
     render(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />);
-    const hardButton = screen.getByRole("button", { name: "Hard" });
 
     expect(cardTotal).toBe(0);
   });
@@ -203,7 +198,6 @@ describe("Hard Button", () => {
     const { rerender } = render(
       <GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />,
     );
-    const hardButton = screen.getByRole("button", { name: "Hard" });
 
     rerender(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />);
     const difficultyText = screen.getByTestId("difficultyText");
@@ -232,7 +226,6 @@ describe("Start Button", () => {
     const handleStartClick = vi.fn();
 
     render(<GameMenu handleStartClick={handleStartClick} />);
-    const startButton = screen.getByRole("button", { name: "Start" });
 
     expect(handleStartClick).not.toHaveBeenCalled();
   });

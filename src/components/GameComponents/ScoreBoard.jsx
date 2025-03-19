@@ -1,4 +1,5 @@
 import styles from "../../cssModules/scoreBoard.module.css";
+import PropTypes from "prop-types";
 
 function ScoreBoard({ currentScore, highScore }) {
   return (
@@ -9,6 +10,11 @@ function ScoreBoard({ currentScore, highScore }) {
       <p data-testid="highScore">High Score: {highScore}</p>
     </div>
   );
+}
+
+ScoreBoard.propTypes = {
+  currentScore: PropTypes.number.isRequired,
+  highScore: PropTypes.number.isRequired
 }
 
 export default ScoreBoard;

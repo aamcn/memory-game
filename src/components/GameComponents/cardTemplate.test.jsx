@@ -1,4 +1,4 @@
-import { describe, it, vite, expect } from "vitest";
+import { describe, it, vi, expect } from "vitest";
 import userEvent from "@testing-library/user-event";
 import { render, screen  } from "@testing-library/react";
 import CardTemplate from "./CardTemplate";

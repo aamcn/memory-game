@@ -1,6 +1,6 @@
 import styles from "../../cssModules/gameLostWindow.module.css";
-
-function GameOverPopUp({ gameresults, setGameResults, setGameStarted }) {
+import PropTypes from "prop-types";
+function GameOverPopUp({ setGameResults, setGameStarted }) {
   /* Setting gameResults to false hides the GameLostWindow component 
   setting gameStarted displays the gameMenu component starting the game over
   */
@@ -23,6 +23,11 @@ function GameOverPopUp({ gameresults, setGameResults, setGameStarted }) {
       </div>
     </div>
   );
+}
+
+GameOverPopUp.propTypes = {
+  setGameResults: PropTypes.func.isRequired,
+  setGameStarted: PropTypes.func.isRequired
 }
 
 export default GameOverPopUp;
