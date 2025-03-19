@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import styles from "../../cssModules/cardTemplate.module.css";
 import { shuffleArray } from "../../modules/shuffleArray";
 
@@ -47,6 +48,15 @@ function CardTemplate({
       )}
     </>
   );
+}
+
+CardTemplate.propTypes = {
+  pokemonCardDetails: PropTypes.object.isRequired,
+  setCurrentScore: PropTypes.func.isRequired,
+  currentScore: PropTypes.number.isRequired,
+  setGameResults: PropTypes.bool.isRequired,
+  setCardObjects: PropTypes.object.isRequired,
+  setIsHidden: PropTypes.func.isRequired
 }
 
 export default CardTemplate;
