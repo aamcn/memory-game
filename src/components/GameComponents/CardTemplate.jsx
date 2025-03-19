@@ -5,9 +5,7 @@ function CardTemplate({
   setCurrentScore,
   currentScore,
   setGameResults,
-  cardObjects,
   setCardObjects,
-  isHidden,
   setIsHidden,
 }) {
   /* When the card is clicked, if it is the first time, the isClicked state is 
@@ -36,10 +34,11 @@ function CardTemplate({
             <img
               className={styles.cardImage}
               src={pokemonCardDetails.imageUrl}
+              data-testid="card-image"
             ></img>
           </div>
           <div className={styles.cardTitleContainer}>
-            <p value={pokemonCardDetails.name}>{pokemonCardDetails.name}</p>
+            <p data-testid="card-name" value={pokemonCardDetails.name}>{pokemonCardDetails.name}</p>
           </div>
         </div>
       )}
