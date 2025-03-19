@@ -50,4 +50,14 @@ function CardDisplay({
   );
 }
 
+
+CardDisplay.propTypes = {
+  chosenPokemonCardData: PropTypes.object.isRequired,
+  currentScore: PropTypes.number.isRequired, 
+  setCurrentScore: PropTypes.func.isRequired,
+  setGameResults: PropTypes.bool.isRequired,
+  cardObjects: PropTypes.array.isRequired,
+  setCardObjects: PropTypes.func.isRequired
+};
+
 export default CardDisplay;
