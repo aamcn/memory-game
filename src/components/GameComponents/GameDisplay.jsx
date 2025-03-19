@@ -1,5 +1,5 @@
 import CardDisplay from "./CardDisplay";
-import GameLostWindow from "./GameLostWindow";
+import GameOverPopUp from "./GameOverPopUp";
 import GameMenu from "./GameMenu";
 import ScoreBoard from "./ScoreBoard";
 import styles from "../../cssModules/gameDisplay.module.css";
@@ -30,7 +30,7 @@ function GameDisplay({
         setCardObjects={setCardObjects}
       />
       {gameResults && (
-        <GameLostWindow
+        <GameOverPopUp
           setGameStarted={setGameStarted}
           gameResults={gameResults}
           setGameResults={setGameResults}

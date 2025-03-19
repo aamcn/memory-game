@@ -1,6 +1,6 @@
 import styles from "../../cssModules/gameLostWindow.module.css";
 
-function GameLostWindow({ gameresults, setGameResults, setGameStarted }) {
+function GameOverPopUp({ gameresults, setGameResults, setGameStarted }) {
   /* Setting gameResults to false hides the GameLostWindow component 
   setting gameStarted displays the gameMenu component starting the game over
   */
@@ -25,4 +25,4 @@ function GameLostWindow({ gameresults, setGameResults, setGameStarted }) {
   );
 }
 
-export default GameLostWindow;
+export default GameOverPopUp;

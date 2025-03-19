@@ -4,7 +4,7 @@ import { PokemonCardObject } from "./cardConstructor";
 describe("PokemonCardObject Contructor", () => {
   const newCard = new PokemonCardObject("Tom", "url", 1, "grass");
 
-  it("Should return am object", () => {
+  it("Should return an object", () => {
     expect(newCard).toBeTypeOf("object");
   });
 
