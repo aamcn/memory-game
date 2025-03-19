@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Navbar from "../components/Navbar";
 import GameDisplay from "../components/GameComponents/GameDisplay";
 import { getRandomInt } from "../modules/randomNumber";
 import Header from "../components/Header/Header";

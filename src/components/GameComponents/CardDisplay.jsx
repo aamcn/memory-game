@@ -1,6 +1,9 @@
 import CardTemplate from "./CardTemplate";
 import styles from "../../cssModules/cardDisplay.module.css";
 import { useEffect, useState } from "react";
+import PropTypes from 'prop-types';
+
+
 
 function CardDisplay({
   chosenPokemonCardData,

@@ -1,4 +1,5 @@
 import styles from "../../cssModules/gameMenu.module.css";
+import PropTypes from 'prop-types';
 
 function GameMenu({ handleStartClick, cardTotal, setCardTotal }) {
   /* The difficulty of the game is set by the cardTotal, this limits how many cards 
@@ -48,5 +49,13 @@ are drawn, the value of the button clicked is stored as the cardTotal.
     </div>
   );
 }
+
+// handleStartClick, cardTotal, setCardTotal
+
+GameMenu.propTypes = {
+  handleStartClick: PropTypes.func.isRequired,
+  cardTotal: PropTypes.number.isRequired, 
+  setCardTotal: PropTypes.func.isRequired
+};
 
 export default GameMenu;
