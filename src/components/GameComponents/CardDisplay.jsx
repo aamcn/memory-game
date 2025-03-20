@@ -25,25 +25,21 @@ function CardDisplay({
   }, [isHidden]);
 
   return (
-    <div className={styles.cardsContainer}>
+    !isHidden && <div className={styles.cardsContainer}>
       {chosenPokemonCardData &&
         chosenPokemonCardData.map((pokemonCardDetails) => {
           return (
-            <>
-              {!isHidden && (
-                <CardTemplate
-                  key={pokemonCardDetails.id}
-                  setGameResults={setGameResults}
-                  currentScore={currentScore}
-                  setCurrentScore={setCurrentScore}
-                  pokemonCardDetails={pokemonCardDetails}
-                  cardObjects={cardObjects}
-                  setCardObjects={setCardObjects}
-                  isHidden={isHidden}
-                  setIsHidden={setIsHidden}
-                />
-              )}
-            </>
+            <CardTemplate
+              key={pokemonCardDetails.id}
+              setGameResults={setGameResults}
+              currentScore={currentScore}
+              setCurrentScore={setCurrentScore}
+              pokemonCardDetails={pokemonCardDetails}
+              cardObjects={cardObjects}
+              setCardObjects={setCardObjects}
+              isHidden={isHidden}
+              setIsHidden={setIsHidden}
+            />
           );
         })}
     </div>
