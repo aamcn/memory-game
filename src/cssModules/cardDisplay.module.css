@@ -2,9 +2,6 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  background-color: rgb(107, 177, 182);
-  border: double;
-  justify-content: center;
-  border-radius: 5px;
+  justify-content: space-evenly;
   padding: 1em 0em 1em 0em;
 }

@@ -2,7 +2,6 @@
   display: grid;
   align-content: center;
   grid-template-columns: 1fr 1fr;
-  background-color: lightblue;
-  box-shadow: 1px 1px 1px 5px;
-  border-radius: 5px;
+  background-color: #000000;
+  color: aliceblue;
 }
