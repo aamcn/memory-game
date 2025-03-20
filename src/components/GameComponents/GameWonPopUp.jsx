@@ -7,7 +7,7 @@ function GameWonPopUp({ setGameStarted, setGameWon }) {
   setting gameStarted displays the gameMenu component starting the game over
   */
 
-  const handleClickRetry = () => {
+  const handleClickNewGame = () => {
     setGameStarted(false);
     setGameWon(false)
   };
@@ -22,7 +22,7 @@ function GameWonPopUp({ setGameStarted, setGameWon }) {
       <div>
         <p>Would you like to play again?</p>
         <br></br>
-        <button onClick={handleClickRetry}>New Game?</button>
+        <button onClick={handleClickNewGame}>New Game?</button>
       </div>
     </div>
   );
