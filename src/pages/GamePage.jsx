@@ -29,18 +29,17 @@ function GamePage() {
 
   // Function to choose random pokemon from the pre fetched pokemon list.
   function choosePokemon() {
-    //Reset chosenPokemon state.
     setChosenPokemon([]);
-    let pokeUrls = [];
+    let pokeApiUrls = [];
     //Adds unique, randomly chosen urls from fullPokemonList and discards duplicates.
-    while (pokeUrls.length < parseInt(cardTotal)) {
+    while (pokeApiUrls.length < parseInt(cardTotal)) {
       let randomNumber = getRandomInt(150);
-      if (!pokeUrls.includes(fullPokemonList.results[randomNumber])) {
-        pokeUrls.push(fullPokemonList.results[randomNumber]);
+      if (!pokeApiUrls.includes(fullPokemonList.results[randomNumber])) {
+        pokeApiUrls.push(fullPokemonList.results[randomNumber]);
       }
     }
     //Once pokeUrls length reaches cardTotal the individual pokemon api data is fetched.
-    pokeUrls.map((item) => {
+    pokeApiUrls.map((item) => {
       fetchIndividualPokedata(item.url);
     });
   }
@@ -64,9 +63,8 @@ function GamePage() {
     choosePokemon();
   };
 
-  /* When the length of the chosenPokemon array reaches the card total, 
-  each array entry's name, imageUrl and type along with a unique id are passed to the
-  PokemonCardObject constructor and the returned object is stored in the cardObjects
+  /* When the length of the chosenPokemon array reaches the card total, the array entries are 
+  passed to the PokemonCardObject constructor and the returned object is stored in the cardObjects
   state.
   */
   useEffect(() => {
@@ -90,7 +88,8 @@ function GamePage() {
   }, [gameResults, gameWon]);
 
   /* If the currentScore is greater than the highScore the highScore is updated to 
-  match currentScore */
+  match currentScore 
+  */
   useEffect(() => {
     if (currentScore > highScore) {
       setHighScore(currentScore);

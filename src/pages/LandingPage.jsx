@@ -3,7 +3,15 @@ import { Link } from "react-router-dom";
 function LandingPage() {
   return (
     <>
-      <Link to="/game-page">Enter</Link>
+      <div>
+        <img width="400px" src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYm9qM2dmeW42aHQxMXAwNnA2YmV1dTRiaGoweHE4YWZoMDJoZnJkeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/teYrgUtS8tPl6/giphy.gif"></img>
+      </div>
+      <div >
+        <h1 >Poke-Mem</h1>
+      </div>
+      <div>
+        <Link to="/game-page">Enter</Link>
+      </div>
     </>
   );
 }
