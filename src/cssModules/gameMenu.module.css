@@ -12,7 +12,8 @@ h2 {
   z-index: 3;
   display: grid;
   grid-template-rows: 1fr 4fr 1fr;
-  border: solid;
+  border-style: double;
+  border-width: 10px;
   border-radius: 15px;
   padding: 1em;
   animation: menuAppear 1s;

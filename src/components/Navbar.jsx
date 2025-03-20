@@ -3,7 +3,7 @@ function Navbar() {
   return (
     <>
       <Link to="/game-page">Game</Link>
-      <Link to="/">Leader Board</Link>
+      <Link to="/">Landing Page</Link>
     </>
   );
 }
