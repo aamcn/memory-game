@@ -4,6 +4,7 @@ import GameMenu from "./GameMenu";
 import ScoreBoard from "./ScoreBoard";
 import styles from "../../cssModules/gameDisplay.module.css";
 import PropTypes from "prop-types";
+import GameWonPopUp from "./GameWonPopUp";
 
 function GameDisplay({
   highScore,
@@ -18,6 +19,8 @@ function GameDisplay({
   gameResults,
   cardTotal,
   setCardTotal,
+  gameWon,
+  setGameWon
 }) {
   return (
     <div className={styles.gameDisplay}>
@@ -30,6 +33,10 @@ function GameDisplay({
         cardObjects={cardObjects}
         setCardObjects={setCardObjects}
       />
+      {gameWon && (<GameWonPopUp 
+          setGameStarted={setGameStarted}
+          setGameWon={setGameWon}
+          />)}
       {gameResults && (
         <GameOverPopUp
           setGameStarted={setGameStarted}

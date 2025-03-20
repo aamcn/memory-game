@@ -29,10 +29,11 @@ function CardTemplate({
     }
   };
 
+
   return (
     <>
       {pokemonCardDetails && (
-        <div data-testid="playingCard" className={styles.cardContainer} onClick={handleCardClick}>
+        <div key={pokemonCardDetails.id} data-testid="playingCard" className={styles.cardContainer} onClick={handleCardClick}>
           <div></div>{" "}
           <div className={styles.imageContainer}>
             <img

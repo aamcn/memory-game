@@ -14,7 +14,7 @@ function GamePage() {
   const [highScore, setHighScore] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
   const [cardTotal, setCardTotal] = useState(3);
-
+  const [gameWon, setGameWon] = useState(false);
   /* On render the initial pokemon list is fetched and stored, this contains pokemon 
   name and its individual api url only. */
 
@@ -84,10 +84,10 @@ function GamePage() {
 
   //When the gameResults state is changed the cardObjects are wiped.
   useEffect(() => {
-    if (gameResults) {
+    if (gameResults || gameWon) {
       setCardObjects([]);
     }
-  }, [gameResults]);
+  }, [gameResults, gameWon]);
 
   /* If the currentScore is greater than the highScore the highScore is updated to 
   match currentScore */
@@ -95,7 +95,14 @@ function GamePage() {
     if (currentScore > highScore) {
       setHighScore(currentScore);
     }
+    checkForWin()
   }, [highScore, currentScore]);
+
+  const checkForWin = () => {
+    if(currentScore === cardTotal){
+      setGameWon(true)
+    }
+  }
 
   return (
     <>
@@ -113,6 +120,8 @@ function GamePage() {
         setCurrentScore={setCurrentScore}
         cardObjects={cardObjects}
         setCardObjects={setCardObjects}
+        setGameWon={setGameWon}
+        gameWon={gameWon}
       />
     </>
   );
