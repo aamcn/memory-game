@@ -1,0 +1,105 @@
+
+.mainContainer{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: center;
+    height:100svh;
+    min-width: 320px;
+    overflow: hidden;
+}
+
+.imageContainer{
+    display:flex;
+    flex-wrap: wrap;
+    max-width: 500px;
+    margin: 0 auto;
+    animation: appear 4s; 
+    padding:10px;
+    margin-bottom: 2em; 
+}
+
+.mainImage{
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: calc(25% - 10px);
+    width: 280px;
+    animation: float 5s;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+.mainHeading{
+    color: rgb(218, 57, 65);
+    animation: slideDown 7s;
+}
+
+img{
+    width:100%;
+}
+
+.startButton{
+    font-size: larger;
+    animation: waitAndAppear 12s;
+}
+
+@keyframes appear {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes waitAndAppear {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+    0%{
+        transform: translateY(-20px);
+        transform: translateX(0px)    
+    }
+    60%{
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(-20px);
+        transform: translateX(20px) 
+
+    }
+}
+
+@keyframes slideDown {
+    0%{
+        transform: translateY(1000px);
+        opacity: 0;
+        scale: 1;
+    }
+    50%{
+        transform: translateY(1000px);
+        opacity: 0;
+        scale: 1;
+    }
+    80%{
+        transform: translateY(0px);
+        scale: 1;
+    }
+    81%{
+        scale: 1.2;
+    }
+    100%{
+        scale:1;
+    }
+}

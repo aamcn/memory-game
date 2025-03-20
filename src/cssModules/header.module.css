@@ -3,11 +3,10 @@
   top: 0px;
   left: 0px;
   display: grid;
-  grid-template-columns: 10fr;
-  grid-template-rows: 1fr 1fr;
-  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 1fr;
   align-items: center;
-  margin-bottom: 2em;
+  margin: 1em 0em 1em 0em;
 }
 
 .navbarContainer {
@@ -19,6 +18,7 @@
 
 .titleContainer {
   grid-row: 1;
+  margin: 0;
 }
 
 .gameTitle {

@@ -1,9 +1,7 @@
 .cardsContainer {
-  justify-self: center;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
   flex-direction: row;
-  height: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-top: 1em;
 }

@@ -2,6 +2,6 @@
   border: solid;
   display: grid;
   grid-template-rows: 1fr 8fr 1fr;
-  height: 70svh;
+  height: 80svh;
   background-color: rgb(107, 177, 182);
 }
