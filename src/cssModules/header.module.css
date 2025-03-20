@@ -5,8 +5,9 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 2fr 1fr;
-  align-items: center;
+  justify-self: center;
   margin: 1em 0em 1em 0em;
+  min-width: 320px;
 }
 
 .navbarContainer {

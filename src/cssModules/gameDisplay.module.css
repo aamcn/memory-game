@@ -1,7 +1,6 @@
 .gameDisplay {
-  border: solid;
   display: grid;
-  grid-template-rows: 1fr 8fr 1fr;
-  height: 80svh;
-  background-color: rgb(107, 177, 182);
+  height: 100%;
+  grid-template-rows:auto 1fr;
+  border-radius: 5px;
 }

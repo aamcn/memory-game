@@ -1,7 +1,9 @@
 .cardsContainer {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 1em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  background-color: rgb(107, 177, 182);
+  border: double;
+  border-radius: 5px;
+  padding: 1em 0em 1em 0em;
 }
