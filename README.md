@@ -1,4 +1,4 @@
-##Poke-Mem
+Poke-Mem
 
 A game to test your memory skills 
 
