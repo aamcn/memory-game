@@ -9,24 +9,7 @@ This project is currently in development. Users can currently choose from three 
 Styling is in progress and currently only for mobile screen dimensions. Larger screen styling to be added. 
 
 Further features are to be developed starting with a round timer (to log how quickly the user beats a round) and leader board feature to upload your best score.
-
-Prerequisites:
-
-    Build:
-        npm
-        react
-        vite
-    
-    Formatting:
-        prettier
-        eslint
-        @types/react-dom
-
-    Testing:
-        vitest
-        @testing-library/react
-        @testing-library/user-event
-        jsdom
+S
 
 Getting Started:
 
