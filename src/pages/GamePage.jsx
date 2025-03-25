@@ -6,7 +6,6 @@ import { v4 as uuidv4 } from "uuid";
 import { PokemonCardObject } from "../modules/cardConstructor";
 
 function GamePage() {
-  const [fullPokemonList, setFullPokemonList] = useState([]);
   const [chosenPokemon, setChosenPokemon] = useState([]);
   const [cardObjects, setCardObjects] = useState([]);
   const [gameResults, setGameResults] = useState(false);
@@ -15,43 +14,56 @@ function GamePage() {
   const [gameStarted, setGameStarted] = useState(false);
   const [cardTotal, setCardTotal] = useState(3);
   const [gameWon, setGameWon] = useState(false);
-  /* On render the initial pokemon list is fetched and stored, this contains pokemon 
-  name and its individual api url only. */
+  
 
+  const apiUrl = 'https://pokeapi.co/api/v2/pokemon/'
+
+  //When the gameResults state is changed the cardObjects are wiped.
   useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=150&offset=0", {
-      mode: "cors",
-    })
-      .then((response) => response.json())
-      .then((response) => setFullPokemonList(response))
-      .catch((error) => console.error(error));
-  }, []);
+    if (gameResults || gameWon) {
+      setCardObjects([]);
+    }
+  }, [gameResults, gameWon]);
 
-  // Function to choose random pokemon from the pre fetched pokemon list.
+  /* If the currentScore is greater than the highScore the highScore is updated to 
+  match currentScore 
+  */
+  useEffect(() => {
+    if (currentScore > highScore) {
+      setHighScore(currentScore);
+    }
+    checkForWin()
+  }, [highScore, currentScore]);
+
+
+
+  /* Resets chosenPokemon and pokeApiUrls to original value.
+     Creates and stores random pokemon api urls by appending the apiUrl
+     with a random number. if a duplicate url is created it is disregarded.
+  */
   function choosePokemon() {
     setChosenPokemon([]);
     let pokeApiUrls = [];
-    //Adds unique, randomly chosen urls from fullPokemonList and discards duplicates.
     while (pokeApiUrls.length < parseInt(cardTotal)) {
       let randomNumber = getRandomInt(150);
-      if (!pokeApiUrls.includes(fullPokemonList.results[randomNumber])) {
-        pokeApiUrls.push(fullPokemonList.results[randomNumber]);
+      if (!pokeApiUrls.includes(apiUrl + [randomNumber])) {
+        pokeApiUrls.push(apiUrl + [randomNumber]);
       }
     }
-    //Once pokeUrls length reaches cardTotal the individual pokemon api data is fetched.
-    pokeApiUrls.map((item) => {
-      fetchIndividualPokedata(item.url);
-    });
+  // When pokeApiUrls length equals the cardTotal the fetchPokeUrls function is called.
+    fetchPokeUrls(pokeApiUrls);
   }
 
   // Fetches individiual pokemon API and inserts it into chosenPokemon state.
-  function fetchIndividualPokedata(pokemonUrl) {
-    fetch(pokemonUrl, { mode: "cors" })
+  function fetchPokeUrls(pokeApiUrls) {
+    pokeApiUrls.map(pokemonUrl => {
+      fetch(pokemonUrl, { mode: "cors" })
       .then((response) => response.json())
       .then((response) =>
         setChosenPokemon((chosenPokemon) => [...chosenPokemon, response]),
       )
       .catch((error) => console.error(error));
+    }) 
   }
 
   /* When the game is started the currentScore is reset to 0, theGameStarted state
@@ -62,6 +74,7 @@ function GamePage() {
     setCurrentScore(0);
     choosePokemon();
   };
+
 
   /* When the length of the chosenPokemon array reaches the card total, the array entries are 
   passed to the PokemonCardObject constructor and the returned object is stored in the cardObjects
@@ -80,22 +93,7 @@ function GamePage() {
     }
   }, [chosenPokemon]);
 
-  //When the gameResults state is changed the cardObjects are wiped.
-  useEffect(() => {
-    if (gameResults || gameWon) {
-      setCardObjects([]);
-    }
-  }, [gameResults, gameWon]);
-
-  /* If the currentScore is greater than the highScore the highScore is updated to 
-  match currentScore 
-  */
-  useEffect(() => {
-    if (currentScore > highScore) {
-      setHighScore(currentScore);
-    }
-    checkForWin()
-  }, [highScore, currentScore]);
+  
 
   const checkForWin = () => {
     if(currentScore === cardTotal){
