@@ -1,3 +1,4 @@
+import Button from "../../elements/Button"
 import styles from "../../cssModules/gameMenu.module.css";
 import PropTypes from "prop-types";
 
@@ -42,9 +43,9 @@ are drawn, the value of the button clicked is stored as the cardTotal.
         </div>
       </div>
       <div id="menu-buttons-container">
-        <button className={styles.startButton} onClick={handleStartClick}>
-          Start
-        </button>
+        <Button className={styles.startButton} onClick={handleStartClick} buttonText={'Start'}>
+          
+        </Button>
       </div>
     </div>
   );

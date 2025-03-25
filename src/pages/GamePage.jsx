@@ -4,6 +4,7 @@ import { getRandomInt } from "../modules/randomNumber";
 import Header from "../components/Header/Header";
 import { v4 as uuidv4 } from "uuid";
 import { PokemonCardObject } from "../modules/cardConstructor";
+import {checkForWin} from "../modules/checkForWin"
 
 function GamePage() {
   const [chosenPokemon, setChosenPokemon] = useState([]);
@@ -86,14 +87,10 @@ function GamePage() {
     if (currentScore > highScore) {
       setHighScore(currentScore);
     }
-    checkForWin();
+    checkForWin(currentScore, cardTotal,setGameWon);
   }, [highScore, currentScore]);
 
-  const checkForWin = () => {
-    if (currentScore === cardTotal) {
-      setGameWon(true);
-    }
-  };
+  
 
   return (
     <>

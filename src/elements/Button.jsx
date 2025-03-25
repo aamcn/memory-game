@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 
-function Button({ buttonId, buttonText, buttonType }) {
+function Button({ buttonId, buttonText, buttonType, onClick }) {
   return (
     <>
-      <button id={buttonId} type={buttonType}>
+      <button id={buttonId} type={buttonType} onClick={onClick}>
         {buttonText}
       </button>
     </>
