@@ -27,7 +27,7 @@ function GameOverPopUp({ setGameResults, setGameStarted }) {
 
 GameOverPopUp.propTypes = {
   setGameResults: PropTypes.func.isRequired,
-  setGameStarted: PropTypes.func.isRequired
-}
+  setGameStarted: PropTypes.func.isRequired,
+};
 
 export default GameOverPopUp;

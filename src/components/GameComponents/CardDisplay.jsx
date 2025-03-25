@@ -1,9 +1,7 @@
 import CardTemplate from "./CardTemplate";
 import styles from "../../cssModules/cardDisplay.module.css";
 import { useEffect, useState } from "react";
-import PropTypes from 'prop-types';
-
-
+import PropTypes from "prop-types";
 
 function CardDisplay({
   chosenPokemonCardData,
@@ -25,35 +23,36 @@ function CardDisplay({
   }, [isHidden]);
 
   return (
-    !isHidden && <div className={styles.cardsContainer}>
-      {chosenPokemonCardData &&
-        chosenPokemonCardData.map((pokemonCardDetails) => {
-          return (
-            <CardTemplate
-              key={pokemonCardDetails.id}
-              setGameResults={setGameResults}
-              currentScore={currentScore}
-              setCurrentScore={setCurrentScore}
-              pokemonCardDetails={pokemonCardDetails}
-              cardObjects={cardObjects}
-              setCardObjects={setCardObjects}
-              isHidden={isHidden}
-              setIsHidden={setIsHidden}
-            />
-          );
-        })}
-    </div>
+    !isHidden && (
+      <div className={styles.cardsContainer}>
+        {chosenPokemonCardData &&
+          chosenPokemonCardData.map((pokemonCardDetails) => {
+            return (
+              <CardTemplate
+                key={pokemonCardDetails.id}
+                setGameResults={setGameResults}
+                currentScore={currentScore}
+                setCurrentScore={setCurrentScore}
+                pokemonCardDetails={pokemonCardDetails}
+                cardObjects={cardObjects}
+                setCardObjects={setCardObjects}
+                isHidden={isHidden}
+                setIsHidden={setIsHidden}
+              />
+            );
+          })}
+      </div>
+    )
   );
 }
 
-
 CardDisplay.propTypes = {
   chosenPokemonCardData: PropTypes.object.isRequired,
-  currentScore: PropTypes.number.isRequired, 
+  currentScore: PropTypes.number.isRequired,
   setCurrentScore: PropTypes.func.isRequired,
   setGameResults: PropTypes.bool.isRequired,
   cardObjects: PropTypes.array.isRequired,
-  setCardObjects: PropTypes.func.isRequired
+  setCardObjects: PropTypes.func.isRequired,
 };
 
 export default CardDisplay;

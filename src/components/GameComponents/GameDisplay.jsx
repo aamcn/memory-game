@@ -20,7 +20,7 @@ function GameDisplay({
   cardTotal,
   setCardTotal,
   gameWon,
-  setGameWon
+  setGameWon,
 }) {
   return (
     <div className={styles.gameDisplay}>
@@ -33,10 +33,9 @@ function GameDisplay({
         cardObjects={cardObjects}
         setCardObjects={setCardObjects}
       />
-      {gameWon && (<GameWonPopUp 
-          setGameStarted={setGameStarted}
-          setGameWon={setGameWon}
-          />)}
+      {gameWon && (
+        <GameWonPopUp setGameStarted={setGameStarted} setGameWon={setGameWon} />
+      )}
       {gameResults && (
         <GameOverPopUp
           setGameStarted={setGameStarted}
@@ -67,7 +66,7 @@ GameDisplay.propTypes = {
   setGameStarted: PropTypes.func.isRequired,
   cardTotal: PropTypes.number.isRequired,
   currentScore: PropTypes.number.isRequired,
-  highScore: PropTypes.number.isRequired
-}
+  highScore: PropTypes.number.isRequired,
+};
 
 export default GameDisplay;

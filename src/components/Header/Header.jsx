@@ -6,7 +6,6 @@ function Header() {
       <div className={styles.titleContainer}>
         <h1 className={styles.gameTitle}>Poke-Mem</h1>
       </div>
-      
     </div>
   );
 }

@@ -14,28 +14,8 @@ function GamePage() {
   const [gameStarted, setGameStarted] = useState(false);
   const [cardTotal, setCardTotal] = useState(3);
   const [gameWon, setGameWon] = useState(false);
-  
 
-  const apiUrl = 'https://pokeapi.co/api/v2/pokemon/'
-
-  //When the gameResults state is changed the cardObjects are wiped.
-  useEffect(() => {
-    if (gameResults || gameWon) {
-      setCardObjects([]);
-    }
-  }, [gameResults, gameWon]);
-
-  /* If the currentScore is greater than the highScore the highScore is updated to 
-  match currentScore 
-  */
-  useEffect(() => {
-    if (currentScore > highScore) {
-      setHighScore(currentScore);
-    }
-    checkForWin()
-  }, [highScore, currentScore]);
-
-
+  const apiUrl = "https://pokeapi.co/api/v2/pokemon/";
 
   /* Resets chosenPokemon and pokeApiUrls to original value.
      Creates and stores random pokemon api urls by appending the apiUrl
@@ -50,31 +30,21 @@ function GamePage() {
         pokeApiUrls.push(apiUrl + [randomNumber]);
       }
     }
-  // When pokeApiUrls length equals the cardTotal the fetchPokeUrls function is called.
+    // When pokeApiUrls length equals the cardTotal the fetchPokeUrls function is called.
     fetchPokeUrls(pokeApiUrls);
   }
 
-  // Fetches individiual pokemon API and inserts it into chosenPokemon state.
+  // Maps and fetches pokemon API URLs and inserts the returned data into chosenPokemon state.
   function fetchPokeUrls(pokeApiUrls) {
-    pokeApiUrls.map(pokemonUrl => {
+    pokeApiUrls.map((pokemonUrl) => {
       fetch(pokemonUrl, { mode: "cors" })
-      .then((response) => response.json())
-      .then((response) =>
-        setChosenPokemon((chosenPokemon) => [...chosenPokemon, response]),
-      )
-      .catch((error) => console.error(error));
-    }) 
+        .then((response) => response.json())
+        .then((response) =>
+          setChosenPokemon((chosenPokemon) => [...chosenPokemon, response]),
+        )
+        .catch((error) => console.error(error));
+    });
   }
-
-  /* When the game is started the currentScore is reset to 0, theGameStarted state
-  is set to true (hiding the game menu).
-  */
-  const handleStartClick = () => {
-    setGameStarted(true);
-    setCurrentScore(0);
-    choosePokemon();
-  };
-
 
   /* When the length of the chosenPokemon array reaches the card total, the array entries are 
   passed to the PokemonCardObject constructor and the returned object is stored in the cardObjects
@@ -93,13 +63,37 @@ function GamePage() {
     }
   }, [chosenPokemon]);
 
-  
+  /* When the game is started the currentScore is reset to 0, theGameStarted state
+  is set to true (hiding the game menu).
+  */
+  const handleStartClick = () => {
+    setGameStarted(true);
+    setCurrentScore(0);
+    choosePokemon();
+  };
+
+  //When the gameResults state is changed the cardObjects are wiped.
+  useEffect(() => {
+    if (gameResults || gameWon) {
+      setCardObjects([]);
+    }
+  }, [gameResults, gameWon]);
+
+  /* If the currentScore is greater than the highScore the highScore is updated to 
+  match currentScore 
+  */
+  useEffect(() => {
+    if (currentScore > highScore) {
+      setHighScore(currentScore);
+    }
+    checkForWin();
+  }, [highScore, currentScore]);
 
   const checkForWin = () => {
-    if(currentScore === cardTotal){
-      setGameWon(true)
+    if (currentScore === cardTotal) {
+      setGameWon(true);
     }
-  }
+  };
 
   return (
     <>

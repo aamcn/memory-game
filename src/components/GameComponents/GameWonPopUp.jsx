@@ -1,7 +1,6 @@
 import styles from "../../cssModules/gameWonPopUp.module.css";
 import PropTypes from "prop-types";
 
-
 function GameWonPopUp({ setGameStarted, setGameWon }) {
   /* Setting gameResults to false hides the GameLostWindow component 
   setting gameStarted displays the gameMenu component starting the game over
@@ -9,7 +8,7 @@ function GameWonPopUp({ setGameStarted, setGameWon }) {
 
   const handleClickNewGame = () => {
     setGameStarted(false);
-    setGameWon(false)
+    setGameWon(false);
   };
 
   return (
@@ -28,5 +27,4 @@ function GameWonPopUp({ setGameStarted, setGameWon }) {
   );
 }
 
-
-export default GameWonPopUp
+export default GameWonPopUp;

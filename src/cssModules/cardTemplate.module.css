@@ -15,7 +15,7 @@
   box-shadow: 0px 5px 5px 0px;
   transform-style: preserve-3d;
   animation: cardAppear 1s;
-  margin:5px;
+  margin: 5px;
 }
 
 .imageContainer {
@@ -28,7 +28,7 @@
   box-shadow: rgb(124, 82, 2) 0px 2px 3px 0px;
   justify-content: center;
   align-items: center;
-  margin-bottom:1em;
+  margin-bottom: 1em;
 }
 
 .cardTitleContainer {

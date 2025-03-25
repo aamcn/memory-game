@@ -14,7 +14,7 @@ function ScoreBoard({ currentScore, highScore }) {
 
 ScoreBoard.propTypes = {
   currentScore: PropTypes.number.isRequired,
-  highScore: PropTypes.number.isRequired
-}
+  highScore: PropTypes.number.isRequired,
+};
 
 export default ScoreBoard;
