@@ -4,4 +4,13 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   padding: 1em 0em 1em 0em;
+  overflow: hidden;
+}
+
+.nineCardsContainer{
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: space-evenly;
+padding: 1em 0em 1em 0em;
 }

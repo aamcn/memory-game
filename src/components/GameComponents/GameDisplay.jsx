@@ -32,6 +32,7 @@ function GameDisplay({
         chosenPokemonCardData={cardObjects}
         cardObjects={cardObjects}
         setCardObjects={setCardObjects}
+        cardTotal={cardTotal}
       />
       {gameWon && (
         <GameWonPopUp setGameStarted={setGameStarted} setGameWon={setGameWon} />

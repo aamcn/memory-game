@@ -9,6 +9,7 @@ function CardTemplate({
   setGameResults,
   setCardObjects,
   setIsHidden,
+  cardTotal
 }) {
   /* When the card is clicked, if it is the first time, the isClicked state is 
   changed to 'true' and a point is added to the current score. 
@@ -35,7 +36,6 @@ function CardTemplate({
           className={styles.cardContainer}
           onClick={handleCardClick}
         >
-          <div></div>{" "}
           <div className={styles.imageContainer}>
             <img
               className={styles.cardImage}

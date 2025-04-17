@@ -10,6 +10,7 @@ function CardDisplay({
   setGameResults,
   cardObjects,
   setCardObjects,
+  cardTotal
 }) {
   const [isHidden, setIsHidden] = useState(false);
 
@@ -24,7 +25,7 @@ function CardDisplay({
 
   return (
     !isHidden && (
-      <div className={styles.cardsContainer}>
+      <div className={cardTotal == 9 ? styles.nineCardsContainer : styles.cardsContainer}>
         {chosenPokemonCardData &&
           chosenPokemonCardData.map((pokemonCardDetails) => {
             return (
@@ -36,6 +37,7 @@ function CardDisplay({
                 pokemonCardDetails={pokemonCardDetails}
                 cardObjects={cardObjects}
                 setCardObjects={setCardObjects}
+                cardTotal={cardTotal}
                 isHidden={isHidden}
                 setIsHidden={setIsHidden}
               />
