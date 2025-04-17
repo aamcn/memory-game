@@ -3,7 +3,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  padding: 1em 0em 1em 0em;
+  padding: 0.5em 0em 0.5em 0em;
   overflow: hidden;
 }
 
@@ -12,5 +12,5 @@ display: flex;
 flex-direction: row;
 flex-wrap: wrap;
 justify-content: space-evenly;
-padding: 1em 0em 1em 0em;
+padding: 1em 1em 1em 1em;
 }

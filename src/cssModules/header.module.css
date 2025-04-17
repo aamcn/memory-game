@@ -1,12 +1,8 @@
 .headerContainer {
   grid-row: 1;
-  position: relative;
-  top: 0px;
-  left: 0px;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 2fr 1fr;
-  justify-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 1em 0em 1em 0em;
   min-width: 320px;
 }
@@ -25,4 +21,5 @@
 
 .gameTitle {
   color: rgb(15, 127, 202);
+  text-shadow: rgb(0, 238, 255) 1px 3px 1px;
 }

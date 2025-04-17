@@ -5,35 +5,39 @@
   align-items: center;
   background-color: rgb(252, 215, 95);
   border: rgb(170, 129, 24) double 0.5em;
-  border-radius: 5px;
-  font-size: 3vw;
-  min-height: 30%;
-  min-width: 33%;
+  border-radius: 5%;
+  font-size: 4vw;
+  min-height: 29%;
+  min-width: 30%;
   transform-style: preserve-3d;
   animation: cardAppear 1s;
   margin: 0.5em;
 }
 
 .imageContainer {
-  background-color: rgb(216, 255, 255);
+  background-color: rgb(173, 215, 223);
   display: flex;
-  border: double;
+  border: double rgb(139, 106, 21) 5px;
   border-radius: 5%;
   width: 25vw;
   height: 25vw;
-  box-shadow: rgb(167, 122, 40) 0px 0.5em 0.5em 0px;
+  box-shadow:inset rgb(255, 255, 255) 0px 0px 0.5em 0.2em;
   justify-content: center;
   align-items: center;
   margin-bottom: 1em;
 }
 
 .cardTitleContainer {
-  background-color: rgb(255, 253, 147);
-  width: 90%;
+  background-color: rgb(252, 251, 205);
+  width: 80%;
   border-radius: 3px;
   border: solid 1px gold;
-  box-shadow: rgb(124, 82, 2) 0px 2px 3px 0px;
+  box-shadow: rgb(156, 108, 19) -2px 2px 5px 1px;
   margin-bottom: 1em;
+  outline-width: 2px;
+  outline-style: inset;
+  outline-color: rgb(255, 255, 255);
+  color: rgb(114, 87, 19);
 }
 
 .cardImage {
