@@ -3,5 +3,7 @@
   align-content: center;
   grid-template-columns: 1fr 1fr;
   background-color: #000000;
-  color: aliceblue;
+  color: rgba(0, 238, 255, 0.788);
+  font-size: 5vw;
+  text-shadow:  rgb(151, 17, 228) 1px 1px 1px;
 }

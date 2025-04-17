@@ -20,6 +20,6 @@
 }
 
 .gameTitle {
-  color: rgb(15, 127, 202);
-  text-shadow: rgb(0, 238, 255) 1px 3px 1px;
+  color:   rgba(0, 238, 255, 0.767);
+  text-shadow:rgb(151, 17, 228)  2px 2px 1px;
 }

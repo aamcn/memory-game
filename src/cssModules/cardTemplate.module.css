@@ -3,7 +3,7 @@
   justify-content: space-around;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(252, 215, 95);
+  background-color: rgb(255, 206, 45);
   border: rgb(170, 129, 24) double 0.5em;
   border-radius: 5%;
   font-size: 4vw;
@@ -12,6 +12,7 @@
   transform-style: preserve-3d;
   animation: cardAppear 1s;
   margin: 0.5em;
+  box-shadow: inset -10px 10px 20px 6px rgb(255, 242, 199);
 }
 
 .imageContainer {
@@ -21,7 +22,7 @@
   border-radius: 5%;
   width: 25vw;
   height: 25vw;
-  box-shadow:inset rgb(255, 255, 255) 0px 0px 0.5em 0.2em;
+  box-shadow:inset 0px 0px 10px 10px rgb(217, 249, 255);
   justify-content: center;
   align-items: center;
   margin-bottom: 1em;

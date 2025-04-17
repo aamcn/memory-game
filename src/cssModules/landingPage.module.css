@@ -31,7 +31,7 @@
 
 .mainHeading {
   color: rgb(218, 57, 65);
-  animation: slideDown 7s;
+  animation: slideUp 3s;
 }
 
 img {
@@ -40,7 +40,7 @@ img {
 
 .startButton {
   font-size: larger;
-  animation: waitAndAppear 12s;
+  animation: waitAndAppear 4s;
 }
 
 @keyframes appear {
@@ -79,7 +79,7 @@ img {
   }
 }
 
-@keyframes slideDown {
+@keyframes slideUp {
   0% {
     transform: translateY(1000px);
     opacity: 0;
@@ -90,7 +90,7 @@ img {
     opacity: 0;
     scale: 1;
   }
-  80% {
+  50% {
     transform: translateY(0px);
     scale: 1;
   }
