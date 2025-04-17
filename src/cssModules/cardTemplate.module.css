@@ -28,6 +28,32 @@
   margin-bottom: 1em;
 }
 
+.sixImageContainer {
+  background-color: rgb(173, 215, 223);
+  display: flex;
+  border: double rgb(139, 106, 21) 5px;
+  border-radius: 5%;
+  width: 25vw;
+  height: 25vw;
+  box-shadow:inset 0px 0px 10px 10px rgb(217, 249, 255);
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.nineImageContainer {
+  background-color: rgb(173, 215, 223);
+  display: flex;
+  border: double rgb(139, 106, 21) 5px;
+  border-radius: 5%;
+  width: 18vw;
+  height: 18vw;
+  box-shadow:inset 0px 0px 10px 10px rgb(217, 249, 255);
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
 .cardTitleContainer {
   background-color: rgb(252, 251, 205);
   width: 80%;
@@ -54,3 +80,4 @@
     transform: rotateY(0deg);
   }
 }
+

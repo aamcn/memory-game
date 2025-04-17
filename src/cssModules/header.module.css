@@ -20,6 +20,11 @@
 }
 
 .gameTitle {
-  color:   rgba(0, 238, 255, 0.767);
-  text-shadow:rgb(151, 17, 228)  2px 2px 1px;
+  color:   rgb(0, 148, 233);
+  text-shadow:rgb(138, 5, 45)  2px 2px 1px;
+  text-decoration-color: red;
+  text-decoration: double ;
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: ;
 }

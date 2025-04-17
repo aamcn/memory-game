@@ -27,6 +27,7 @@ function CardTemplate({
     }
   };
 
+
   return (
     <>
       {pokemonCardDetails && (
@@ -36,7 +37,7 @@ function CardTemplate({
           className={styles.cardContainer}
           onClick={handleCardClick}
         >
-          <div className={styles.imageContainer}>
+          <div className={cardTotal === 9 ? styles.nineImageContainer : cardTotal === 6 ? styles.sixImageContainer : styles.imageContainer}>
             <img
               className={styles.cardImage}
               src={pokemonCardDetails.imageUrl}
