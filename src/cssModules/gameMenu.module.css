@@ -5,19 +5,20 @@ h2 {
 }
 
 .gameMenuContainer {
-  background-color: rgb(59, 127, 187);
+  background-color: rgb(165, 3, 165);
   position: absolute;
   justify-self: center;
   align-self: center;
   z-index: 3;
   display: grid;
   grid-template-rows: 1fr 4fr 1fr;
-  border-style: double;
-  border-width: 10px;
+  border:rgb(1, 84, 95);
+  border-style: solid;
+  border-width: 5px;
   border-radius: 15px;
   padding: 1em;
   animation: menuAppear 1s;
-  box-shadow: 1px 5px 5px 1px;
+  box-shadow: inset 0px 0px 22px 12px rgb(9, 181, 204);
 }
 
 .titleContainer {
@@ -51,18 +52,19 @@ h2 {
 
 button {
   height: fit-content;
-  background-color: turquoise;
+  background-color: rgb(0, 204, 255);
   animation: buttonFade 2s;
-  border-bottom: solid 3px;
+  border:solid;
+  box-shadow: 0px 3px 2px 0px;
 }
 
 button:active {
-  border-bottom: 0px;
+  transform: translateY(4px);
+  box-shadow:inset 1px 1px 1px 1px;
 }
 
 button:hover {
-  scale: 1.2;
-  background-color: rgb(75, 243, 255);
+  background-color: rgb(3, 124, 133);
 }
 
 .optionButton {
@@ -89,5 +91,12 @@ button:hover {
   }
   100% {
     scale: 1;
+  }
+}
+ 
+
+@media screen and (min-width:1200px) {
+  .gameMenuContainer {
+   width:30vw;
   }
 }

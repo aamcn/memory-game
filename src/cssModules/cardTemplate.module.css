@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   background-color: rgb(255, 206, 45);
-  border: rgb(170, 129, 24) double 0.5em;
+  border: rgb(87, 65, 11) double 0.5em;
   border-radius: 5%;
   font-size: 4vw;
   height: 40%;
@@ -21,11 +21,11 @@
   flex-direction: column;
   align-items: center;
   background-color: rgb(255, 206, 45);
-  border: rgb(170, 129, 24) double 0.5em;
+  border:rgb(87, 65, 11) double 0.5em;
   border-radius: 5%;
   font-size: 4vw;
-  min-height: 29%;
-  min-width: 30%;
+  height: 23vh;
+  width: 28vw;
   transform-style: preserve-3d;
   animation: cardAppear 1s;
   margin: 0.5em;
@@ -39,7 +39,7 @@
   align-items: center;
   align-self: center;
   background-color: rgb(255, 206, 45);
-  border: rgb(170, 129, 24) double 0.5em;
+  border: rgb(87, 65, 11) double 0.5em;
   border-radius: 5%;
   font-size: 4vw;
   width:80%;
@@ -107,6 +107,8 @@
   width: 4em;
 }
 
+
+
 @keyframes cardAppear {
   0% {
     transform: rotateY(90deg);
@@ -124,20 +126,20 @@
 
 
   .cardImage {
-  height: 3.5em;
-  width: 3.5em;
+  height: 3em;
+  width: 3em;
   }
 
   .sixImageContainer {
-    width: 22vw;
-    height: 22vw;
+    width: 18vw;
+    height: 18vw;
   }
 
   .sixCardContainer {
     border-radius: 5%;
     font-size: 4vw;
-    min-height: 84%;
-    min-width: 20%;
+    height: 30vh;
+    width: 22vw;
   }
 
   .nineCardContainer {
@@ -145,12 +147,14 @@
     font-size: 4vw;
     width: 20vw;
     height: 21vh;
+
   }
 
   .nineImageContainer {
     width: 15vw;
     height: 15vw;
     margin-bottom: 1em;
+    
   }
  
 }
@@ -186,7 +190,6 @@
     height: 15vw;
     margin-bottom: 1em;
   }
- 
 }
 
 @media screen and (min-width:1200px) {
@@ -201,15 +204,16 @@
     }
 
   .sixImageContainer {
-    width: 22vw;
-    height: 22vw;
+    width: 12vw;
+    height: 12vw;
   }
 
   .sixCardContainer {
     border-radius: 5%;
     font-size: 4vw;
-    min-height: 84%;
-    min-width: 20%;
+    width:15vw;
+    height:20vh;
+    border-width: 0.2em;
   }
 
   .nineCardContainer {
@@ -218,6 +222,7 @@
     width:11vw;
     height:27vh;
     border-width: 0.2em;
+
   }
 
   .nineImageContainer {

@@ -24,8 +24,8 @@ function GameDisplay({
 }) {
   return (
     <div className={styles.gameDisplay}>
-      < Header />
-      <ScoreBoard highScore={highScore} currentScore={currentScore} />
+      {gameStarted  && <Header />}
+      {gameStarted  && <ScoreBoard highScore={highScore} currentScore={currentScore} />}
       <CardDisplay
         setCurrentScore={setCurrentScore}
         setGameResults={setGameResults}
