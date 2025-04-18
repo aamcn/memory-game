@@ -95,6 +95,8 @@
   }
 }
 
+
+
 @media screen and (min-width: 768px) {
  
   
@@ -109,5 +111,73 @@
 
   .startButton {
     font-size: 4vw;
+  }
+}
+
+@media screen and (min-width: 992px) {
+ 
+  
+  .mainHeading {
+    font-size: 8vw;
+  }
+  
+  .mainImage {
+    width: 60vw;
+    margin-bottom: 8em;
+  }
+
+  .startButton {
+    font-size: 4vw;
+  }
+}
+
+
+
+@media screen and (min-width: 1200px) {
+ 
+  
+  .mainHeading {
+    font-size: 6vw;
+  }
+  
+  .mainImage {
+    width: 40vw;
+    margin-bottom: 6em;
+  }
+
+  .startButton {
+    font-size: 2vw;
+  }
+}
+
+@media screen and (max-height: 599px) and (orientation: landscape) {
+  
+  .mainHeading {
+    font-size: 5vw;
+  }
+  
+  .mainImage {
+    width: 30vw;
+    margin-bottom: 2em;
+  }
+
+  .startButton {
+    font-size: 2vw;
+  }
+}
+
+@media screen and (min-height: 600px) and (orientation: landscape) {
+  
+  .mainHeading {
+    font-size: 5vw;
+  }
+  
+  .mainImage {
+    width: 35vw;
+    margin-bottom: 5em;
+  }
+
+  .startButton {
+    font-size: 2vw;
   }
 }
