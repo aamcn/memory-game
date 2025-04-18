@@ -94,7 +94,6 @@ function GamePage() {
 
   return (
     <>
-      <Header />
       <GameDisplay
         cardTotal={cardTotal}
         setCardTotal={setCardTotal}

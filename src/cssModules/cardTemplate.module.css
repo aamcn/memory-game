@@ -42,11 +42,10 @@
   border: rgb(170, 129, 24) double 0.5em;
   border-radius: 5%;
   font-size: 4vw;
-  width: 80%;
-  height: 80%;
+  width:80%;
+  height:20vh;
   transform-style: preserve-3d;
   animation: cardAppear 1s;
-  margin: 0.5em;
   box-shadow: inset -10px 10px 20px 6px rgb(255, 242, 199);
 }
 
@@ -100,11 +99,12 @@
   outline-style: inset;
   outline-color: rgb(255, 255, 255);
   color: rgb(114, 87, 19);
+  font-size: 2.5vw;
 }
 
 .cardImage {
-  max-height: 4em;
-  max-width: 4em;
+  height: 4em;
+  width: 4em;
 }
 
 @keyframes cardAppear {
@@ -122,6 +122,46 @@
     font-size: 2.5vw;
   }
 
+
+  .cardImage {
+  height: 3.5em;
+  width: 3.5em;
+  }
+
+  .sixImageContainer {
+    width: 22vw;
+    height: 22vw;
+  }
+
+  .sixCardContainer {
+    border-radius: 5%;
+    font-size: 4vw;
+    min-height: 84%;
+    min-width: 20%;
+  }
+
+  .nineCardContainer {
+    border-radius: 5%;
+    font-size: 4vw;
+    width: 20vw;
+    height: 21vh;
+  }
+
+  .nineImageContainer {
+    width: 15vw;
+    height: 15vw;
+    margin-bottom: 1em;
+  }
+ 
+}
+
+@media screen and (min-width:992px) {
+  
+  .cardTitleContainer {
+    font-size: 2.5vw;
+  }
+
+ 
   .sixImageContainer {
     width: 22vw;
     height: 22vw;
@@ -147,5 +187,43 @@
     margin-bottom: 1em;
   }
  
+}
 
+@media screen and (min-width:1200px) {
+  
+  .cardTitleContainer {
+    font-size: 1.5vw;
+  }
+
+  .cardImage {
+    height: 2.5em;
+    width: 2.5em;
+    }
+
+  .sixImageContainer {
+    width: 22vw;
+    height: 22vw;
+  }
+
+  .sixCardContainer {
+    border-radius: 5%;
+    font-size: 4vw;
+    min-height: 84%;
+    min-width: 20%;
+  }
+
+  .nineCardContainer {
+    border-radius: 5%;
+    font-size: 3vw;
+    width:11vw;
+    height:27vh;
+    border-width: 0.2em;
+  }
+
+  .nineImageContainer {
+    width: 8vw;
+    height: 8vw;
+    margin-bottom: 1em;
+  }
+ 
 }

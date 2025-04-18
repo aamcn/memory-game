@@ -5,7 +5,7 @@ import ScoreBoard from "./ScoreBoard";
 import styles from "../../cssModules/gameDisplay.module.css";
 import PropTypes from "prop-types";
 import GameWonPopUp from "./GameWonPopUp";
-
+import Header from "../Header/Header"
 function GameDisplay({
   highScore,
   gameStarted,
@@ -24,6 +24,7 @@ function GameDisplay({
 }) {
   return (
     <div className={styles.gameDisplay}>
+      < Header />
       <ScoreBoard highScore={highScore} currentScore={currentScore} />
       <CardDisplay
         setCurrentScore={setCurrentScore}

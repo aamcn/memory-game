@@ -20,7 +20,7 @@
 }
 
 .gameTitle {
-  color:   rgb(0, 148, 233);
+  color: rgb(211, 181, 15);
   text-shadow:rgb(138, 5, 45)  2px 2px 1px;
   text-decoration-color: red;
   text-decoration: double ;
@@ -37,3 +37,22 @@
      text-shadow:rgb(138, 5, 45)  4px 4px 1px;
   }
  }
+
+ @media screen and (min-width:1200px) {
+  
+  .gameTitle {
+    grid-column: 1;
+    grid-row: 1; 
+    font-size: 7vw;
+    text-shadow:rgb(138, 5, 45)  4px 4px 1px;
+ }
+
+  .headerContainer {
+    justify-content: center;
+    width:100%;
+    min-width:max-content;
+    padding:1em;
+  }
+
+
+}
