@@ -7,3 +7,15 @@
   font-size: 5vw;
   text-shadow:  rgb(215, 145, 255) 1px 1px 1px;
 }
+
+@media screen and (min-width:768px) {
+  .scoreBoardContainer {
+  display: grid;
+  align-content: center;
+  grid-template-columns: 1fr 1fr;
+  background-color: #000000;
+  color: rgba(0, 217, 255, 0.788);
+  font-size: 4vw;
+  text-shadow:  rgb(215, 145, 255) 1px 1px 1px;
+  }
+ }

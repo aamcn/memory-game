@@ -13,7 +13,7 @@ function GamePage() {
   const [currentScore, setCurrentScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
-  const [cardTotal, setCardTotal] = useState(3);
+  const [cardTotal, setCardTotal] = useState(4);
   const [gameWon, setGameWon] = useState(false);
 
   const apiUrl = "https://pokeapi.co/api/v2/pokemon/";

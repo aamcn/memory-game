@@ -34,7 +34,7 @@ function CardTemplate({
         <div
           key={pokemonCardDetails.id}
           data-testid="playingCard"
-          className={styles.cardContainer}
+          className={cardTotal === 9 ? styles.nineCardContainer : cardTotal === 6 ? styles.sixCardContainer : styles.threeCardContainer}
           onClick={handleCardClick}
         >
           <div className={cardTotal === 9 ? styles.nineImageContainer : cardTotal === 6 ? styles.sixImageContainer : styles.imageContainer}>

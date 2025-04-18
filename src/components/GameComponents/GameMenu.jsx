@@ -22,7 +22,7 @@ are drawn, the value of the button clicked is stored as the cardTotal.
           <button
             className={styles.optionButton}
             onClick={handleClickDifficulty}
-            value={3}
+            value={4}
           >
             Easy
           </button>

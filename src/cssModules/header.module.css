@@ -26,5 +26,14 @@
   text-decoration: double ;
   text-decoration-line: underline;
   text-decoration-thickness: 2px;
-  text-underline-offset: ;
+  text-underline-offset: 10px ;
 }
+
+
+@media screen and (min-width:768px) {
+
+  .gameTitle {
+     font-size: 14vw;
+     text-shadow:rgb(138, 5, 45)  4px 4px 1px;
+  }
+ }
