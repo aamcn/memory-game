@@ -98,5 +98,14 @@ button:hover {
 @media screen and (min-width:1200px) {
   .gameMenuContainer {
    width:30vw;
+   height: 30vw;
+  }
+
+  button {
+    height: fit-content;
+    background-color: rgb(0, 204, 255);
+    animation: buttonFade 2s;
+    border:solid;
+    box-shadow: 0px 3px 2px 0px;
   }
 }
