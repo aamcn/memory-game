@@ -8,15 +8,7 @@
  
 }
 
-
-@media screen and (min-width:1200px){
-  .gameDisplay {
-    grid-template-columns: 2fr 10fr ;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-  }
-}
-
-@media (orientation: landscape) and (max-height: 600px) {
+@media (orientation: landscape) and (max-height: 800px) {
   .gameDisplay {
     grid-template-columns: 2fr 10fr ;
     grid-template-rows: 1fr 1fr 1fr 1fr;

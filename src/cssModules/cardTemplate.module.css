@@ -41,7 +41,6 @@
   background-color: rgb(255, 206, 45);
   border: rgb(87, 65, 11) double 0.5em;
   border-radius: 5%;
-  font-size: 4vw;
   width:80%;
   height:20vh;
   transform-style: preserve-3d;
@@ -118,6 +117,9 @@
   }
 }
 
+
+
+
 @media screen and (min-width:768px) {
   
   .cardTitleContainer {
@@ -149,9 +151,8 @@
 
   .nineCardContainer {
     border-radius: 5%;
-    font-size: 4vw;
     width: 20vw;
-    height: 21vh;
+    height: 24vh;
 
   }
 
@@ -162,6 +163,47 @@
     
   }
  
+}
+
+@media (orientation: landscape) and (max-height: 600px) {
+  
+  .cardTitleContainer {
+    font-size: 1vw;
+  }
+
+  .cardImage {
+    height: 80%;
+    width: 80%;
+    }
+
+  .sixImageContainer {
+    width: 70%;
+    height: 40%;
+    margin:0px;
+  }
+
+  .sixCardContainer {
+    border-radius: 5%;
+    font-size: 4vw;
+    width:12vw;
+    height:40vh;
+    margin: 0.2em;
+    border-width: 0.2em;
+  }
+
+  .nineCardContainer {
+    width:8vw;
+    height:27vh;
+    border-width: 5px;
+  }
+
+  .nineImageContainer {
+    border: double rgb(139, 106, 21) 5px;
+    width: 5vw;
+    height: 5vw;
+  }
+  
+  
 }
 
 @media screen and (min-width:992px) {
@@ -245,29 +287,11 @@
  
 }
 
-@media (orientation: landscape) and (max-height: 600px) {
-  
-  .cardTitleContainer {
-    font-size: 1.5vw;
-  }
 
-  .cardImage {
-    height: 80%;
-    width: 80%;
-    }
 
-  .sixImageContainer {
-    width: 70%;
-    height: 40%;
-    margin:0px;
-  }
 
-  .sixCardContainer {
-    border-radius: 5%;
-    font-size: 4vw;
-    width:12vw;
-    height:40vh;
-    margin: 0.2em;
-    border-width: 0.2em;
-  }
-}
+
+
+
+
+

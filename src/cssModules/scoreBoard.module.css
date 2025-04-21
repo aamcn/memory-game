@@ -25,9 +25,7 @@
  }
 }
 
-
-@media (orientation: landscape) and (max-height: 600px) {
-
+@media (orientation: landscape) and (max-height: 800px) {
   .scoreBoardContainer {
     grid-column: 1;
     grid-row: 3;
@@ -35,6 +33,6 @@
     flex-direction: column;
     font-size:3vw;
     text-shadow: rgb(138, 5, 45) 4px 2px 1px;
- }
-
+  }
 }
+

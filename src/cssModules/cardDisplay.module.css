@@ -51,7 +51,7 @@
   }
 }
 
-@media (orientation: landscape) and (max-height: 600px) {
+@media (orientation: landscape) and (max-height: 850px) {
   .nineCardsContainer {
     display:  grid;
     gap:0px;
@@ -60,7 +60,7 @@
     grid-template-columns: 1fr 1fr 1fr; 
     grid-template-rows: 1fr 1fr 1fr;
     align-items: center;
-    padding: 2em 1em 2em 1em;
+    padding: 1em 1em 1em 1em;
     overflow: hidden;
   }
 
