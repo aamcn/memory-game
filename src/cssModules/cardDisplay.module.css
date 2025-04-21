@@ -50,3 +50,24 @@
     grid-row:1/5;
   }
 }
+
+@media (orientation: landscape) and (max-height: 600px) {
+  .nineCardsContainer {
+    display:  grid;
+    gap:0px;
+    grid-column: 2;
+    grid-row:1/5;
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr;
+    align-items: center;
+    padding: 2em 1em 2em 1em;
+    overflow: hidden;
+  }
+
+  .cardsContainer {
+    align-content: center;
+    grid-column: 2;
+    grid-row:1/5;
+  }
+
+}

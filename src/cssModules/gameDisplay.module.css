@@ -16,3 +16,9 @@
   }
 }
 
+@media (orientation: landscape) and (max-height: 600px) {
+  .gameDisplay {
+    grid-template-columns: 2fr 10fr ;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+  }
+}

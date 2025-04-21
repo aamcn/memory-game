@@ -53,6 +53,20 @@
     min-width:max-content;
     padding:1em;
   }
+}
 
+@media (orientation: landscape) and (max-height: 600px) {
+  .gameTitle {
+    grid-column: 1;
+    grid-row: 1; 
+    font-size: 6vw;
+    text-shadow:rgb(138, 5, 45)  4px 4px 1px;
+ }
 
+  .headerContainer {
+    justify-content: center;
+    width:100%;
+    min-width:max-content;
+    padding:1em;
+  }
 }
