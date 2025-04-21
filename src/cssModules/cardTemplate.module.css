@@ -196,6 +196,9 @@
   
   .cardTitleContainer {
     font-size: 1.5vw;
+    width:15vw;
+    height:35vh;
+    border-width: 0.2em;
   }
 
   .cardImage {
