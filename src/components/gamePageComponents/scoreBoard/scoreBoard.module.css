@@ -7,32 +7,36 @@
   text-shadow: rgb(138, 5, 45) 0.1em 0.1em 0.1em;
 }
 
+
 @media screen and (min-width:768px) {
   .scoreBoardContainer {
   font-size: 4vw;
   }
  }
 
+ @media screen and (min-width:1024px) {
+  
+  .scoreBoardContainer {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    font-size:2vw;
+    text-shadow: rgb(138, 5, 45) 0.2em 0.1em 0.1em;
+ }
+}
+
+/* 
+
  @media screen and (min-width:1200px) {
   
   .scoreBoardContainer {
     grid-column: 1;
-    grid-row: 3;
+    grid-row: 1;
     display: flex;
     flex-direction: column;
-    font-size:3.5vw;
+    font-size:2.5vw;
     text-shadow: rgb(138, 5, 45) 0.4em 0.2em 0.1em;
  }
-}
-
-@media (orientation: landscape) and (min-height: 800px) {
-  .scoreBoardContainer {
-    grid-column: 1;
-    grid-row: 3;
-    display: flex;
-    flex-direction: column;
-    font-size:3vw;
-    text-shadow: rgb(138, 5, 45) 0.1em 0.1em 0.1em;
-  }
-}
+} */
 

@@ -13,7 +13,8 @@ function CardDisplay({
   cardTotal
 }) {
   const [isHidden, setIsHidden] = useState(false);
-
+  const [classerName, setClassName] = useState(null)
+  
   //When isHidden is updated to true, it is reverted back to false after 0.5 seconds.
   useEffect(() => {
     if (isHidden != false) {
@@ -23,9 +24,22 @@ function CardDisplay({
     }
   }, [isHidden]);
 
+  useEffect(() =>{
+    console.log(cardTotal)
+    if(cardTotal == 9){
+      setClassName(`${styles.nineCardsContainer}`)
+    }
+    if(cardTotal == 6){
+      setClassName(`${styles.sixCardsContainer}`)
+    }
+    if(cardTotal == 4){
+      setClassName(`${styles.fourCardsContainer}`)
+    }
+  }, [cardTotal])
+
   return (
     !isHidden && (
-      <div className={cardTotal == 9 ? styles.nineCardsContainer : styles.cardsContainer}>
+      <div className={classerName}>
         {chosenPokemonCardData &&
           chosenPokemonCardData.map((pokemonCardDetails) => {
             return (
