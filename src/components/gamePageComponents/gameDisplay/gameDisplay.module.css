@@ -1,6 +1,6 @@
 .gameDisplay {
   display: grid;
-  height: 100vh;
+  height: 100dvh;
   grid-template-rows: 1fr 0.1fr 11fr;
   background:linear-gradient(0deg, rgb(148, 56, 56), rgb(151, 17, 228), rgb(0, 0, 0));
   background-color: rgb(235, 58, 117);
