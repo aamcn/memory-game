@@ -19,7 +19,7 @@ function GameOverPopUp({ setGameResults, setGameStarted }) {
       <div>
         <p>Would you like to try again?</p>
         <br></br>
-        <button onClick={handleClickRetry}>Retry?</button>
+        <button className={styles.retryButton} onClick={handleClickRetry}>Retry?</button>
       </div>
     </div>
   );

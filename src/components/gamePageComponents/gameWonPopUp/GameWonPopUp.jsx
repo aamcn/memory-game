@@ -13,15 +13,15 @@ function GameWonPopUp({ setGameStarted, setGameWon }) {
 
   return (
     <div className={styles.gameWonWindow}>
-      <h3 className={styles.gameOverTitle}>You Did It!</h3>
-      <div className={styles.gameOverText}>
+      <h3 className={styles.gameWonTitle}>You Did It!</h3>
+      <div className={styles.gameWonText}>
         <p>You Beat This Round</p>
         <p>Nice Work!</p>
       </div>
       <div>
         <p>Would you like to play again?</p>
         <br></br>
-        <button onClick={handleClickNewGame}>New Game?</button>
+        <button className={styles.newGameButton} onClick={handleClickNewGame}>New Game?</button>
       </div>
     </div>
   );
