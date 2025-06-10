@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import styles from "../../cssModules/cardTemplate.module.css";
-import { shuffleArray } from "../../modules/shuffleArray";
+import styles from "./cardTemplate.module.css";
+import { shuffleArray } from "../../../modules/shuffleArray/shuffleArray";
 
 function CardTemplate({
   pokemonCardDetails,

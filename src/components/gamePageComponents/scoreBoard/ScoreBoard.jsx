@@ -1,4 +1,4 @@
-import styles from "../../cssModules/scoreBoard.module.css";
+import styles from "./scoreBoard.module.css";
 import PropTypes from "prop-types";
 
 function ScoreBoard({ currentScore, highScore }) {

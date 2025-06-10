@@ -1,4 +1,4 @@
-import styles from "../../cssModules/gameWonPopUp.module.css";
+import styles from "./gameWonPopUp.module.css";
 import PropTypes from "prop-types";
 
 function GameWonPopUp({ setGameStarted, setGameWon }) {

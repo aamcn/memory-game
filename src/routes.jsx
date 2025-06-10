@@ -1,6 +1,6 @@
 import App from "./App";
-import LandingPage from "./pages/LandingPage";
-import GamePage from "./pages/GamePage";
+import LandingPage from "./components/landingPageComponents/LandingPage";
+import GamePage from "./components/gamePageComponents/gamePage/GamePage";
 import RouterErrorPage from "./RouterErrorPage";
 
 const routes = [

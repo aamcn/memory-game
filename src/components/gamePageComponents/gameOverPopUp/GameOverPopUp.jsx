@@ -1,4 +1,4 @@
-import styles from "../../cssModules/gameLostWindow.module.css";
+import styles from "./gameLostWindow.module.css";
 import PropTypes from "prop-types";
 function GameOverPopUp({ setGameResults, setGameStarted }) {
   /* Setting gameResults to false hides the GameLostWindow component 

@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
-import GameDisplay from "../components/GameComponents/GameDisplay";
-import { getRandomInt } from "../modules/randomNumber";
-import Header from "../components/Header/Header";
+import GameDisplay from "../gameDisplay/GameDisplay";
+import { getRandomInt } from "../../../modules/randoNumber/randomNumber";
 import { v4 as uuidv4 } from "uuid";
-import { PokemonCardObject } from "../modules/cardConstructor";
-import {checkForWin} from "../modules/checkForWin"
+import { PokemonCardObject } from "../../../modules/cardConstructor/cardConstructor";
+import {checkForWin} from "../../../modules/checkForWin/checkForWin"
 
 function GamePage() {
   const [chosenPokemon, setChosenPokemon] = useState([]);

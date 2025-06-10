@@ -1,5 +1,5 @@
-import CardTemplate from "./CardTemplate";
-import styles from "../../cssModules/cardDisplay.module.css";
+import CardTemplate from "../cardTemplate/CardTemplate";
+import styles from "./cardDisplay.module.css";
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 

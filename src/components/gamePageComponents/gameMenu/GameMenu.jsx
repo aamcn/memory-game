@@ -1,5 +1,5 @@
-import Button from "../../elements/Button"
-import styles from "../../cssModules/gameMenu.module.css";
+import Button from "../../../elements/Button"
+import styles from "./gameMenu.module.css";
 import PropTypes from "prop-types";
 
 function GameMenu({ handleStartClick, cardTotal, setCardTotal }) {
