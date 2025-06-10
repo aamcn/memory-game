@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import routes from "./routes";
 
-const router = createBrowserRouter(routes);
+const router = createBrowserRouter(routes, { basename: "/memory-game" });
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
