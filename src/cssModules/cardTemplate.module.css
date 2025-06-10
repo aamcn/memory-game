@@ -136,6 +136,12 @@
   width: 80%;
   }
 
+  .threeCardContainer {
+    width: 24vw;
+    height:30vh;
+    border-width: 5px;
+     }
+
   .sixImageContainer {
     width: 18vw;
     height: 18vw;
@@ -210,6 +216,12 @@
     font-size: 1vw;
   }
 
+  .threeCardContainer {
+    width:12vw;
+    height:40vh;
+    border-width: 5px;
+     }
+
   .cardImage {
     height: 80%;
     width: 80%;
@@ -251,6 +263,9 @@
   .cardTitleContainer {
     font-size: 1.5vw;
   }
+
+ 
+
   .sixImageContainer {
     width: 70%;
     height: 50%;
@@ -296,6 +311,7 @@
     font-size: 1.5vw;
   }
 
+ 
 
   .sixImageContainer {
     width: 80%;

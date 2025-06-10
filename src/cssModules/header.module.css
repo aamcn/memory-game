@@ -55,7 +55,7 @@
   }
 }
 
-@media (orientation: landscape) and (max-height: 800px) {
+@media (orientation: landscape) and (max-height: 850px) {
   .gameTitle {
     grid-column: 1;
     grid-row: 1; 
