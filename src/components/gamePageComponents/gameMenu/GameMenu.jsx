@@ -43,9 +43,9 @@ are drawn, the value of the button clicked is stored as the cardTotal.
         </div>
       </div>
       <div id="menu-buttons-container">
-        <Button className={styles.startButton} onClick={handleStartClick} buttonText={'Start'}>
-          
-        </Button>
+        <button className={styles.startButton} onClick={handleStartClick} >
+          Start
+        </button>
       </div>
     </div>
   );

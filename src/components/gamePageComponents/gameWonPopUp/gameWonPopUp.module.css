@@ -45,6 +45,15 @@
   font-size: 5vw;
 }
 
+@media screen and (min-width:768px) {
+
+  .gameWonWindow {
+    grid-template-rows: 1fr 1.5fr 1fr;
+    width: 60dvw;
+    padding: 1em;
+  }
+}
+
 @keyframes menuAppear {
   0% {
     opacity: 0;

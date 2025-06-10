@@ -40,7 +40,7 @@
   align-self: center;
   background-color: rgb(255, 206, 45);
   border: rgb(87, 65, 11) double 0.5em;
-  border-radius: 5%;
+  border-radius: 1em;
   width:26dvw;
   height:22dvh;
   transform-style: preserve-3d;

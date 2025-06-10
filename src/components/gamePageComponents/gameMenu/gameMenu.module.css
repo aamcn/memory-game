@@ -96,6 +96,29 @@ button:hover {
   }
 }
 
+@media screen and (min-width:768px) {
+  .gameMenuContainer {
+   width:50dvw;
+   height: 40dvh;
+  }
+  
+  .startButton{
+     width:14dvw;
+     height:5dvh;
+     font-size: 2.5dvw;
+  }
+
+  .optionButton {
+    height: fit-content;
+    animation: buttonFade 2s;
+    width:14dvw;
+    height:5dvh;
+    border:solid;
+    box-shadow: 0px 0.1em 0.1em 0px;
+    font-size: 2.5dvw;
+  }
+}
+
 @media screen and (min-width:1200px) {
   .gameMenuContainer {
    width:30vw;
