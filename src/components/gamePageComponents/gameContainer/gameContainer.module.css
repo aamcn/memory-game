@@ -1,11 +1,10 @@
-.gameDisplay {
+.gameContainer {
   display: grid;
-  height: 100dvh;
-  grid-template-rows: 1fr 0.1fr 11fr;
+  height: 90dvh;
+  grid-template-rows: 0.1fr 11.9fr;
   background:linear-gradient(0deg, rgb(148, 56, 56), rgb(151, 17, 228), rgb(0, 0, 0));
   background-color: rgb(235, 58, 117);
   box-shadow:inset 0px 0px 3em 0.5em ;
- 
 }
 
 @media (orientation: landscape) and (max-height: 800px) {

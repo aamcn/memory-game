@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
-import GameDisplay from "../gameDisplay/GameDisplay";
+import GameContainer from "../gameContainer/GameContainer";
 import { getRandomInt } from "../../../modules/randoNumber/randomNumber";
 import { v4 as uuidv4 } from "uuid";
 import { PokemonCardObject } from "../../../modules/cardConstructor/cardConstructor";
 import {checkForWin} from "../../../modules/checkForWin/checkForWin"
+import styles from "./gamePage.module.css"
+
 
 function GamePage() {
   const [chosenPokemon, setChosenPokemon] = useState([]);
@@ -93,7 +95,7 @@ function GamePage() {
 
   return (
     <>
-      <GameDisplay
+      <GameContainer
         cardTotal={cardTotal}
         setCardTotal={setCardTotal}
         highScore={highScore}

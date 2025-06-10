@@ -3,8 +3,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1em 0em 1em 0em;
   min-width: 320px;
+  height:10dvh;
 }
 
 .navbarContainer {
