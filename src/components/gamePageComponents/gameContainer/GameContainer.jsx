@@ -1,12 +1,12 @@
-import CardDisplay from "./CardDisplay";
-import GameOverPopUp from "./GameOverPopUp";
-import GameMenu from "./GameMenu";
-import ScoreBoard from "./ScoreBoard";
-import styles from "../../cssModules/gameDisplay.module.css";
+import CardDisplay from "../../cardComponents/cardDisplay/CardDisplay";
+import GameOverPopUp from "../gameOverPopUp/GameOverPopUp";
+import GameMenu from "../gameMenu/GameMenu";
+import ScoreBoard from "../scoreBoard/ScoreBoard";
+import styles from "./gameContainer.module.css";
 import PropTypes from "prop-types";
-import GameWonPopUp from "./GameWonPopUp";
-import Header from "../Header/Header"
-function GameDisplay({
+import GameWonPopUp from "../gameWonPopUp/GameWonPopUp";
+
+function GameContainer({
   highScore,
   gameStarted,
   setGameStarted,
@@ -23,9 +23,10 @@ function GameDisplay({
   setGameWon,
 }) {
   return (
-    <div className={styles.gameDisplay}>
-      {gameStarted  && <Header />}
-      {gameStarted  && <ScoreBoard highScore={highScore} currentScore={currentScore} />}
+    <div className={styles.gameContainer}>
+      {gameStarted && (
+        <ScoreBoard highScore={highScore} currentScore={currentScore} />
+      )}
       <CardDisplay
         setCurrentScore={setCurrentScore}
         setGameResults={setGameResults}
@@ -56,7 +57,7 @@ function GameDisplay({
   );
 }
 
-GameDisplay.propTypes = {
+GameContainer.propTypes = {
   cardObjects: PropTypes.array.isRequired,
   gameResults: PropTypes.bool.isRequired,
   gameStarted: PropTypes.bool.isRequired,
@@ -71,4 +72,4 @@ GameDisplay.propTypes = {
   highScore: PropTypes.number.isRequired,
 };
 
-export default GameDisplay;
+export default GameContainer;

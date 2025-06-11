@@ -3,8 +3,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1em 0em 1em 0em;
   min-width: 320px;
+  height: 10dvh;
 }
 
 .navbarContainer {
@@ -16,58 +16,68 @@
 
 .titleContainer {
   grid-row: 1;
-  margin: 0;
+  padding: 1em;
 }
 
 .gameTitle {
   color: rgb(211, 181, 15);
-  text-shadow:rgb(138, 5, 45)  2px 2px 1px;
+  text-shadow: rgb(138, 5, 45) 0.05em 0.09em 0.05em;
   text-decoration-color: red;
-  text-decoration: double ;
+  text-decoration: double;
   text-decoration-line: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 10px ;
+  text-decoration-thickness: 0.05em;
+  text-underline-offset: 0.1em;
 }
 
-
-@media screen and (min-width:768px) {
-
+@media screen and (min-width: 768px) {
   .gameTitle {
-     font-size: 14vw;
-     text-shadow:rgb(138, 5, 45)  4px 4px 1px;
+    font-size: 10vw;
+    text-shadow: rgb(138, 5, 45) 0.05em 0.05em 0.05em;
   }
- }
+}
 
+@media screen and (min-width: 1024px) {
+  .gameTitle {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 6vw;
+    text-shadow: rgb(138, 5, 45) 0.05em 0.05em 0.05em;
+  }
+
+  .headerContainer {
+    justify-content: center;
+    min-width: max-content;
+  }
+}
+
+/* 
  @media screen and (min-width:1200px) {
   
   .gameTitle {
     grid-column: 1;
     grid-row: 1; 
     font-size: 7vw;
-    text-shadow:rgb(138, 5, 45)  4px 4px 1px;
+    text-shadow:rgb(138, 5, 45) 0.05em 0.05em 0.05em;
  }
 
   .headerContainer {
     justify-content: center;
-    width:100%;
     min-width:max-content;
-    padding:1em;
   }
 }
+
 
 @media (orientation: landscape) and (max-height: 850px) {
   .gameTitle {
     grid-column: 1;
     grid-row: 1; 
     font-size: 6vw;
-    text-shadow:rgb(138, 5, 45)  4px 4px 1px;
+    text-shadow:rgb(138, 5, 45) 0.05em 0.05em 0.05em;
  }
 
   .headerContainer {
     justify-content: center;
-    width:100%;
     min-width:max-content;
-    padding:1em;
   }
 }
-
+ */

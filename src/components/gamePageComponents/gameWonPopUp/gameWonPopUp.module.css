@@ -1,0 +1,89 @@
+.gameWonWindow {
+  position: absolute;
+  width: 70dvw;
+  z-index: 3;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  justify-self: center;
+  align-self: center;
+  background-color: rgb(201, 230, 255);
+  z-index: 3;
+  border: double;
+  border-width: 0.5em;
+  border-radius: 2em;
+  padding: 1em;
+  animation: menuAppear 1s;
+  box-shadow: 0px 0px 2em 1em rgb(0, 0, 0);
+}
+
+.newGameButton {
+  color: wheat;
+  height: fit-content;
+  background-color: rgb(234, 130, 255);
+  animation: buttonFade 2s;
+  border: solid;
+  border-radius: 1em;
+  box-shadow: 0px 0.1em 0.1em 0px;
+}
+
+.newGameButton:active {
+  transform: translateY(4px);
+  box-shadow: inset 0em 0em 0.3em 0.1em black;
+}
+
+.newGameButton:hover {
+  background-color: rgb(153, 84, 167);
+}
+
+.gameWonTitle {
+  font-size: 7dvw;
+}
+
+.gameWonText {
+  font-size: 5vw;
+}
+
+@media screen and (min-width: 768px) {
+  .gameWonWindow {
+    width: 50dvw;
+    padding: 1em;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .gameWonWindow {
+    width: 30dvw;
+    padding: 1em;
+  }
+
+  .gameWonTitle {
+    font-size: 3dvw;
+  }
+
+  .gameWonText {
+    font-size: 2vw;
+  }
+}
+
+@keyframes menuAppear {
+  0% {
+    opacity: 0;
+    scale: 0;
+  }
+  100% {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+@keyframes buttonFade {
+  0% {
+    scale: 0;
+  }
+  50% {
+    scale: 1.2;
+  }
+  100% {
+    scale: 1;
+  }
+}

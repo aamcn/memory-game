@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import GameDisplay from "../components/GameComponents/GameDisplay";
-import { getRandomInt } from "../modules/randomNumber";
-import Header from "../components/Header/Header";
+import GameContainer from "../gameContainer/GameContainer";
+import { getRandomInt } from "../../../modules/randoNumber/randomNumber";
 import { v4 as uuidv4 } from "uuid";
-import { PokemonCardObject } from "../modules/cardConstructor";
-import {checkForWin} from "../modules/checkForWin"
+import { PokemonCardObject } from "../../../modules/cardConstructor/cardConstructor";
+import { checkForWin } from "../../../modules/checkForWin/checkForWin";
+import Header from "../../Header/Header.jsx";
 
 function GamePage() {
   const [chosenPokemon, setChosenPokemon] = useState([]);
@@ -87,14 +87,13 @@ function GamePage() {
     if (currentScore > highScore) {
       setHighScore(currentScore);
     }
-    checkForWin(currentScore, cardTotal,setGameWon);
+    checkForWin(currentScore, cardTotal, setGameWon);
   }, [highScore, currentScore]);
-
-  
 
   return (
     <>
-      <GameDisplay
+      <Header />
+      <GameContainer
         cardTotal={cardTotal}
         setCardTotal={setCardTotal}
         highScore={highScore}
