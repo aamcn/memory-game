@@ -45,7 +45,7 @@
   }
 
   .headerContainer {
-    justify-content: center;
+    justify-content: start;
     min-width: max-content;
   }
 }
