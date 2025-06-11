@@ -20,7 +20,7 @@
   border: double rgb(139, 106, 21) 5px;
   width: 12vh;
   height: 12vh;
-  box-shadow:inset 0px 0px 10px 10px rgb(217, 249, 255);
+  box-shadow: inset 0px 0px 10px 10px rgb(217, 249, 255);
   justify-content: center;
   align-items: center;
 }
@@ -31,7 +31,7 @@
   flex-direction: column;
   align-items: center;
   background-color: rgb(255, 206, 45);
-  border:rgb(87, 65, 11) double 0.3em;
+  border: rgb(87, 65, 11) double 0.3em;
   border-radius: 0.5em;
   font-size: 4vw;
   height: 25dvh;
@@ -47,7 +47,7 @@
   border: double rgb(139, 106, 21) 5px;
   width: 9vh;
   height: 9vh;
-  box-shadow:inset 0px 0px 10px 10px rgb(217, 249, 255);
+  box-shadow: inset 0px 0px 10px 10px rgb(217, 249, 255);
   justify-content: center;
   align-items: center;
 }
@@ -62,12 +62,11 @@
   border: rgb(87, 65, 11) double 0.4em;
   border-radius: 0.5em;
   aspect-ratio: 1/2;
-  height:24dvh;
+  height: 24dvh;
   transform-style: preserve-3d;
   animation: cardAppear 1s;
   box-shadow: inset -10px 10px 20px 6px rgb(255, 242, 199);
 }
-
 
 .nineImageContainer {
   background-color: rgb(173, 215, 223);
@@ -75,7 +74,7 @@
   border: double rgb(139, 106, 21) 5px;
   width: 9vh;
   height: 9vh;
-  box-shadow:inset 0px 0px 10px 10px rgb(217, 249, 255);
+  box-shadow: inset 0px 0px 10px 10px rgb(217, 249, 255);
   justify-content: center;
   align-items: center;
 }
@@ -98,17 +97,15 @@
   width: 80%;
 }
 
-
-@media screen and (min-width:768px) {
-  
+@media screen and (min-width: 768px) {
   .fourCardContainer {
     aspect-ratio: 1/2;
-    height:34dvh;
+    height: 34dvh;
   }
 
   .fourImageContainer {
-    width:13vh;
-    height:13vh;
+    width: 13vh;
+    height: 13vh;
   }
 
   .sixImageContainer {
@@ -122,38 +119,34 @@
     aspect-ratio: 1/2;
   }
 
-
   .nineCardContainer {
     aspect-ratio: 1/2;
     height: 24vh;
-
   }
 
   .nineImageContainer {
     width: 12vw;
     height: 12vw;
   }
- 
 }
 
-@media screen and (min-width:1024px) {
-
+@media screen and (min-width: 1024px) {
   .fourCardContainer {
     aspect-ratio: 1/2;
-    height:34dvh;
+    height: 34dvh;
     border: rgb(87, 65, 11) double 0.5em;
     border-radius: 0.5em;
   }
 
   .fourImageContainer {
-    width:13vh;
-    height:13vh;
+    width: 13vh;
+    height: 13vh;
   }
 
   .nineCardContainer {
     border-radius: 5%;
     aspect-ratio: 1/2;
-    height:26dvh;
+    height: 26dvh;
   }
 
   .nineImageContainer {
@@ -163,39 +156,36 @@
 
   .sixCardContainer {
     border-radius: 5%;
-    border:rgb(87, 65, 11) double 0.2em;
+    border: rgb(87, 65, 11) double 0.2em;
     aspect-ratio: 1/2;
-    height:32dvh;
+    height: 32dvh;
   }
 
   .sixImageContainer {
     width: 12vh;
     height: 12vh;
   }
-  
 }
 
-@media (max-height:767px) and (min-width:1024px) {
-
+@media (max-height: 767px) and (min-width: 1024px) {
   .fourCardContainer {
     aspect-ratio: 1/2;
-    height:36dvh;
-    
+    height: 36dvh;
   }
 
   .fourImageContainer {
-    width:9vw;
-    height:9vw;
+    width: 9vw;
+    height: 9vw;
   }
 
   .cardTitleContainer {
     font-size: 1vw;
   }
 
-   .sixCardContainer {
+  .sixCardContainer {
     border-radius: 5%;
     aspect-ratio: 1/2;
-    height:34dvh;
+    height: 34dvh;
   }
 
   .sixImageContainer {
@@ -207,39 +197,36 @@
     border-radius: 5%;
     border-width: 0.3em;
     aspect-ratio: 1/2;
-    height:24dvh;
+    height: 24dvh;
   }
 
   .nineImageContainer {
     width: 8vh;
     height: 8vh;
   }
-  
 }
 
-@media screen and (min-width:1200px) {
-  
+@media screen and (min-width: 1200px) {
   .fourCardContainer {
     height: 38dvh;
     aspect-ratio: 1/2;
-   }
+  }
 
-   .fourImageContainer {
-     width: 14vh;
+  .fourImageContainer {
+    width: 14vh;
     height: 14vh;
   }
 
-
   .sixImageContainer {
-     width: 12vh;
-      height: 12vh;
+    width: 12vh;
+    height: 12vh;
   }
 
   .sixCardContainer {
     border-radius: 0.2em;
     font-size: 4vw;
     aspect-ratio: 1/2;
-    height:34vh;
+    height: 34vh;
     border-width: 0.1em;
   }
 
@@ -247,16 +234,15 @@
     width: 9vh;
     height: 9vh;
   }
-  
+
   .nineCardContainer {
     aspect-ratio: 1/2;
-    height:26vh;
+    height: 26vh;
     border-width: 0.4em;
   }
 }
-   
 
-   @keyframes cardAppear {
+@keyframes cardAppear {
   0% {
     transform: rotateY(90deg);
   }

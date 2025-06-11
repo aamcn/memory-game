@@ -2,7 +2,6 @@ import styles from "./gameWonPopUp.module.css";
 import PropTypes from "prop-types";
 
 function GameWonPopUp({ setGameStarted, setGameWon }) {
-  
   /* 
     Setting gameResults to false hides the GameLostWindow component 
     setting gameStarted to false displays the gameMenu component starting the game over
@@ -22,7 +21,9 @@ function GameWonPopUp({ setGameStarted, setGameWon }) {
       <div>
         <p>Would you like to play again?</p>
         <br></br>
-        <button className={styles.newGameButton} onClick={handleClickNewGame}>New Game?</button>
+        <button className={styles.newGameButton} onClick={handleClickNewGame}>
+          New Game?
+        </button>
       </div>
     </div>
   );

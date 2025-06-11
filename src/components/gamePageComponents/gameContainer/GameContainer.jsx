@@ -6,7 +6,6 @@ import styles from "./gameContainer.module.css";
 import PropTypes from "prop-types";
 import GameWonPopUp from "../gameWonPopUp/GameWonPopUp";
 
-
 function GameContainer({
   highScore,
   gameStarted,
@@ -25,7 +24,9 @@ function GameContainer({
 }) {
   return (
     <div className={styles.gameContainer}>
-      {gameStarted  && <ScoreBoard highScore={highScore} currentScore={currentScore} />}
+      {gameStarted && (
+        <ScoreBoard highScore={highScore} currentScore={currentScore} />
+      )}
       <CardDisplay
         setCurrentScore={setCurrentScore}
         setGameResults={setGameResults}

@@ -10,11 +10,11 @@ function CardDisplay({
   setGameResults,
   cardObjects,
   setCardObjects,
-  cardTotal
+  cardTotal,
 }) {
   const [isHidden, setIsHidden] = useState(false);
-  const [cardsContainerClassName, setCardsContainerClassName] = useState(null)
-  
+  const [cardsContainerClassName, setCardsContainerClassName] = useState(null);
+
   /*
     When isHidden is updated to true, it is reverted back to false after 0.5 seconds.
     This hides the cards while their order is shuffled.
@@ -27,22 +27,21 @@ function CardDisplay({
     }
   }, [isHidden]);
 
-
   /*
     Depending on the variable of cardTotal a different className is set in cardsContainerClassName. 
     This allows for different styling to be applied to the div depending on the total of cards in play.CardDisplay.
   */
-  useEffect(() =>{
-    if(cardTotal == 9){
-      setCardsContainerClassName(`${styles.nineCardsContainer}`)
+  useEffect(() => {
+    if (cardTotal == 9) {
+      setCardsContainerClassName(`${styles.nineCardsContainer}`);
     }
-    if(cardTotal == 6){
-      setCardsContainerClassName(`${styles.sixCardsContainer}`)
+    if (cardTotal == 6) {
+      setCardsContainerClassName(`${styles.sixCardsContainer}`);
     }
-    if(cardTotal == 4){
-      setCardsContainerClassName(`${styles.fourCardsContainer}`)
+    if (cardTotal == 4) {
+      setCardsContainerClassName(`${styles.fourCardsContainer}`);
     }
-  }, [cardTotal])
+  }, [cardTotal]);
 
   return (
     !isHidden && (

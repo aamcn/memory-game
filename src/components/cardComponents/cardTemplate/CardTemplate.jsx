@@ -9,10 +9,8 @@ function CardTemplate({
   setGameResults,
   setCardObjects,
   setIsHidden,
-  cardTotal
+  cardTotal,
 }) {
-
-
   /* 
     When the card is clicked, if it is the first time, the isClicked state is 
     changed to 'true' and a point is added to the current score. 
@@ -36,10 +34,24 @@ function CardTemplate({
         <div
           key={pokemonCardDetails.id}
           data-testid="playingCard"
-          className={cardTotal === 9 ? styles.nineCardContainer : cardTotal === 6 ? styles.sixCardContainer : styles.fourCardContainer}
+          className={
+            cardTotal === 9
+              ? styles.nineCardContainer
+              : cardTotal === 6
+                ? styles.sixCardContainer
+                : styles.fourCardContainer
+          }
           onClick={handleCardClick}
         >
-          <div className={cardTotal === 9 ? styles.nineImageContainer : cardTotal === 6 ? styles.sixImageContainer : styles.fourImageContainer}>
+          <div
+            className={
+              cardTotal === 9
+                ? styles.nineImageContainer
+                : cardTotal === 6
+                  ? styles.sixImageContainer
+                  : styles.fourImageContainer
+            }
+          >
             <img
               className={styles.cardImage}
               src={pokemonCardDetails.imageUrl}

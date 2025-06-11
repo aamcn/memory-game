@@ -1,9 +1,6 @@
 import styles from "./gameLostWindow.module.css";
 import PropTypes from "prop-types";
 function GameOverPopUp({ setGameResults, setGameStarted }) {
-  
-  
-  
   /* 
     Setting gameResults to false hides the GameLostWindow component 
     setting gameStarted displays the gameMenu component starting the game over
@@ -23,7 +20,9 @@ function GameOverPopUp({ setGameResults, setGameStarted }) {
       <div>
         <p>Would you like to try again?</p>
         <br></br>
-        <button className={styles.retryButton} onClick={handleClickRetry}>Retry?</button>
+        <button className={styles.retryButton} onClick={handleClickRetry}>
+          Retry?
+        </button>
       </div>
     </div>
   );
