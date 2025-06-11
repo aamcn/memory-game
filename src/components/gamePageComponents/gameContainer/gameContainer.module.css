@@ -14,13 +14,4 @@
   }
 }
 
-/* 
 
-@media screen and (min-width:1200px) {
-  .gameContainer {
-  grid-template-rows: 1fr;
-  grid-template-columns: 3fr 9fr;
-  height: 90dvh;
-  }
-
-} */

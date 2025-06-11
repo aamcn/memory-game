@@ -3,7 +3,7 @@
   width: 70dvw;
   z-index: 3;
   display: grid;
-  grid-template-rows: 1fr 1.5fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   justify-self: center;
   align-self: center;
   background-color: rgb(201, 230, 255);
@@ -49,6 +49,22 @@
     width: 60dvw;
     padding: 1em;
   }
+}
+
+@media screen and (min-width:768px) {
+
+  .lostGameWindow {
+    width: 40dvw;
+    padding: 1em;
+  }
+
+  .gameOverTitle {
+  font-size: 4vw;
+}
+.gameOverText {
+  font-size: 2vw;
+}
+
 }
 
 
