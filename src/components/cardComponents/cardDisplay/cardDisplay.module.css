@@ -53,14 +53,14 @@
 @media screen and (min-width:1024px) {
   
 
-  /* .fourCardsContainer {
+  .fourCardsContainer {
     align-content: center;
-    grid-template-columns: 1fr 1fr 1fr 1fr; 
-    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr 1fr;
     grid-column: 2;
     grid-row:1;
   }
-*/
+
 
  .sixCardsContainer{
   grid-column: 2;
@@ -79,7 +79,7 @@
 }
 
 
-/* 
+
 
 
 
@@ -96,12 +96,12 @@
     overflow: hidden;
   }
 
-  .cardsContainer {
+  .fourCardsContainer {
     display: flex;
     align-content: center;
     grid-column: 2;
     grid-row:1;
   }
-} */
+}
 
 
