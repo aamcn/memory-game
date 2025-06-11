@@ -84,8 +84,10 @@
   }
 
   .fourCardsContainer {
-    display: flex;
+    display: grid;
     align-content: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     grid-column: 2;
     grid-row: 1;
   }

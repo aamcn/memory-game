@@ -20,6 +20,8 @@
     display: flex;
     flex-direction: column;
     font-size: 2vw;
+    text-align: left;
+    padding:1em 0em 0em 1em ;
     text-shadow: rgb(138, 5, 45) 0.2em 0.1em 0.1em;
   }
 }
