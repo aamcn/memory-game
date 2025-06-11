@@ -11,10 +11,13 @@ function CardTemplate({
   setIsHidden,
   cardTotal
 }) {
-  /* When the card is clicked, if it is the first time, the isClicked state is 
-  changed to 'true' and a point is added to the current score. 
-  If the card has been previously clicked (meaning isClicked is true) gameResults
-  is set to true (which renders the gameOver component).
+
+
+  /* 
+    When the card is clicked, if it is the first time, the isClicked state is 
+    changed to 'true' and a point is added to the current score. 
+    If the card has been previously clicked (meaning isClicked is already true) gameResults
+    is set to true ending the game which renders the gameOver pop up menu component.
   */
   const handleCardClick = () => {
     if (pokemonCardDetails.isClicked != true) {
@@ -27,17 +30,16 @@ function CardTemplate({
     }
   };
 
-
   return (
     <>
       {pokemonCardDetails && (
         <div
           key={pokemonCardDetails.id}
           data-testid="playingCard"
-          className={cardTotal === 9 ? styles.nineCardContainer : cardTotal === 6 ? styles.sixCardContainer : styles.threeCardContainer}
+          className={cardTotal === 9 ? styles.nineCardContainer : cardTotal === 6 ? styles.sixCardContainer : styles.fourCardContainer}
           onClick={handleCardClick}
         >
-          <div className={cardTotal === 9 ? styles.nineImageContainer : cardTotal === 6 ? styles.sixImageContainer : styles.imageContainer}>
+          <div className={cardTotal === 9 ? styles.nineImageContainer : cardTotal === 6 ? styles.sixImageContainer : styles.fourImageContainer}>
             <img
               className={styles.cardImage}
               src={pokemonCardDetails.imageUrl}

@@ -2,6 +2,7 @@ import styles from "./scoreBoard.module.css";
 import PropTypes from "prop-types";
 
 function ScoreBoard({ currentScore, highScore }) {
+  
   return (
     <div className={styles.scoreBoardContainer}>
       <p className={styles.score} data-testid="currentScore" role="currentScore">

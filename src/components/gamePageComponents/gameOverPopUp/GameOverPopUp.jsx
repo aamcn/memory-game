@@ -1,8 +1,12 @@
 import styles from "./gameLostWindow.module.css";
 import PropTypes from "prop-types";
 function GameOverPopUp({ setGameResults, setGameStarted }) {
-  /* Setting gameResults to false hides the GameLostWindow component 
-  setting gameStarted displays the gameMenu component starting the game over
+  
+  
+  
+  /* 
+    Setting gameResults to false hides the GameLostWindow component 
+    setting gameStarted displays the gameMenu component starting the game over
   */
   const handleClickRetry = () => {
     setGameResults(false);

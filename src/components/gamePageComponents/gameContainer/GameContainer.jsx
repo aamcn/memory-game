@@ -5,6 +5,8 @@ import ScoreBoard from "../scoreBoard/ScoreBoard";
 import styles from "./gameContainer.module.css";
 import PropTypes from "prop-types";
 import GameWonPopUp from "../gameWonPopUp/GameWonPopUp";
+
+
 function GameContainer({
   highScore,
   gameStarted,

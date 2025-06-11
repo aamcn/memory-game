@@ -13,9 +13,12 @@ function CardDisplay({
   cardTotal
 }) {
   const [isHidden, setIsHidden] = useState(false);
-  const [classerName, setClassName] = useState(null)
+  const [cardsContainerClassName, setCardsContainerClassName] = useState(null)
   
-  //When isHidden is updated to true, it is reverted back to false after 0.5 seconds.
+  /*
+    When isHidden is updated to true, it is reverted back to false after 0.5 seconds.
+    This hides the cards while their order is shuffled.
+  */
   useEffect(() => {
     if (isHidden != false) {
       setTimeout(() => {
@@ -24,22 +27,26 @@ function CardDisplay({
     }
   }, [isHidden]);
 
+
+  /*
+    Depending on the variable of cardTotal a different className is set in cardsContainerClassName. 
+    This allows for different styling to be applied to the div depending on the total of cards in play.CardDisplay.
+  */
   useEffect(() =>{
-    console.log(cardTotal)
     if(cardTotal == 9){
-      setClassName(`${styles.nineCardsContainer}`)
+      setCardsContainerClassName(`${styles.nineCardsContainer}`)
     }
     if(cardTotal == 6){
-      setClassName(`${styles.sixCardsContainer}`)
+      setCardsContainerClassName(`${styles.sixCardsContainer}`)
     }
     if(cardTotal == 4){
-      setClassName(`${styles.fourCardsContainer}`)
+      setCardsContainerClassName(`${styles.fourCardsContainer}`)
     }
   }, [cardTotal])
 
   return (
     !isHidden && (
-      <div className={classerName}>
+      <div className={cardsContainerClassName}>
         {chosenPokemonCardData &&
           chosenPokemonCardData.map((pokemonCardDetails) => {
             return (

@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import { PokemonCardObject } from "../../../modules/cardConstructor/cardConstructor";
 import {checkForWin} from "../../../modules/checkForWin/checkForWin"
 import Header from "../../Header/Header.jsx"
-import styles from "./gamePage.module.css"
+
 
 
 function GamePage() {

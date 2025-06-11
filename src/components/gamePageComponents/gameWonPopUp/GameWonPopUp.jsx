@@ -2,10 +2,11 @@ import styles from "./gameWonPopUp.module.css";
 import PropTypes from "prop-types";
 
 function GameWonPopUp({ setGameStarted, setGameWon }) {
-  /* Setting gameResults to false hides the GameLostWindow component 
-  setting gameStarted displays the gameMenu component starting the game over
+  
+  /* 
+    Setting gameResults to false hides the GameLostWindow component 
+    setting gameStarted to false displays the gameMenu component starting the game over
   */
-
   const handleClickNewGame = () => {
     setGameStarted(false);
     setGameWon(false);
@@ -26,5 +27,10 @@ function GameWonPopUp({ setGameStarted, setGameWon }) {
     </div>
   );
 }
+
+GameWonPopUp.propTypes = {
+  setGameStarted: PropTypes.bool.isRequired,
+  setGameWon: PropTypes.bool.isRequired,
+};
 
 export default GameWonPopUp;

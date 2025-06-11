@@ -1,4 +1,4 @@
-.threeCardContainer {
+.fourCardContainer {
   display: flex;
   justify-content: space-around;
   flex-direction: column;
@@ -14,7 +14,7 @@
   box-shadow: inset -10px 10px 20px 6px rgb(255, 242, 199);
 }
 
-.imageContainer {
+.fourImageContainer {
   background-color: rgb(173, 215, 223);
   display: flex;
   border: double rgb(139, 106, 21) 5px;
@@ -101,12 +101,12 @@
 
 @media screen and (min-width:768px) {
   
-  .threeCardContainer {
+  .fourCardContainer {
     aspect-ratio: 1/2;
     height:34dvh;
   }
 
-  .imageContainer {
+  .fourImageContainer {
     width:13vh;
     height:13vh;
   }
@@ -138,14 +138,14 @@
 
 @media screen and (min-width:1024px) {
 
-  .threeCardContainer {
+  .fourCardContainer {
     aspect-ratio: 1/2;
     height:34dvh;
     border: rgb(87, 65, 11) double 0.5em;
     border-radius: 0.5em;
   }
 
-  .imageContainer {
+  .fourImageContainer {
     width:13vh;
     height:13vh;
   }
@@ -177,13 +177,13 @@
 
 @media (max-height:767px) and (min-width:1024px) {
 
-  .threeCardContainer {
+  .fourCardContainer {
     aspect-ratio: 1/2;
     height:36dvh;
     
   }
 
-  .imageContainer {
+  .fourImageContainer {
     width:9vw;
     height:9vw;
   }
@@ -219,12 +219,12 @@
 
 @media screen and (min-width:1200px) {
   
-  .threeCardContainer {
+  .fourCardContainer {
     height: 38dvh;
     aspect-ratio: 1/2;
    }
 
-   .imageContainer {
+   .fourImageContainer {
      width: 14vh;
     height: 14vh;
   }
