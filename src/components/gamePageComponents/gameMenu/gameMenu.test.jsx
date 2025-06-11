@@ -13,7 +13,7 @@ describe("Easy Button", () => {
     expect(button).toBeInTheDocument();
   });
 
-  it("Should update cardTotal to '3' when the Easy button is clickec", async () => {
+  it("Should update cardTotal to '4' when the Easy button is clicked", async () => {
     let cardTotal = 0;
     const setCardTotal = (number) => {
       cardTotal = number;
@@ -24,19 +24,19 @@ describe("Easy Button", () => {
 
     const easyButton = screen.getByRole("button", { name: "Easy" });
     await user.click(easyButton);
-    expect(cardTotal).toBe(3);
+    expect(cardTotal).toBe(4);
   });
 
-  it("Should NOT update cardTotal to '3' when the Easy button is NOT clickec", async () => {
+  it("Should NOT update cardTotal to '4' when the Easy button is NOT clickec", async () => {
     let cardTotal = 0;
     const setCardTotal = (number) => {
       cardTotal = number;
     };
     render(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />);
-    expect(cardTotal).not.toBe(3);
+    expect(cardTotal).not.toBe(4);
   });
 
-  it("Should change difficulty text to '3 Cards' when 'Easy button' is clicked", async () => {
+  it("Should change difficulty text to '4 Cards' when 'Easy button' is clicked", async () => {
     let cardTotal = 0;
     const setCardTotal = (number) => {
       cardTotal = number;
@@ -51,10 +51,10 @@ describe("Easy Button", () => {
     rerender(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />);
     const difficultyText = screen.getByTestId("difficultyText");
     expect(difficultyText.textContent).not.toStrictEqual("10 Cards");
-    expect(difficultyText.textContent).toStrictEqual("3 Cards");
+    expect(difficultyText.textContent).toStrictEqual("4 Cards");
   });
 
-  it("Should change difficulty text to '3 Cards' when 'Easy button' is clicked", async () => {
+  it("Should change difficulty text to '4 Cards' when 'Easy button' is clicked", async () => {
     let cardTotal = 0;
     const setCardTotal = (number) => {
       cardTotal = number;
@@ -68,7 +68,7 @@ describe("Easy Button", () => {
     const difficultyText = screen.getByTestId("difficultyText");
 
     expect(difficultyText.textContent).toStrictEqual("0 Cards");
-    expect(difficultyText.textContent).not.toStrictEqual("3 Cards");
+    expect(difficultyText.textContent).not.toStrictEqual("4 Cards");
   });
 });
 
