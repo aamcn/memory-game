@@ -6,7 +6,7 @@
   background-color: rgb(255, 206, 45);
   border: rgb(87, 65, 11) double 0.5em;
   border-radius: 0.5em;
-  aspect-ratio: 1/2;
+  aspect-ratio: 3/5;
   height: 32dvh;
   transform-style: preserve-3d;
   animation: cardAppear 1s;
@@ -18,8 +18,8 @@
   background-color: rgb(173, 215, 223);
   display: flex;
   border: double rgb(139, 106, 21) 5px;
-  width: 12vh;
-  height: 12vh;
+  width: 16dvh;
+  height: 14dvh;
   box-shadow: inset 0px 0px 10px 10px rgb(217, 249, 255);
   justify-content: center;
   align-items: center;
@@ -33,9 +33,9 @@
   background-color: rgb(255, 206, 45);
   border: rgb(87, 65, 11) double 0.3em;
   border-radius: 0.5em;
-  font-size: 4vw;
+  font-size: 4dvw;
   height: 25dvh;
-  aspect-ratio: 1/2;
+  aspect-ratio: 3/5;
   transform-style: preserve-3d;
   animation: cardAppear 1s;
   box-shadow: inset -10px 10px 20px 6px rgb(255, 242, 199);
@@ -45,8 +45,8 @@
   background-color: rgb(173, 215, 223);
   display: flex;
   border: double rgb(139, 106, 21) 5px;
-  width: 9vh;
-  height: 9vh;
+  width: 12dvh;
+  height: 10dvh;
   box-shadow: inset 0px 0px 10px 10px rgb(217, 249, 255);
   justify-content: center;
   align-items: center;
@@ -59,10 +59,10 @@
   align-items: center;
   align-self: center;
   background-color: rgb(255, 206, 45);
-  border: rgb(87, 65, 11) double 0.4em;
+  border: rgb(87, 65, 11) double 0.2em;
   border-radius: 0.5em;
-  aspect-ratio: 1/2;
-  height: 24dvh;
+  aspect-ratio: 3/5;
+  height: 20dvh;
   transform-style: preserve-3d;
   animation: cardAppear 1s;
   box-shadow: inset -10px 10px 20px 6px rgb(255, 242, 199);
@@ -71,9 +71,10 @@
 .nineImageContainer {
   background-color: rgb(173, 215, 223);
   display: flex;
-  border: double rgb(139, 106, 21) 5px;
-  width: 9vh;
-  height: 9vh;
+  border: double rgb(139, 106, 21) 0.2em;
+  border-radius:0.3em;
+  width: 75%;
+  height: 45%;
   box-shadow: inset 0px 0px 10px 10px rgb(217, 249, 255);
   justify-content: center;
   align-items: center;
@@ -89,7 +90,7 @@
   outline-style: inset;
   outline-color: rgb(255, 255, 255);
   color: rgb(114, 87, 19);
-  font-size: 1.5vh;
+  font-size: 1.5dvh;
 }
 
 .cardImage {
@@ -99,146 +100,125 @@
 
 @media screen and (min-width: 768px) {
   .fourCardContainer {
-    aspect-ratio: 1/2;
     height: 34dvh;
   }
 
   .fourImageContainer {
-    width: 13vh;
-    height: 13vh;
+    width: 17dvh;
+    height: 15dvh;
   }
 
   .sixImageContainer {
-    width: 12vh;
-    height: 12vh;
+    width: 16dvh;
+    height: 14dvh;
   }
 
   .sixCardContainer {
-    font-size: 4vw;
-    height: 32vh;
-    aspect-ratio: 1/2;
+    font-size: 4dvw;
+    height: 32dvh;
   }
 
   .nineCardContainer {
-    aspect-ratio: 1/2;
-    height: 24vh;
+    height: 24dvh;
+    border-width: 0.3em;
   }
 
-  .nineImageContainer {
-    width: 12vw;
-    height: 12vw;
+  .nineImageContainer{
+    border-width: 0.3em;
   }
+
 }
 
 @media screen and (min-width: 1024px) {
   .fourCardContainer {
-    aspect-ratio: 1/2;
     height: 34dvh;
     border: rgb(87, 65, 11) double 0.5em;
     border-radius: 0.5em;
   }
 
   .fourImageContainer {
-    width: 13vh;
-    height: 13vh;
-  }
-
-  .nineCardContainer {
-    border-radius: 5%;
-    aspect-ratio: 1/2;
-    height: 26dvh;
-  }
-
-  .nineImageContainer {
-    width: 10vh;
-    height: 10vh;
+    width: 13dvh;
+    height: 13dvh;
   }
 
   .sixCardContainer {
     border-radius: 5%;
     border: rgb(87, 65, 11) double 0.2em;
-    aspect-ratio: 1/2;
     height: 32dvh;
   }
 
   .sixImageContainer {
-    width: 12vh;
-    height: 12vh;
+    width: 15dvh;
+    height: 13dvh;
   }
+
+  .nineCardContainer {
+    height: 26dvh;
+  }
+
 }
 
 @media (max-height: 767px) and (min-width: 1024px) {
   .fourCardContainer {
-    aspect-ratio: 1/2;
     height: 36dvh;
   }
 
   .fourImageContainer {
-    width: 9vw;
-    height: 9vw;
+    width: 10dvw;
+    height: 9dvw;
   }
 
   .cardTitleContainer {
-    font-size: 1vw;
+    font-size: 1dvw;
   }
 
   .sixCardContainer {
     border-radius: 5%;
-    aspect-ratio: 1/2;
     height: 34dvh;
   }
 
   .sixImageContainer {
-    width: 12vh;
-    height: 12vh;
+    width: 16dvh;
+    height: 14dvh;
   }
 
   .nineCardContainer {
     border-radius: 5%;
     border-width: 0.3em;
-    aspect-ratio: 1/2;
     height: 24dvh;
   }
 
   .nineImageContainer {
-    width: 8vh;
-    height: 8vh;
+    width: 75%;
+    height: 45%;
   }
 }
 
 @media screen and (min-width: 1200px) {
   .fourCardContainer {
     height: 38dvh;
-    aspect-ratio: 1/2;
   }
 
   .fourImageContainer {
-    width: 14vh;
-    height: 14vh;
+    width: 18dvh;
+    height: 17dvh;
   }
 
   .sixImageContainer {
-    width: 12vh;
-    height: 12vh;
+    width: 16dvh;
+    height: 14dvh;
   }
 
   .sixCardContainer {
     border-radius: 0.2em;
-    font-size: 4vw;
-    aspect-ratio: 1/2;
-    height: 34vh;
+    font-size: 4dvw;
+    height: 34dvh;
     border-width: 0.1em;
   }
 
-  .nineImageContainer {
-    width: 9vh;
-    height: 9vh;
-  }
-
   .nineCardContainer {
-    aspect-ratio: 1/2;
-    height: 26vh;
-    border-width: 0.4em;
+    height: 26dvh;
+    border-width: 0.3em;
   }
 }
 
