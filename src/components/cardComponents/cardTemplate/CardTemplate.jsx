@@ -6,7 +6,7 @@ function CardTemplate({
   pokemonCardDetails,
   setCurrentScore,
   currentScore,
-  setGameResults,
+  setGameOver,
   setCardObjects,
   setIsHidden,
   cardTotal,
@@ -24,7 +24,7 @@ function CardTemplate({
       setCardObjects((cardObjects) => shuffleArray(cardObjects));
       setIsHidden(true);
     } else {
-      setGameResults(true);
+      setGameOver(true);
     }
   };
 
@@ -73,7 +73,7 @@ CardTemplate.propTypes = {
   pokemonCardDetails: PropTypes.object.isRequired,
   setCurrentScore: PropTypes.func.isRequired,
   currentScore: PropTypes.number.isRequired,
-  setGameResults: PropTypes.bool.isRequired,
+  setGameOver: PropTypes.bool.isRequired,
   setCardObjects: PropTypes.object.isRequired,
   setIsHidden: PropTypes.func.isRequired,
 };

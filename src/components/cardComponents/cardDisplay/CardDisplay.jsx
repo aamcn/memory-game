@@ -7,7 +7,7 @@ function CardDisplay({
   chosenPokemonCardData,
   setCurrentScore,
   currentScore,
-  setGameResults,
+  setGameOver,
   cardObjects,
   setCardObjects,
   cardTotal,
@@ -51,7 +51,7 @@ function CardDisplay({
             return (
               <CardTemplate
                 key={pokemonCardDetails.id}
-                setGameResults={setGameResults}
+                setGameOver={setGameOver}
                 currentScore={currentScore}
                 setCurrentScore={setCurrentScore}
                 pokemonCardDetails={pokemonCardDetails}
@@ -72,7 +72,7 @@ CardDisplay.propTypes = {
   chosenPokemonCardData: PropTypes.object.isRequired,
   currentScore: PropTypes.number.isRequired,
   setCurrentScore: PropTypes.func.isRequired,
-  setGameResults: PropTypes.bool.isRequired,
+  setGameOver: PropTypes.bool.isRequired,
   cardObjects: PropTypes.array.isRequired,
   setCardObjects: PropTypes.func.isRequired,
 };

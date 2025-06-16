@@ -9,7 +9,7 @@ import Header from "../../Header/Header.jsx";
 function GamePage() {
   const [chosenPokemon, setChosenPokemon] = useState([]);
   const [cardObjects, setCardObjects] = useState([]);
-  const [gameResults, setGameResults] = useState(false);
+  const [gameOver, setGameOver] = useState(false);
   const [currentScore, setCurrentScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
@@ -73,12 +73,12 @@ function GamePage() {
     choosePokemon();
   };
 
-  //When the gameResults state is changed the cardObjects are wiped.
+  //When the gameOver state is changed the cardObjects are wiped.
   useEffect(() => {
-    if (gameResults || gameWon) {
+    if (gameOver || gameWon) {
       setCardObjects([]);
     }
-  }, [gameResults, gameWon]);
+  }, [gameOver, gameWon]);
 
   /* If the currentScore is greater than the highScore the highScore is updated to 
   match currentScore 
@@ -99,10 +99,10 @@ function GamePage() {
         highScore={highScore}
         gameStarted={gameStarted}
         setGameStarted={setGameStarted}
-        gameResults={gameResults}
+        gameOver={gameOver}
         handleStartClick={handleStartClick}
         currentScore={currentScore}
-        setGameResults={setGameResults}
+        setGameOver={setGameOver}
         setCurrentScore={setCurrentScore}
         cardObjects={cardObjects}
         setCardObjects={setCardObjects}

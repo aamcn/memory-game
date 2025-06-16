@@ -16,8 +16,8 @@ function GameContainer({
   setCardObjects,
   setCurrentScore,
   currentScore,
-  setGameResults,
-  gameResults,
+  setGameOver,
+  gameOver,
   cardTotal,
   setCardTotal,
   gameWon,
@@ -28,15 +28,17 @@ function GameContainer({
 
   return (
     <div className={styles.gameContainer}>
-      {gameStarted && 
-        <Timer setFinalTime={setFinalTime} gameStarted={gameStarted} gameWon={gameWon} gameResults={gameResults}/> 
+      <div>
+        {gameStarted && 
+        <Timer setFinalTime={setFinalTime} gameStarted={gameStarted} gameWon={gameWon} gameOver={gameOver}/> 
       }
       {gameStarted && 
         <ScoreBoard highScore={highScore} currentScore={currentScore} />
       }
+      </div>
       <CardDisplay
         setCurrentScore={setCurrentScore}
-        setGameResults={setGameResults}
+        setGameOver={setGameOver}
         currentScore={currentScore}
         chosenPokemonCardData={cardObjects}
         cardObjects={cardObjects}
@@ -46,11 +48,11 @@ function GameContainer({
       {gameWon && (
         <GameWonPopUp  setGameStarted={setGameStarted} setGameWon={setGameWon} />
       )}
-      {gameResults && (
+      {gameOver && (
         <GameOverPopUp
           setGameStarted={setGameStarted}
-          gameResults={gameResults}
-          setGameResults={setGameResults}
+          gameOver={gameOver}
+          setGameOver={setGameOver}
           finalTime={finalTime}
         />
       )}
@@ -67,13 +69,13 @@ function GameContainer({
 
 GameContainer.propTypes = {
   cardObjects: PropTypes.array.isRequired,
-  gameResults: PropTypes.bool.isRequired,
+  gameOver: PropTypes.bool.isRequired,
   gameStarted: PropTypes.bool.isRequired,
   handleStartClick: PropTypes.func.isRequired,
   setCardObjects: PropTypes.func.isRequired,
   setCardTotal: PropTypes.func.isRequired,
   setCurrentScore: PropTypes.func.isRequired,
-  setGameResults: PropTypes.func.isRequired,
+  setGameOver: PropTypes.func.isRequired,
   setGameStarted: PropTypes.func.isRequired,
   cardTotal: PropTypes.number.isRequired,
   currentScore: PropTypes.number.isRequired,
