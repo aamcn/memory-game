@@ -1,18 +1,18 @@
 import { useState, useEffect} from "react";
 import styles from "./timer.module.css"
 
-function Timer({ gameStarted, gameOver, setFinalTime}){
+function Timer({ gameStarted, gameOver, gameWon, setFinalTime}){
 const [startTime, setStartTime] = useState(null)
 const [time, setTime] = useState(0)
 
   useEffect(() => {
     const t = new Date()
     let intervalId;
-    if (gameStarted && !gameOver) {
+    if (gameStarted && !gameWon && !gameOver) {
       // setting time from 0 to 1 every 10 milisecond using javascript setInterval method
       intervalId = setInterval(() => setTime(t - startTime), 10);
     }
-    if(gameStarted && gameOver){
+    if(gameStarted && (gameOver || gameWon )){
       setFinalTime(`${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}:${milliseconds.toString().padStart(2, "0")}`)
     }
     return () => clearInterval(intervalId);
