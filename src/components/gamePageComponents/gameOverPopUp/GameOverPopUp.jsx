@@ -18,7 +18,7 @@ function GameOverPopUp({ setGameOver, setGameStarted, finalTime }) {
         <p>You already clicked on that</p>
       </div>
       <div>
-        <p>You're final time was:</p>
+        <p>Your final time was:</p>
         <p className={styles.finalTimeText}>{finalTime}</p>
       </div>
       <div>
