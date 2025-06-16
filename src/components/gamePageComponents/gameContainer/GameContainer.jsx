@@ -28,7 +28,7 @@ function GameContainer({
 
   return (
     <div className={styles.gameContainer}>
-      <div>
+      <div className={styles.gameInfoContainer}>
         {gameStarted && 
         <Timer setFinalTime={setFinalTime} gameStarted={gameStarted} gameWon={gameWon} gameOver={gameOver}/> 
       }

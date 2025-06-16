@@ -31,8 +31,9 @@
   .timerContainer {
     grid-column: 1;
     grid-row: 1;
-    display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     font-size: 2vw;
     text-align: left;
     padding:1em 0em 0em 1em ;
@@ -41,5 +42,6 @@
 
   .timerDigits{
       font-size: 2vw;
+      align-self: center;
   }
 }

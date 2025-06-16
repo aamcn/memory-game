@@ -12,9 +12,17 @@
   box-shadow: inset 0px 0px 3em 0.5em;
 }
 
+
+
 @media screen and (min-width: 1024px) {
   .gameContainer {
     grid-template-rows: 1fr;
     grid-template-columns: 3fr 9fr;
   }
+
+  .gameInfoContainer{
+  display:grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+}
 }
