@@ -43,6 +43,10 @@
   font-size: 4vw;
 }
 
+.finalTimeText{
+  font-family: 'Courier New', Courier, monospace;
+}
+
 @media screen and (min-width: 768px) {
   .lostGameWindow {
     width: 60dvw;

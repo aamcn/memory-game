@@ -1,20 +1,19 @@
 import { useState, useEffect} from "react";
 import styles from "./timer.module.css"
 
-function Timer({ gameStarted, gameResults, setFinalTime}){
-
+function Timer({ gameStarted, gameOver, setFinalTime}){
 const [startTime, setStartTime] = useState(null)
 const [time, setTime] = useState(0)
 
   useEffect(() => {
     const t = new Date()
     let intervalId;
-    if (gameStarted && !gameResults) {
+    if (gameStarted && !gameOver) {
       // setting time from 0 to 1 every 10 milisecond using javascript setInterval method
       intervalId = setInterval(() => setTime(t - startTime), 10);
     }
-    if(gameStarted && gameResults){
-      setFinalTime(`${minutes.toString().padStart(2, "0")} : ${seconds.toString().padStart(2, "0")} : ${milliseconds.toString().padStart(2, "0")}`)
+    if(gameStarted && gameOver){
+      setFinalTime(`${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}:${milliseconds.toString().padStart(2, "0")}`)
     }
     return () => clearInterval(intervalId);
   }, [gameStarted, time]);
@@ -36,7 +35,8 @@ const [time, setTime] = useState(0)
 
     return(
         <div className={styles.timerContainer}>
-            <p className={styles.timerDisplay}>Time:{minutes.toString().padStart(2, "0")} : {seconds.toString().padStart(2, "0")} : {milliseconds.toString().padStart(2, "0")}</p>   
+            <p className={styles.timerDisplay}>Time:</p>   
+            <p className={styles.timerDigits}>{minutes.toString().padStart(2, "0")}:{seconds.toString().padStart(2, "0")}:{milliseconds.toString().padStart(2, "0")}</p>
         </div>
     )
 }

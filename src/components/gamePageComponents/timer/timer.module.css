@@ -7,4 +7,6 @@
   text-shadow: rgb(138, 5, 45) 0.1em 0.1em 0.1em;
 }
 
-
+.timerDigits{
+  font-family: 'Courier New', Courier, monospace;
+}
