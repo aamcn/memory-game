@@ -1,0 +1,10 @@
+
+.timerContainer{
+  align-content: center;
+  grid-template-columns: 1fr 1fr;
+  color: rgb(211, 181, 15);
+  font-size: 5vw;
+  text-shadow: rgb(138, 5, 45) 0.1em 0.1em 0.1em;
+}
+
+

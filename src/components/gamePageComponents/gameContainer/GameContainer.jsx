@@ -5,7 +5,8 @@ import ScoreBoard from "../scoreBoard/ScoreBoard";
 import styles from "./gameContainer.module.css";
 import PropTypes from "prop-types";
 import GameWonPopUp from "../gameWonPopUp/GameWonPopUp";
-
+import Timer from "../timer/timer";
+import { useState } from "react";
 function GameContainer({
   highScore,
   gameStarted,
@@ -22,11 +23,17 @@ function GameContainer({
   gameWon,
   setGameWon,
 }) {
+
+  const [finalTime, setFinalTime] = useState(null)
+
   return (
     <div className={styles.gameContainer}>
-      {gameStarted && (
+      {gameStarted && 
+        <Timer setFinalTime={setFinalTime} gameStarted={gameStarted} gameWon={gameWon} gameResults={gameResults}/> 
+      }
+      {gameStarted && 
         <ScoreBoard highScore={highScore} currentScore={currentScore} />
-      )}
+      }
       <CardDisplay
         setCurrentScore={setCurrentScore}
         setGameResults={setGameResults}
@@ -37,13 +44,14 @@ function GameContainer({
         cardTotal={cardTotal}
       />
       {gameWon && (
-        <GameWonPopUp setGameStarted={setGameStarted} setGameWon={setGameWon} />
+        <GameWonPopUp  setGameStarted={setGameStarted} setGameWon={setGameWon} />
       )}
       {gameResults && (
         <GameOverPopUp
           setGameStarted={setGameStarted}
           gameResults={gameResults}
           setGameResults={setGameResults}
+          finalTime={finalTime}
         />
       )}
       {!gameStarted && (

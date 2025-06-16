@@ -1,5 +1,6 @@
 import styles from "./scoreBoard.module.css";
 import PropTypes from "prop-types";
+import Timer from "../timer/timer";
 
 function ScoreBoard({ currentScore, highScore }) {
   return (
@@ -14,6 +15,9 @@ function ScoreBoard({ currentScore, highScore }) {
       <p className={styles.highScore} data-testid="highScore">
         High Score: {highScore}
       </p>
+      <div>
+        
+      </div>
     </div>
   );
 }

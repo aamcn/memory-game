@@ -1,6 +1,6 @@
 import styles from "./gameLostWindow.module.css";
 import PropTypes from "prop-types";
-function GameOverPopUp({ setGameResults, setGameStarted }) {
+function GameOverPopUp({ setGameResults, setGameStarted, finalTime }) {
   /* 
     Setting gameResults to false hides the GameLostWindow component 
     setting gameStarted displays the gameMenu component starting the game over
@@ -16,6 +16,9 @@ function GameOverPopUp({ setGameResults, setGameStarted }) {
       <div className={styles.gameOverText}>
         <p>Oh no...</p>
         <p>You already clicked on that</p>
+      </div>
+      <div>
+        <p>You're final time was: <br></br> {finalTime}</p>
       </div>
       <div>
         <p>Would you like to try again?</p>
