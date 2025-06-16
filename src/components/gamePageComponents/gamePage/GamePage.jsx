@@ -26,7 +26,7 @@ function GamePage() {
     setChosenPokemon([]);
     let pokeApiUrls = [];
     while (pokeApiUrls.length < parseInt(cardTotal)) {
-      let randomNumber = getRandomInt(150);
+      let randomNumber = getRandomInt(1, 10);
       if (!pokeApiUrls.includes(apiUrl + [randomNumber])) {
         pokeApiUrls.push(apiUrl + [randomNumber]);
       }
@@ -37,6 +37,7 @@ function GamePage() {
 
   // Maps and fetches pokemon API URLs and inserts the returned data into chosenPokemon state.
   function fetchPokeUrls(pokeApiUrls) {
+    console.log(pokeApiUrls)
     pokeApiUrls.map((pokemonUrl) => {
       fetch(pokemonUrl, { mode: "cors" })
         .then((response) => response.json())
