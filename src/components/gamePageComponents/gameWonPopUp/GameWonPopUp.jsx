@@ -1,7 +1,7 @@
 import styles from "./gameWonPopUp.module.css";
 import PropTypes from "prop-types";
 
-function GameWonPopUp({ setGameStarted, setGameWon }) {
+function GameWonPopUp({ setGameStarted, setGameWon, finalTime }) {
   /* 
     Setting gameResults to false hides the GameLostWindow component 
     setting gameStarted to false displays the gameMenu component starting the game over
@@ -17,6 +17,10 @@ function GameWonPopUp({ setGameStarted, setGameWon }) {
       <div className={styles.gameWonText}>
         <p>You Beat This Round</p>
         <p>Nice Work!</p>
+      </div>
+      <div>
+        <p>Your final time was:</p>
+        <p className={styles.winTimeText}>{finalTime}</p>
       </div>
       <div>
         <p>Would you like to play again?</p>

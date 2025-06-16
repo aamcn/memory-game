@@ -46,7 +46,7 @@ function GameContainer({
         cardTotal={cardTotal}
       />
       {gameWon && (
-        <GameWonPopUp  setGameStarted={setGameStarted} setGameWon={setGameWon} />
+        <GameWonPopUp  setGameStarted={setGameStarted} setGameWon={setGameWon} finalTime={finalTime} />
       )}
       {gameOver && (
         <GameOverPopUp
