@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import styles from "./cardTemplate.module.css";
 import { shuffleArray } from "../../../modules/shuffleArray/shuffleArray";
+import React from "react";
 
 function CardTemplate({
   pokemonCardDetails,
@@ -76,6 +77,7 @@ CardTemplate.propTypes = {
   setGameOver: PropTypes.bool.isRequired,
   setCardObjects: PropTypes.object.isRequired,
   setIsHidden: PropTypes.func.isRequired,
+  cardTotal: PropTypes.number.isRequired
 };
 
 export default CardTemplate;

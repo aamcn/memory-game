@@ -2,6 +2,7 @@ import { describe, it, vi, expect } from "vitest";
 import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
 import CardTemplate from "./CardTemplate";
+import React from "react";
 
 describe("Card Element", () => {
   const pokemonCardDetails = {
@@ -140,24 +141,24 @@ describe('If PlayingCard is clicked and pokemonCardDetail.isClicked = "true"', (
   };
 
   it('Should call setGameResults and set gameResults to "true" ', async () => {
-    let gameResults = false;
-    const setGameResults = () => {
-      gameResults = true;
+    let gameOver = false;
+    const setGameOver = () => {
+      gameOver = true;
     };
     const user = userEvent.setup();
 
     render(
       <CardTemplate
-        setGameResults={setGameResults}
+        setGameOver={setGameOver}
         pokemonCardDetails={pokemonCardDetails}
       />,
     );
     const PlayingCard = screen.getByTestId("playingCard");
 
-    expect(gameResults).toBe(false);
+    expect(gameOver).toBe(false);
 
     await user.click(PlayingCard);
 
-    expect(gameResults).toBe(true);
+    expect(gameOver).toBe(true);
   });
 });
