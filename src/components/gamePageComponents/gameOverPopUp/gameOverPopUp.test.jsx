@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 import userEvent from "@testing-library/user-event";
 import GameOverPopUp from "./GameOverPopUp";
+import React from "react";
 
 describe("GameOverPopUp Component", () => {
   it("Should render GameOverPopUp", () => {
@@ -23,26 +24,26 @@ describe("Retry Button", () => {
   it('Should change "gameResults" and "gameStarted" to "true" when clicked', async () => {
     const user = userEvent.setup();
     let gameStarted = false;
-    let gameResults = false;
+    let gameOver = false;
     const setGameStarted = () => {
       gameStarted = true;
     };
-    const setGameResults = () => {
-      gameResults = true;
+    const setGameOver = () => {
+      gameOver = true;
     };
 
     render(
       <GameOverPopUp
-        setGameResults={setGameResults}
+        setGameOver={setGameOver}
         setGameStarted={setGameStarted}
-        gameresults={gameResults}
+        gameOver={gameOver}
         gameStarted={gameStarted}
       />,
     );
     const retryButton = screen.getByRole("button", { name: "Retry?" });
     await user.click(retryButton);
 
-    expect(gameResults).toBe(true);
+    expect(gameOver).toBe(true);
     expect(gameStarted).toBe(true);
   });
 });
