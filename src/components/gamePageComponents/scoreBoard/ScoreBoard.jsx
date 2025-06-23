@@ -1,16 +1,16 @@
 import styles from "./scoreBoard.module.css";
 import PropTypes from "prop-types";
-
+import React  from "react";
 function ScoreBoard({ currentScore, highScore }) {
   return (
     <div className={styles.scoreBoardContainer}>
       <div className={styles.scoreTextContainer}>
-        <p className={styles.score} data-testid="currentScore" role="currentScore">Current Score:</p>
-        <p>{currentScore}</p>
+        <p className={styles.score}role="currentScore">Current Score:</p>
+        <p  data-testid="currentScore" >{currentScore}</p>
       </div>
       <div className={styles.scoreTextContainer}>
-        <p className={styles.highScore} data-testid="highScore">High Score:</p>
-        <p>{highScore}</p>
+        <p className={styles.highScore} >High Score:</p>
+        <p data-testid="highScore">{highScore}</p>
       </div>
     </div>
   );
