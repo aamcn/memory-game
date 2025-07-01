@@ -1,19 +1,13 @@
-import React from "react";
-import { useState } from "react"
-import LeaderBoardControls from "../leaderBoardControls/LeaderBoardControls"
-import Navbar from "../../navBar/Navbar"
+import React from "react"
+
 
 function LeaderBoard(){
-const [leaderBoard, setLeaderBoard] = useState(null)
-
-
 
     return(
         <div>
-            <Navbar />
-            <LeaderBoardControls />
+
         </div>
     )
 }
 
-export default LeaderBoard
+export default LeaderBoard; 
