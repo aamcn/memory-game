@@ -1,10 +1,10 @@
-
+import styles from "./leaderBoardControls.module.css"
 import React from "react";
 
 function LeaderBoardControls(){
 
     return(
-        <div>
+        <div className={styles.leaderBoardControls}>
             <label>Leader Boards</label>
             <select>
                 <option>Easy</option>

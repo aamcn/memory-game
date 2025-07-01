@@ -1,11 +1,13 @@
 import React from "react";
-
+import styles from "./leaderBoardForm.module.css"
 function LeaderBoardForm(){
 
     return(
-        <div>
+        <form className={styles.leaderBoardForm}>
 
-        </div>
+            <label>Name: </label>
+
+        </form>
     )
 }
 

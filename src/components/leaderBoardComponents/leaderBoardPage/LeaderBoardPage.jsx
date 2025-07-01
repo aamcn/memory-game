@@ -3,6 +3,8 @@ import { useState } from "react"
 import LeaderBoardControls from "../leaderBoardControls/LeaderBoardControls"
 import Navbar from "../../navBar/Navbar"
 import LeaderBoard from "../leaderBoard/LeaderBoard";
+import styles from "./leaderBoardPage.module.css"
+
 
 function LeaderBoardPage(){
 const [leaderBoardEntries, setLeaderBoardEntries] = useState(null)
@@ -10,7 +12,7 @@ const [leaderBoardEntries, setLeaderBoardEntries] = useState(null)
 
 
     return(
-        <div>
+        <div className={styles.leaderBoardPage}>
             <Navbar />
             <LeaderBoardControls />
             <LeaderBoard />
