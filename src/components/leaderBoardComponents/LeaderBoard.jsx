@@ -5,7 +5,9 @@ function LeaderBoard(){
 
     return(
         <div>
-
+            <div>
+                
+            </div>
         </div>
     )
 }
