@@ -57,7 +57,7 @@ describe("Header Component", () => {
     it("Should have a link to the game page", () => {
         renderWithRouter(<Header />);
         const titleLink = screen.getByRole("link", { name: /poke-mem/i });
-        expect(titleLink).toHaveAttribute("href", "/memory-game/game-page"); 
+        expect(titleLink).toHaveAttribute("href", "/game-page"); 
     });    
 
 })

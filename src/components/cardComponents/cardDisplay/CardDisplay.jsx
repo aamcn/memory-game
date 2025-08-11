@@ -47,7 +47,7 @@ function CardDisplay({
 
   return (
     !isHidden && (
-      <div className={cardsContainerClassName}>
+      <div data-testid="cards-container" className={cardsContainerClassName}>
         {chosenPokemonCardData &&
           chosenPokemonCardData.map((pokemonCardDetails) => {
             return (
