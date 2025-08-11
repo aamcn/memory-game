@@ -1,12 +1,15 @@
 import styles from "./header.module.css";
+import React from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
+
   return (
-    <div className={styles.headerContainer}>
-      <div className={styles.titleContainer}>
-        <h1 className={styles.gameTitle}>Poke-Mem</h1>
+    <header className={styles.headerContainer} data-testid="header" aria-label="header">
+      <div className={styles.titleContainer} data-testid="header-title-container">
+        <Link data-testid="header-title" id="game-title" className={styles.gameTitle} aria-label="Game Title: Poke-Mem" to="/memory-game/game-page">Poke-Mem</Link>
       </div>
-    </div>
+    </header>
   );
 }
 
