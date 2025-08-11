@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi }  from "vitest";
 import React from "react";
 
-// Mock CardTemplate since we're testing CardDisplay in isolation
+// Mock CardTemplate as a simple functional component for testing CardDisplay in isolation
 vi.mock("../cardTemplate/CardTemplate", () => ({
   default: ({ pokemonCardDetails }) => (
     <div data-testid="card-template">

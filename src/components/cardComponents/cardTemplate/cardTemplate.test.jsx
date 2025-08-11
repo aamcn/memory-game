@@ -3,162 +3,132 @@ import userEvent from "@testing-library/user-event";
 import { render, screen } from "@testing-library/react";
 import CardTemplate from "./CardTemplate";
 import React from "react";
+import { afterEach } from "vitest";
 
 describe("Card Element", () => {
-  const pokemonCardDetails = {
+  const mockCardDetails = {
     id: 1,
-    name: "Tony",
+    name: "Bulbasaur",
     type: "Grass",
     imageUrl: "https://fakeimg.pl/100/",
     isClicked: false,
   };
 
-  it("Should render a card displaying the arguments from the pokemonCardDetails object prop", () => {
-    render(<CardTemplate pokemonCardDetails={pokemonCardDetails} />);
+  const mockProps = {
+    pokemonCardDetails: mockCardDetails,
+    setCurrentScore: vi.fn(),
+    currentScore: 0,
+    setGameOver: vi.fn(() => {}),
+    setCardObjects: vi.fn(),
+    setIsHidden: vi.fn(() => {}),
+    cardTotal: 4,
+  };
 
-    const renderedName = screen.getByTestId("card-name");
-    const renderedImage = screen.getByTestId("card-image");
-
-    expect(renderedName.textContent).toBe("Tony");
-    expect(renderedImage.src).toBe("https://fakeimg.pl/100/");
+  afterEach(() => {
+    // Reset the card's clicked state for each test
+    mockProps.pokemonCardDetails.isClicked = false;
+    mockProps.cardTotal = 4;
+    mockProps.currentScore = 0;
+    
+    // Clear mock function calls
+    vi.clearAllMocks();
   });
-});
 
-describe("If PlayingCard is clicked for the first time", () => {
-  const pokemonCardDetails = {
-    id: 1,
-    name: "Tony",
-    type: "Grass",
-    imageUrl: "https://fakeimg.pl/100/",
-    isClicked: false,
-  };
+  it("Should render a card container", () => {
+    render(<CardTemplate {...mockProps} />);
+    expect(screen.getByTestId("playingCard")).toBeInTheDocument();
+  });
 
-  it("Should call setCurrentScore and currentScore should update to 1", async () => {
-    let currentScore = 0;
-    const setCurrentScore = () => {
-      currentScore += 1;
-    };
-    const setIsHidden = vi.fn();
-    const setCardObjects = vi.fn();
+  it("Should display Pokemon name and image correctly", () => {
+    render(<CardTemplate {...mockProps} />);
+
+    const renderedCardName = screen.getByTestId("card-name");
+    const renderedCardImage = screen.getByTestId("card-image");
+
+    expect(renderedCardName.textContent).toBe("Bulbasaur");
+    expect(renderedCardImage.src).toBe("https://fakeimg.pl/100/");
+  });
+
+  it("Should call setCurrentScore and update the current score when the card is clicked", async () => {
     const user = userEvent.setup();
-
-    render(
-      <CardTemplate
-        pokemonCardDetails={pokemonCardDetails}
-        setIsHidden={setIsHidden}
-        setCardObjects={setCardObjects}
-        currentScore={currentScore}
-        setCurrentScore={setCurrentScore}
-      />,
-    );
+    render(<CardTemplate {...mockProps} />);
     const PlayingCard = screen.getByTestId("playingCard");
     await user.click(PlayingCard);
 
-    expect(currentScore).toBe(1);
+    expect(mockProps.setCurrentScore).toHaveBeenCalledWith(
+      mockProps.currentScore + 1,
+    );
+    expect(mockProps.setCurrentScore).toHaveBeenCalled();
   });
 
   it('Should set pokemonCardDetails.isClicked to "true" ', async () => {
-    let currentScore = 0;
-    const setCurrentScore = vi.fn();
-    pokemonCardDetails.isClicked = false;
-    const setIsHidden = vi.fn();
-    const setCardObjects = vi.fn();
     const user = userEvent.setup();
 
-    render(
-      <CardTemplate
-        pokemonCardDetails={pokemonCardDetails}
-        setIsHidden={setIsHidden}
-        setCardObjects={setCardObjects}
-        currentScore={currentScore}
-        setCurrentScore={setCurrentScore}
-      />,
-    );
+    render(<CardTemplate {...mockProps} />);
     const PlayingCard = screen.getByTestId("playingCard");
     await user.click(PlayingCard);
 
-    expect(pokemonCardDetails.isClicked).toBe(true);
+    expect(mockProps.pokemonCardDetails.isClicked).toBe(true);
   });
 
   it('Should call setIsHidden and isHidden should be set to "true"', async () => {
-    let currentScore = 0;
-    const setCurrentScore = vi.fn();
-    pokemonCardDetails.isClicked = false;
-    let isHidden = false;
-    const setIsHidden = () => {
-      isHidden = true;
-    };
-    const setCardObjects = vi.fn();
     const user = userEvent.setup();
-
-    render(
-      <CardTemplate
-        pokemonCardDetails={pokemonCardDetails}
-        isHidden={isHidden}
-        setIsHidden={setIsHidden}
-        setCardObjects={setCardObjects}
-        currentScore={currentScore}
-        setCurrentScore={setCurrentScore}
-      />,
-    );
+    render(<CardTemplate {...mockProps} />);
     const PlayingCard = screen.getByTestId("playingCard");
     await user.click(PlayingCard);
 
-    expect(isHidden).toBe(true);
+    expect(mockProps.setIsHidden).toHaveBeenCalledWith(true);
   });
 
   it("Should call setCardObjects", async () => {
-    let currentScore = 0;
-    const setCurrentScore = vi.fn();
-    pokemonCardDetails.isClicked = false;
-    const setIsHidden = vi.fn();
-    const setCardObjects = vi.fn();
     const user = userEvent.setup();
 
-    render(
-      <CardTemplate
-        pokemonCardDetails={pokemonCardDetails}
-        setIsHidden={setIsHidden}
-        setCardObjects={setCardObjects}
-        currentScore={currentScore}
-        setCurrentScore={setCurrentScore}
-      />,
-    );
+    render(<CardTemplate {...mockProps} />);
     const PlayingCard = screen.getByTestId("playingCard");
     await user.click(PlayingCard);
 
-    expect(setCardObjects).toHaveBeenCalled();
+    expect(mockProps.setCardObjects).toHaveBeenCalled();
   });
-});
 
-describe('If PlayingCard is clicked and pokemonCardDetail.isClicked = "true"', () => {
-  const pokemonCardDetails = {
-    id: 1,
-    name: "Tony",
-    type: "Grass",
-    imageUrl: "https://fakeimg.pl/100/",
-    isClicked: true,
-  };
-
-  it('Should call setGameResults and set gameResults to "true" ', async () => {
-    let gameOver = false;
-    const setGameOver = () => {
-      gameOver = true;
-    };
+  it('Should call setGameOver when card is clicked twice', async () => {
     const user = userEvent.setup();
+    
+    // Set up a card that has already been clicked
+    const alreadyClickedProps = {
+      ...mockProps,
+      pokemonCardDetails: {
+        ...mockProps.pokemonCardDetails,
+        isClicked: true
+      }
+    };
 
-    render(
-      <CardTemplate
-        setGameOver={setGameOver}
-        pokemonCardDetails={pokemonCardDetails}
-      />,
-    );
+    render(<CardTemplate {...alreadyClickedProps} />);
     const PlayingCard = screen.getByTestId("playingCard");
-
-    expect(gameOver).toBe(false);
-
     await user.click(PlayingCard);
 
-    expect(gameOver).toBe(true);
+    expect(alreadyClickedProps.setGameOver).toHaveBeenCalledWith(true);
+  });
+
+  it("Should apply fourCardContainer CSS class when cardTotal is 4", () => {
+    render(<CardTemplate {...mockProps} />);
+    const playingCard = screen.getByTestId("playingCard");
+
+    expect(playingCard.className).toContain("fourCardContainer");
+  });
+
+  it("Should apply sixCardContainer CSS class when cardTotal is 6", () => {
+    mockProps.cardTotal = 6;
+    render(<CardTemplate {...mockProps} />);
+    const playingCard = screen.getByTestId("playingCard");
+
+    expect(playingCard.className).toContain("sixCardContainer");
+  });
+
+  it("Should apply nineCardContainer CSS class when cardTotal is 9", () => {
+    mockProps.cardTotal = 9;
+    render(<CardTemplate {...mockProps} />);
+    const playingCard = screen.getByTestId("playingCard");
+
+    expect(playingCard.className).toContain("nineCardContainer");
   });
 });
