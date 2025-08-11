@@ -2,6 +2,8 @@ import CardTemplate from "../cardTemplate/CardTemplate";
 import styles from "./cardDisplay.module.css";
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import React from "react";
+
 
 function CardDisplay({
   chosenPokemonCardData,
@@ -75,6 +77,7 @@ CardDisplay.propTypes = {
   setGameOver: PropTypes.bool.isRequired,
   cardObjects: PropTypes.array.isRequired,
   setCardObjects: PropTypes.func.isRequired,
+  cardTotal: PropTypes.number.isRequired,
 };
 
 export default CardDisplay;

@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import { PokemonCardObject } from "../../../modules/cardConstructor/cardConstructor";
 import { checkForWin } from "../../../modules/checkForWin/checkForWin";
 import Header from "../../Header/Header.jsx";
+import React from "react";
 
 function GamePage() {
   const [chosenPokemon, setChosenPokemon] = useState([]);
@@ -59,6 +60,7 @@ function GamePage() {
         let imageUrl = pokemon.sprites.other.dream_world.front_default;
         let name = pokemon.name;
         let type = pokemon.types[0].type.name;
+        console.log(newId)
         const newCard = new PokemonCardObject(name, imageUrl, newId, type);
         setCardObjects((cardObjects) => [...cardObjects, newCard]);
       });
