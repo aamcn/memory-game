@@ -7,6 +7,8 @@ import PropTypes from "prop-types";
 import GameWonPopUp from "../gameWonPopUp/GameWonPopUp";
 import Timer from "../timer/timer";
 import { useState } from "react";
+import React from "react";
+
 function GameContainer({
   highScore,
   gameStarted,
@@ -23,18 +25,30 @@ function GameContainer({
   gameWon,
   setGameWon,
 }) {
-
-  const [finalTime, setFinalTime] = useState(null)
+  const [finalTime, setFinalTime] = useState(null);
 
   return (
-    <div className={styles.gameContainer}>
-      <div className={styles.gameInfoContainer}>
-        {gameStarted && 
-        <Timer setFinalTime={setFinalTime} gameStarted={gameStarted} gameWon={gameWon} gameOver={gameOver}/> 
-      }
-      {gameStarted && 
-        <ScoreBoard highScore={highScore} currentScore={currentScore} />
-      }
+    <div className={styles.gameContainer} data-testid="game-container">
+      <div
+        className={styles.gameInfoContainer}
+        data-testid="game-info-container"
+      >
+        {gameStarted && (
+          <Timer
+            setFinalTime={setFinalTime}
+            gameStarted={gameStarted}
+            gameWon={gameWon}
+            gameOver={gameOver}
+            data-testid="timer-component"
+          />
+        )}
+        {gameStarted && (
+          <ScoreBoard
+            highScore={highScore}
+            currentScore={currentScore}
+            data-testid="score-board"
+          />
+        )}
       </div>
       <CardDisplay
         setCurrentScore={setCurrentScore}
@@ -46,7 +60,11 @@ function GameContainer({
         cardTotal={cardTotal}
       />
       {gameWon && (
-        <GameWonPopUp  setGameStarted={setGameStarted} setGameWon={setGameWon} finalTime={finalTime} />
+        <GameWonPopUp
+          setGameStarted={setGameStarted}
+          setGameWon={setGameWon}
+          finalTime={finalTime}
+        />
       )}
       {gameOver && (
         <GameOverPopUp
@@ -80,6 +98,8 @@ GameContainer.propTypes = {
   cardTotal: PropTypes.number.isRequired,
   currentScore: PropTypes.number.isRequired,
   highScore: PropTypes.number.isRequired,
+  gameWon: PropTypes.bool.isRequired,
+  setGameWon: PropTypes.func.isRequired,
 };
 
 export default GameContainer;

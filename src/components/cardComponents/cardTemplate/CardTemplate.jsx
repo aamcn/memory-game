@@ -19,7 +19,7 @@ function CardTemplate({
     is set to true ending the game which renders the gameOver pop up menu component.
   */
   const handleCardClick = () => {
-    if (pokemonCardDetails.isClicked != true) {
+    if (pokemonCardDetails.isClicked !== true) {
       setCurrentScore(currentScore + 1);
       pokemonCardDetails.isClicked = true;
       setCardObjects((cardObjects) => shuffleArray(cardObjects));
@@ -30,20 +30,19 @@ function CardTemplate({
   };
 
   return (
-    <>
-      {pokemonCardDetails && (
-        <div
-          key={pokemonCardDetails.id}
-          data-testid="playingCard"
-          className={
-            cardTotal === 9
-              ? styles.nineCardContainer
-              : cardTotal === 6
-                ? styles.sixCardContainer
-                : styles.fourCardContainer
-          }
-          onClick={handleCardClick}
-        >
+    pokemonCardDetails && (
+      <div
+        key={pokemonCardDetails.id}
+        data-testid="playingCard"
+        className={
+          cardTotal === 9
+            ? styles.nineCardContainer
+            : cardTotal === 6
+              ? styles.sixCardContainer
+              : styles.fourCardContainer
+        }
+        onClick={handleCardClick}
+      >
           <div
             className={
               cardTotal === 9
@@ -56,17 +55,17 @@ function CardTemplate({
             <img
               className={styles.cardImage}
               src={pokemonCardDetails.imageUrl}
+              alt={`${pokemonCardDetails.name} Pokemon`}
               data-testid="card-image"
-            ></img>
+            />
           </div>
           <div className={styles.cardTitleContainer}>
-            <p data-testid="card-name" value={pokemonCardDetails.name}>
+            <p data-testid="card-name">
               {pokemonCardDetails.name}
             </p>
           </div>
         </div>
-      )}
-    </>
+    )
   );
 }
 
@@ -74,8 +73,8 @@ CardTemplate.propTypes = {
   pokemonCardDetails: PropTypes.object.isRequired,
   setCurrentScore: PropTypes.func.isRequired,
   currentScore: PropTypes.number.isRequired,
-  setGameOver: PropTypes.bool.isRequired,
-  setCardObjects: PropTypes.object.isRequired,
+  setGameOver: PropTypes.func.isRequired, // Should be func, not bool
+  setCardObjects: PropTypes.func.isRequired, // Should be func, not object
   setIsHidden: PropTypes.func.isRequired,
   cardTotal: PropTypes.number.isRequired
 };
