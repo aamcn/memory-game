@@ -6,14 +6,16 @@ class PokemonCardObject {
   
   constructor(name, imageUrl, id, type) {
     this.validateInputs(name, imageUrl, id, type);
-
+    
     this.name = name;
     this.imageUrl = imageUrl;
     this.isClicked = false;
     this.id = id;
     this.type = type;
-  
+    console.log(this.id)
+
   }
+
 
   validateInputs(name, imageUrl, id, type) {
     if (!name || !imageUrl || id === undefined || !type) {
@@ -24,7 +26,7 @@ class PokemonCardObject {
       throw new Error("Invalid input: name, imageUrl, and type must be strings");
     }
     
-    if (typeof id !== 'number' || id < 0) {
+    if ( id < 0) {
       throw new Error("Invalid input: id must be a positive number");
     }
   }

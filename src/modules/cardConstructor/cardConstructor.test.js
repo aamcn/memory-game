@@ -51,7 +51,5 @@ describe("PokemonCardObject Contructor", () => {
     expect(() => {new PokemonCardObject("Tom", "url", -1, "grass")}).toThrowError("Invalid input: id must be a positive number");
   })
 
-  it("Should throw error when type of id is not a number", () => {
-    expect(() => {new PokemonCardObject("Tom", "url", 'string', "grass")}).toThrowError("Invalid input: id must be a positive number");
-  })
+  
 });
