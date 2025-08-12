@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import GameContainer from "../gameContainer/GameContainer";
-import { getRandomInt } from "../../../modules/randoNumber/randomNumber";
+import { generatePokemonUrls } from "../../../modules/pokemonUrlGenerator/PokemonUrlGenerator";
+import { fetchPokeUrls } from "../../../modules/fetchPokeUrls/fetchPokeUrls";
 import { v4 as uuidv4 } from "uuid";
 import { PokemonCardObject } from "../../../modules/cardConstructor/cardConstructor";
 import { checkForWin } from "../../../modules/checkForWin/checkForWin";
@@ -17,38 +18,6 @@ function GamePage() {
   const [cardTotal, setCardTotal] = useState(4);
   const [gameWon, setGameWon] = useState(false);
 
-  const apiUrl = "https://pokeapi.co/api/v2/pokemon/";
-
-  /* Resets chosenPokemon and pokeApiUrls to original value.
-     Creates and stores random pokemon api urls by appending the apiUrl
-     with a random number. if a duplicate url is created it is disregarded.
-  */
-  function choosePokemon() {
-    setChosenPokemon([]);
-    let pokeApiUrls = [];
-    while (pokeApiUrls.length < parseInt(cardTotal)) {
-      let randomNumber = getRandomInt(1, 10);
-      if (!pokeApiUrls.includes(apiUrl + [randomNumber])) {
-        pokeApiUrls.push(apiUrl + [randomNumber]);
-      }
-    }
-    // When pokeApiUrls length equals the cardTotal the fetchPokeUrls function is called.
-    fetchPokeUrls(pokeApiUrls);
-  }
-
-  // Maps and fetches pokemon API URLs and inserts the returned data into chosenPokemon state.
-  function fetchPokeUrls(pokeApiUrls) {
-    console.log(pokeApiUrls)
-    pokeApiUrls.map((pokemonUrl) => {
-      fetch(pokemonUrl, { mode: "cors" })
-        .then((response) => response.json())
-        .then((response) =>
-          setChosenPokemon((chosenPokemon) => [...chosenPokemon, response]),
-        )
-        .catch((error) => console.error(error));
-    });
-  }
-
   /* When the length of the chosenPokemon array reaches the card total, the array entries are 
   passed to the PokemonCardObject constructor and the returned object is stored in the cardObjects
   state.
@@ -60,7 +29,6 @@ function GamePage() {
         let imageUrl = pokemon.sprites.other.dream_world.front_default;
         let name = pokemon.name;
         let type = pokemon.types[0].type.name;
-        console.log(newId)
         const newCard = new PokemonCardObject(name, imageUrl, newId, type);
         setCardObjects((cardObjects) => [...cardObjects, newCard]);
       });
@@ -73,7 +41,9 @@ function GamePage() {
   const handleStartClick = () => {
     setGameStarted(true);
     setCurrentScore(0);
-    choosePokemon();
+    setChosenPokemon([]);
+    const pokeApiUrls = generatePokemonUrls(cardTotal);
+    fetchPokeUrls(pokeApiUrls, setChosenPokemon);
   };
 
   //When the gameOver state is changed the cardObjects are wiped.
@@ -91,10 +61,10 @@ function GamePage() {
       setHighScore(currentScore);
     }
     checkForWin(currentScore, cardTotal, setGameWon);
-  }, [highScore, currentScore]);
+  }, [currentScore]);
 
   return (
-    <>
+    <div data-testid="game-page">
       <Header />
       <GameContainer
         cardTotal={cardTotal}
@@ -112,7 +82,7 @@ function GamePage() {
         setGameWon={setGameWon}
         gameWon={gameWon}
       />
-    </>
+    </div>
   );
 }
 
