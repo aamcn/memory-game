@@ -1,232 +1,161 @@
 import { render, screen } from "@testing-library/react";
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 import userEvent from "@testing-library/user-event";
-
+import React from "react";
 import GameMenu from "./GameMenu";
 
-describe("Easy Button", () => {
-  it('Should render "Easy Button"', () => {
-    render(<GameMenu cardTotal={3} />);
 
-    const button = screen.getByRole("button", { name: "Easy" });
-    console.log(button.value);
-    expect(button).toBeInTheDocument();
+describe("GameMenu Component", () => {
+  const mockProps = {
+    cardTotal: 4,
+    handleStartClick: vi.fn(),
+    setCardTotal: vi.fn(),
+  };
+
+  beforeEach(() => {
+    vi.clearAllMocks();
   });
 
-  it("Should update cardTotal to '4' when the Easy button is clicked", async () => {
-    let cardTotal = 0;
-    const setCardTotal = (number) => {
-      cardTotal = number;
-    };
-    const user = userEvent.setup();
+  describe("Basic rendering", () => {
+    it("Should render the game menu container", () => {
+      render(<GameMenu {...mockProps} />);
+      const container = screen.getByTestId("game-menu-container");
+      expect(container).toBeInTheDocument();
+    });
 
-    render(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />);
+    it("Should render the title with correct text", () => {
+      render(<GameMenu {...mockProps} />);
+      const title = screen.getByRole("heading", { name: "Menu" });
+      expect(title).toBeInTheDocument();
+      expect(title).toHaveTextContent("Menu");
+    });
 
-    const easyButton = screen.getByRole("button", { name: "Easy" });
-    await user.click(easyButton);
-    expect(cardTotal).toBe(4);
+    it("Should render the difficulty title", () => {
+      render(<GameMenu {...mockProps} />);
+      const difficultyTitle = screen.getByTestId("difficulty-title");
+      expect(difficultyTitle).toBeInTheDocument();
+      expect(difficultyTitle).toHaveTextContent("Choose Your Difficulty");
+    });
+
+    it("Should render the Start button", () => {
+      render(<GameMenu {...mockProps} />);
+      const startButton = screen.getByTestId("start-button");
+      expect(startButton).toBeInTheDocument();
+    });
   });
 
-  it("Should NOT update cardTotal to '4' when the Easy button is NOT clickec", async () => {
-    let cardTotal = 0;
-    const setCardTotal = (number) => {
-      cardTotal = number;
-    };
-    render(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />);
-    expect(cardTotal).not.toBe(4);
+  describe("Difficulty display", () => {
+    it("Should display '4 Cards' when cardTotal is 4", () => {
+      render(<GameMenu {...mockProps} cardTotal={4} />);
+      const difficultyText = screen.getByTestId("difficultyText");
+      expect(difficultyText).toHaveTextContent("4 Cards");
+    });
+
+    it("Should display '6 Cards' when cardTotal is 6", () => {
+      render(<GameMenu {...mockProps} cardTotal={6} />);
+      const difficultyText = screen.getByTestId("difficultyText");
+      expect(difficultyText).toHaveTextContent("6 Cards");
+    });
+
+    it("Should display '9 Cards' when cardTotal is 9", () => {
+      render(<GameMenu {...mockProps} cardTotal={9} />);
+      const difficultyText = screen.getByTestId("difficultyText");
+      expect(difficultyText).toHaveTextContent("9 Cards");
+    });
   });
 
-  it("Should change difficulty text to '4 Cards' when 'Easy button' is clicked", async () => {
-    let cardTotal = 0;
-    const setCardTotal = (number) => {
-      cardTotal = number;
-    };
-    const user = userEvent.setup();
+  describe("Difficulty buttons", () => {
+    it("Should render Easy button with correct value", () => {
+      render(<GameMenu {...mockProps} />);
+      const easyButton = screen.getByTestId("easy-button");
+      expect(easyButton).toBeInTheDocument();
+      expect(easyButton).toHaveAttribute("value", "4");
+      expect(easyButton).toHaveTextContent("Easy");
+    });
 
-    const { rerender } = render(
-      <GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />,
-    );
-    const easyButton = screen.getByRole("button", { name: "Easy" });
-    await user.click(easyButton);
-    rerender(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />);
-    const difficultyText = screen.getByTestId("difficultyText");
-    expect(difficultyText.textContent).not.toStrictEqual("10 Cards");
-    expect(difficultyText.textContent).toStrictEqual("4 Cards");
+    it("Should render Medium button with correct value", () => {
+      render(<GameMenu {...mockProps} />);
+      const mediumButton = screen.getByTestId("medium-button");
+      expect(mediumButton).toBeInTheDocument();
+      expect(mediumButton).toHaveAttribute("value", "6");
+      expect(mediumButton).toHaveTextContent("Medium");
+    });
+
+    it("Should render Hard button with correct value", () => {
+      render(<GameMenu {...mockProps} />);
+      const hardButton = screen.getByTestId("hard-button");
+      expect(hardButton).toBeInTheDocument();
+      expect(hardButton).toHaveAttribute("value", "9");
+      expect(hardButton).toHaveTextContent("Hard");
+    });
   });
 
-  it("Should change difficulty text to '4 Cards' when 'Easy button' is clicked", async () => {
-    let cardTotal = 0;
-    const setCardTotal = (number) => {
-      cardTotal = number;
-    };
+  describe("User interactions", () => {
+    it("Should call setCardTotal with 4 when Easy button is clicked", async () => {
+      const user = userEvent.setup();
+      render(<GameMenu {...mockProps} />);
+      
+      const easyButton = screen.getByTestId("easy-button");
+      await user.click(easyButton);
+      
+      expect(mockProps.setCardTotal).toHaveBeenCalledWith(4);
+    });
 
-    const { rerender } = render(
-      <GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />,
-    );
+    it("Should call setCardTotal with 6 when Medium button is clicked", async () => {
+      const user = userEvent.setup();
+      render(<GameMenu {...mockProps} />);
+      
+      const mediumButton = screen.getByTestId("medium-button");
+      await user.click(mediumButton);
+      
+      expect(mockProps.setCardTotal).toHaveBeenCalledWith(6);
+    });
 
-    rerender(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />);
-    const difficultyText = screen.getByTestId("difficultyText");
+    it("Should call setCardTotal with 9 when Hard button is clicked", async () => {
+      const user = userEvent.setup();
+      render(<GameMenu {...mockProps} />);
+      
+      const hardButton = screen.getByTestId("hard-button");
+      await user.click(hardButton);
+      
+      expect(mockProps.setCardTotal).toHaveBeenCalledWith(9);
+    });
 
-    expect(difficultyText.textContent).toStrictEqual("0 Cards");
-    expect(difficultyText.textContent).not.toStrictEqual("4 Cards");
-  });
-});
+    it("Should call handleStartClick when Start button is clicked", async () => {
+      const user = userEvent.setup();
+      render(<GameMenu {...mockProps} />);
+      
+      const startButton = screen.getByTestId("start-button");
+      await user.click(startButton);
+      
+      expect(mockProps.handleStartClick).toHaveBeenCalledTimes(1);
+    });
 
-describe("Medium Button", () => {
-  it('Should render "Medium Button"', () => {
-    render(<GameMenu />);
-    const mediumButton = screen.getByRole("button", { name: "Medium" });
-    expect(mediumButton).toBeInTheDocument();
-  });
-
-  it("Should change the cardTotal to '6' when Medium button is NOT clicked", async () => {
-    let cardTotal = 0;
-    const setCardTotal = (number) => {
-      cardTotal = number;
-    };
-    const user = userEvent.setup();
-
-    render(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />);
-    const mediumButton = screen.getByRole("button", { name: "Medium" });
-    await user.click(mediumButton);
-
-    expect(cardTotal).toBe(6);
-  });
-
-  it("Should NOT change the cardTotal to '6' if Medium button is NOT clicked", async () => {
-    let cardTotal = 0;
-    const setCardTotal = (number) => {
-      cardTotal = number;
-    };
-
-    render(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />);
-
-    expect(cardTotal).toBe(0);
-  });
-
-  it("Should change difficulty text to '6 Cards' when 'Medium button' is clicked", async () => {
-    let cardTotal = 0;
-    const setCardTotal = (number) => {
-      cardTotal = number;
-    };
-    const user = userEvent.setup();
-
-    const { rerender } = render(
-      <GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />,
-    );
-    const mediumButton = screen.getByRole("button", { name: "Medium" });
-    await user.click(mediumButton);
-    rerender(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />);
-    const difficultyText = screen.getByTestId("difficultyText");
-    expect(difficultyText.textContent).not.toStrictEqual("0 Cards");
-    expect(difficultyText.textContent).toStrictEqual("6 Cards");
+    it("Should not call setCardTotal when Start button is clicked", async () => {
+      const user = userEvent.setup();
+      render(<GameMenu {...mockProps} />);
+      
+      const startButton = screen.getByTestId("start-button");
+      await user.click(startButton);
+      
+      expect(mockProps.setCardTotal).not.toHaveBeenCalled();
+    });
   });
 
-  it("Should NOT change difficulty text to '6 Cards' if 'Medium button' is NOT clicked", async () => {
-    let cardTotal = 0;
-    const setCardTotal = (number) => {
-      cardTotal = number;
-    };
+  describe("Accessibility", () => {
+    it("Should have all buttons accessible by role", () => {
+      render(<GameMenu {...mockProps} />);
+      
+      const buttons = screen.getAllByRole("button");
+      expect(buttons).toHaveLength(4); 
+    });
 
-    const { rerender } = render(
-      <GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />,
-    );
-
-    rerender(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />);
-    const difficultyText = screen.getByTestId("difficultyText");
-    expect(difficultyText.textContent).not.toStrictEqual("6 Cards");
-    expect(difficultyText.textContent).toStrictEqual("0 Cards");
-  });
-});
-
-describe("Hard Button", () => {
-  it('Should render "Hard Button"', () => {
-    render(<GameMenu />);
-    const hardButton = screen.getByRole("button", { name: "Hard" });
-    expect(hardButton).toBeInTheDocument();
+    it("Should have proper heading structure", () => {
+      render(<GameMenu {...mockProps} />);
+      
+      const heading = screen.getByRole("heading", { level: 2 });
+      expect(heading).toBeInTheDocument();
+    });
   });
 
-  it("Should change the cardTotal to '9' when Hard button is clicked", async () => {
-    let cardTotal = 0;
-    const setCardTotal = (number) => {
-      cardTotal = number;
-    };
-    const user = userEvent.setup();
-
-    render(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />);
-    const hardButton = screen.getByRole("button", { name: "Hard" });
-    await user.click(hardButton);
-
-    expect(cardTotal).toBe(9);
-  });
-
-  it("Should NOT change the cardTotal to '9' when Hard button is NOT clicked", async () => {
-    let cardTotal = 0;
-    const setCardTotal = (number) => {
-      cardTotal = number;
-    };
-
-    render(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />);
-
-    expect(cardTotal).toBe(0);
-  });
-
-  it("Should change difficulty text to '6 Cards' when 'Medium button' is clicked", async () => {
-    let cardTotal = 0;
-    const setCardTotal = (number) => {
-      cardTotal = number;
-    };
-    const user = userEvent.setup();
-
-    const { rerender } = render(
-      <GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />,
-    );
-    const hardButton = screen.getByRole("button", { name: "Hard" });
-    await user.click(hardButton);
-    rerender(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />);
-    const difficultyText = screen.getByTestId("difficultyText");
-    expect(difficultyText.textContent).not.toStrictEqual("0 Cards");
-    expect(difficultyText.textContent).toStrictEqual("9 Cards");
-  });
-
-  it("Should change difficulty text to '6 Cards' when 'Medium button' is clicked", async () => {
-    let cardTotal = 0;
-    const setCardTotal = (number) => {
-      cardTotal = number;
-    };
-
-    const { rerender } = render(
-      <GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />,
-    );
-
-    rerender(<GameMenu setCardTotal={setCardTotal} cardTotal={cardTotal} />);
-    const difficultyText = screen.getByTestId("difficultyText");
-    expect(difficultyText.textContent).not.toStrictEqual("9 Cards");
-    expect(difficultyText.textContent).toStrictEqual("0 Cards");
-  });
-});
-
-describe("Start Button", () => {
-  it('Should render "Start Button"', () => {
-    render(<GameMenu />);
-    const startButton = screen.getByRole("button", { name: "Start" });
-    expect(startButton).toBeInTheDocument();
-  });
-
-  it('Should call "handleStartClick" function when Start button is clicked', async () => {
-    const handleStartClick = vi.fn();
-    const user = userEvent.setup();
-    render(<GameMenu handleStartClick={handleStartClick} />);
-    const startButton = screen.getByRole("button", { name: "Start" });
-    await user.click(startButton);
-    expect(handleStartClick).toHaveBeenCalled();
-  });
-
-  it('Should NOT call "handleStartClick" function if Start button is NOT clicked', async () => {
-    const handleStartClick = vi.fn();
-
-    render(<GameMenu handleStartClick={handleStartClick} />);
-
-    expect(handleStartClick).not.toHaveBeenCalled();
-  });
 });

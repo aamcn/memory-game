@@ -1,4 +1,4 @@
-import Button from "../../../elements/Button";
+import React from "react";
 import styles from "./gameMenu.module.css";
 import PropTypes from "prop-types";
 
@@ -12,15 +12,17 @@ function GameMenu({ handleStartClick, cardTotal, setCardTotal }) {
   };
 
   return (
-    <div className={styles.gameMenuContainer}>
+    <div className={styles.gameMenuContainer} data-testid="game-menu-container">
+      {/* Title of the Game Menu */}
       <div className={styles.titleContainer}>
-        <h2>Menu</h2>
+        <h2 id="game-menu-title">Menu</h2>
       </div>
       <div className={styles.difficultyContainer}>
-        <p className={styles.difficultyTitle}>Choose Your Difficulty</p>
+        <p data-testid="difficulty-title" className={styles.difficultyTitle}>Choose Your Difficulty</p>
         <p data-testid="difficultyText">{cardTotal} Cards</p>
         <div className={styles.difficultyButtons}>
           <button
+            data-testid="easy-button"
             className={styles.optionButton}
             onClick={handleClickDifficulty}
             value={4}
@@ -28,6 +30,7 @@ function GameMenu({ handleStartClick, cardTotal, setCardTotal }) {
             Easy
           </button>
           <button
+            data-testid="medium-button"
             className={styles.optionButton}
             onClick={handleClickDifficulty}
             value={6}
@@ -35,6 +38,7 @@ function GameMenu({ handleStartClick, cardTotal, setCardTotal }) {
             Medium
           </button>
           <button
+            data-testid="hard-button"
             className={styles.optionButton}
             onClick={handleClickDifficulty}
             value={9}
@@ -44,7 +48,7 @@ function GameMenu({ handleStartClick, cardTotal, setCardTotal }) {
         </div>
       </div>
       <div id="menu-buttons-container">
-        <button className={styles.startButton} onClick={handleStartClick}>
+        <button data-testid="start-button" className={styles.startButton} onClick={handleStartClick}>
           Start
         </button>
       </div>
