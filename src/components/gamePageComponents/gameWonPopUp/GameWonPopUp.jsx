@@ -1,5 +1,6 @@
 import styles from "./gameWonPopUp.module.css";
 import PropTypes from "prop-types";
+import React from "react";
 
 function GameWonPopUp({ setGameStarted, setGameWon, finalTime }) {
   /* 
@@ -12,7 +13,7 @@ function GameWonPopUp({ setGameStarted, setGameWon, finalTime }) {
   };
 
   return (
-    <div className={styles.gameWonWindow}>
+    <div className={styles.gameWonWindow} >
       <h3 className={styles.gameWonTitle}>You Did It!</h3>
       <div className={styles.gameWonText}>
         <p>You Beat This Round</p>
@@ -34,8 +35,9 @@ function GameWonPopUp({ setGameStarted, setGameWon, finalTime }) {
 }
 
 GameWonPopUp.propTypes = {
-  setGameStarted: PropTypes.bool.isRequired,
-  setGameWon: PropTypes.bool.isRequired,
+  setGameStarted: PropTypes.func.isRequired,
+  setGameWon: PropTypes.func.isRequired,
+  finalTime: PropTypes.string.isRequired
 };
 
 export default GameWonPopUp;

@@ -1,7 +1,7 @@
 import Navbar from "./Navbar";
-import { render, screen } from "@testing-library/react";
+import { render, screen, act  } from "@testing-library/react";
 import { it, describe, expect, vi } from "vitest";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter} from "react-router-dom";
 import React from "react";
 
 // Helper function to render component with Router context
@@ -34,10 +34,13 @@ describe("Navbar Component", () => {
     const gameLinkSpy = vi.spyOn(gameLink, "click");
     const leaderBoardLink = screen.getByRole("link", { name: /leader board/i });
     const leaderBoardSpy = vi.spyOn(leaderBoardLink, "click");
-    gameLink.click();
-    leaderBoardLink.click()
+    
+    act(() => {
+      gameLink.click();
+      leaderBoardLink.click();
+    });
     expect(gameLinkSpy).toHaveBeenCalled();
-    expect(leaderBoardSpy).toHaveBeenCalled()
+    expect(leaderBoardSpy).toHaveBeenCalled();
   });
 
   it("should have correct href attributes", () => {

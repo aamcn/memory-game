@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 import userEvent from "@testing-library/user-event";
 import GameWonPopUp from "./GameWonPopUp";
+import React from "react";  
 
 describe("GameWonPopUp Component", () => {
   it("Should render GameWonPopUp", () => {
