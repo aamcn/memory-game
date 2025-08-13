@@ -1,5 +1,7 @@
 import { useState, useEffect} from "react";
 import styles from "./timer.module.css"
+import PropTypes from "prop-types";
+import React from "react";
 
 function Timer({ gameStarted, gameOver, gameWon, setFinalTime}){
 const [startTime, setStartTime] = useState(null)
@@ -40,5 +42,14 @@ const [time, setTime] = useState(0)
         </div>
     )
 }
+
+const propTypes = {
+  gameStarted: PropTypes.bool.isRequired,
+  gameOver: PropTypes.bool.isRequired,
+  gameWon: PropTypes.bool.isRequired,
+  setFinalTime: PropTypes.func.isRequired,
+};
+
+Timer.propTypes = propTypes;
 
 export default Timer;

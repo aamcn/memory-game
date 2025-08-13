@@ -5,7 +5,7 @@ import ScoreBoard from "../scoreBoard/ScoreBoard";
 import styles from "./gameContainer.module.css";
 import PropTypes from "prop-types";
 import GameWonPopUp from "../gameWonPopUp/GameWonPopUp";
-import Timer from "../timer/timer";
+import Timer from "../timer/Timer";
 import { useState } from "react";
 import React from "react";
 
