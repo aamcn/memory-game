@@ -1,49 +1,67 @@
 import { render, screen } from "@testing-library/react";
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
 import userEvent from "@testing-library/user-event";
 import GameWonPopUp from "./GameWonPopUp";
-import React from "react";  
+import React from "react";
 
-describe("GameWonPopUp Component", () => {
-  it("Should render GameWonPopUp", () => {
-    render(<GameWonPopUp />);
+const mockProps = {
+  setGameStarted: vi.fn(),
+  setGameWon: vi.fn(),
+  finalTime: 4.2,
+};
 
-    const gameWonHeading = screen.getByRole("heading", { name: "You Did It!" });
-    console.log(gameWonHeading.textContent);
-    expect(gameWonHeading).toBeInTheDocument();
-  });
+afterEach(() => {
+  vi.clearAllMocks();
 });
 
-describe("New Game Button", () => {
-  it('Should render "New Game?" button', () => {
-    render(<GameWonPopUp />);
-    const newGameButton = screen.getByRole("button", { name: "New Game?" });
-    expect(newGameButton).toBeInTheDocument();
+describe("GameWonPopUp Component", () => {
+  describe("Basic rendering tests", () => {
+    it("Should render GameWonPopUp", () => {
+      render(<GameWonPopUp {...mockProps} />);
+      const gameWonPopUp = screen.getByTestId("game-won-popup");
+      expect(gameWonPopUp).toBeInTheDocument();
+    });
+
+    it("Should render new game button", () => {
+      render(<GameWonPopUp {...mockProps} />);
+
+      const newGameButton = screen.getByRole("button", { name: "New Game?" });
+      expect(newGameButton).toBeInTheDocument();
+    });
+
+    it("Should display final time", () => {
+      render(<GameWonPopUp {...mockProps} />);
+      const finalTimeText = screen.getByTestId("win-final-time");
+      expect(finalTimeText).toBeInTheDocument();
+      expect(finalTimeText).toHaveTextContent(mockProps.finalTime);
+    });
+
   });
 
-  it('Should change "gameWon" and "gameStarted" to "true" when clicked', async () => {
-    const user = userEvent.setup();
-    let gameStarted = false;
-    let gameWon = false;
-    const setGameStarted = () => {
-      gameStarted = true;
-    };
-    const setGameWon = () => {
-      gameWon = true;
-    };
+  describe("button interactions", () => {
+    
+    it("Should call setGameStarted and setGameWon when new game button is clicked", async () => {
+      const user = userEvent.setup();
+      render(<GameWonPopUp {...mockProps} />);
+      const newGameButton = screen.getByRole("button", { name: "New Game?" });
+      await user.click(newGameButton);
+      expect(mockProps.setGameStarted).toHaveBeenCalled();
+      expect(mockProps.setGameWon).toHaveBeenCalled();
+    });
 
-    render(
-      <GameWonPopUp
-        setGameWon={setGameWon}
-        setGameStarted={setGameStarted}
-        gameWon={gameWon}
-        gameStarted={gameStarted}
-      />,
-    );
-    const newGameButton = screen.getByRole("button", { name: "New Game?" });
-    await user.click(newGameButton);
+    it("Should call setGameStarted and setGameWon with 'false' when new game button is clicked", async () => {
+      const user = userEvent.setup();
+      render(<GameWonPopUp {...mockProps} />);
+      const newGameButton = screen.getByRole("button", { name: "New Game?" });
+      await user.click(newGameButton);
+      expect(mockProps.setGameStarted).toHaveBeenCalledWith(false);
+      expect(mockProps.setGameWon).toHaveBeenCalledWith(false);
+    });
 
-    expect(gameWon).toBe(true);
-    expect(gameStarted).toBe(true);
+    it("Should NOT call setGameStarted and setGameWon with 'false' when new game button is clicked", async () => {
+      render(<GameWonPopUp {...mockProps} />);
+      expect(mockProps.setGameStarted).not.toHaveBeenCalled();
+      expect(mockProps.setGameWon).not.toHaveBeenCalled();
+    });
   });
 });

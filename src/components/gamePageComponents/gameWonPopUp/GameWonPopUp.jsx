@@ -13,7 +13,7 @@ function GameWonPopUp({ setGameStarted, setGameWon, finalTime }) {
   };
 
   return (
-    <div className={styles.gameWonWindow} >
+    <div className={styles.gameWonWindow} data-testid="game-won-popup">
       <h3 className={styles.gameWonTitle}>You Did It!</h3>
       <div className={styles.gameWonText}>
         <p>You Beat This Round</p>
@@ -21,7 +21,7 @@ function GameWonPopUp({ setGameStarted, setGameWon, finalTime }) {
       </div>
       <div>
         <p>Your final time was:</p>
-        <p className={styles.winTimeText}>{finalTime}</p>
+        <p data-testid="win-final-time" className={styles.winTimeText}>{finalTime}</p>
       </div>
       <div>
         <p>Would you like to play again?</p>
