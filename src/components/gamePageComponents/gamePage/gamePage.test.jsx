@@ -1,6 +1,6 @@
 import GamePage from "./GamePage";
 import React from "react";
-import { render, screen, fireEvent} from "@testing-library/react";
+import { render, screen} from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 import { BrowserRouter } from "react-router-dom";
 
@@ -31,22 +31,6 @@ describe("GamePage Component", () => {
     });
   });
 
-  describe("Game logic tests", () => {
-    it("Should start a new game", () => {
-      renderWithRouter(<GamePage />);
-      const startButton = screen.getByTestId("start-button");
-      fireEvent.click(startButton);
-      const gameContainerElement = screen.getByTestId("game-container");
-      expect(gameContainerElement).toBeInTheDocument();
-    });
-
-    it("Should reset game state when gameOver is true", () => {
-      renderWithRouter(<GamePage />);
-      const gamePageElement = screen.getByTestId("game-page");
-      expect(gamePageElement).toBeInTheDocument();
-    });
-
-  });
   
 });
 

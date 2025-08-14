@@ -1,7 +1,8 @@
 import Navbar from "./Navbar";
 import { render, screen, act  } from "@testing-library/react";
 import { it, describe, expect, vi } from "vitest";
-import { BrowserRouter} from "react-router-dom";
+import { BrowserRouter, MemoryRouter, Routes, Route} from "react-router-dom";
+import userEvent from "@testing-library/user-event";
 import React from "react";
 
 // Helper function to render component with Router context
@@ -54,3 +55,55 @@ describe("Navbar Component", () => {
   })
 
 })
+
+describe("Navigation tests", () => {
+
+  it("should navigate to game-page path when user clicks the Game Page link", async () => {
+    const user = userEvent.setup();
+    render(
+      <MemoryRouter initialEntries={["/leader-board"]}>
+        <Routes>
+          <Route path="/game-page" element={
+            <div>Game Page
+              <Navbar />
+            </div>
+          } />
+          <Route path="/leader-board" element=
+          {
+            <div>Leader Board Page
+              <Navbar />
+            </div>} />
+        </Routes>
+      </MemoryRouter>,
+    );
+    const gamePageLink = screen.getByRole("link", { name: /Game/i });
+    await user.click(gamePageLink);
+    const gamePage = screen.queryByText("Game Page");
+    expect(gamePage).toBeInTheDocument();
+  });
+
+  it("should navigate to leader-board path when user clicks the Leader Board link", async () => {
+    const user = userEvent.setup();
+    render(
+      <MemoryRouter initialEntries={["/game-page"]}>
+        <Routes>
+          <Route path="/game-page" element={
+            <div>Game Page
+              <Navbar />
+            </div>
+          } />
+          <Route path="/leader-board" element=
+          {
+            <div>Leader Board Page
+              <Navbar />
+            </div>} />
+        </Routes>
+      </MemoryRouter>,
+    );
+    const leaderBoardLink = screen.getByRole("link", { name: /Leader Board/i });
+    await user.click(leaderBoardLink);
+    const LeaderBoardPage = screen.queryByText("Leader Board Page");
+    expect(LeaderBoardPage).toBeInTheDocument();
+  });
+})
+
