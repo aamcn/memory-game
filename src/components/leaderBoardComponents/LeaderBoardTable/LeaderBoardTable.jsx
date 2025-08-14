@@ -5,7 +5,13 @@ import PropTypes from "prop-types";
 
 function LeaderBoardTable({ sortedLeaderBoardData }) {
 
-  
+    if (!sortedLeaderBoardData || sortedLeaderBoardData.length === 0) {
+        return (
+            <div className={styles.leaderBoardContainer} data-testid="leaderboard-container">
+                <p>No data available</p>
+            </div>
+        );
+    }
 
     return(
         <div className={styles.leaderBoardContainer} data-testid="leaderboard-container">
