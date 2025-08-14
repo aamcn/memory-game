@@ -1,7 +1,6 @@
 import LeaderBoardControls from "../leaderBoardControls/LeaderBoardControls";
 import { screen, render, fireEvent } from "@testing-library/react";
 import { expect, vi, it, describe, beforeEach } from "vitest";
-import userEvent from "@testing-library/user-event";
 import React from "react";
 
 const mockProps = {
