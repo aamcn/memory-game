@@ -4,12 +4,13 @@ import React from "react";
 
 function LandingPage() {
   return (
-    <div className={styles.mainContainer}>
+    <div className={styles.mainContainer} data-testid="landing-page-container">
       <div className={styles.imageContainer}>
         <img
           className={styles.mainImage}
           width="400px"
           src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYm9qM2dmeW42aHQxMXAwNnA2YmV1dTRiaGoweHE4YWZoMDJoZnJkeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/teYrgUtS8tPl6/giphy.gif"
+          data-testid="main-image"
         ></img>
       </div>
       <div>
