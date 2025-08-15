@@ -8,38 +8,44 @@ import LeaderBoardHeader from "../leaderBoardHeader/LeaderBoardHeader";
 import { sortByTime } from "../../../modules/sortByTime/sortByTime";
 
 function LeaderBoardPage(){
-    const [leaderBoardEntries, setLeaderBoardEntries] = useState([])
+    const [sortedLeaderBoardData, setSortedLeaderBoardData] = useState([])
     const [selectedDifficulty, setSelectedDifficulty] = useState("Easy");
+    const [leaderBoardData, setLeaderBoardData] = useState([]);
 
-    const leaderBoardDataEasy = [
-        { id: 3, name: 'Tony', time: "9 seconds" },
-        { id: 4, name: "Natasha", time: "15 seconds" },
-        { id: 1, name: "Bob", time: "10 seconds" },
-        { id: 2, name: "Steve", time: "12 seconds" }
-    ]
-    const leaderBoardDataMedium = [
-        { id: 3, name: 'Priya', time: "15 seconds" },
-        { id: 4, name: "Tina", time: "17 seconds" },
-        { id: 1, name: "Blanche", time: "18 seconds" },
-        { id: 2, name: "Stan", time: "22 seconds" }
-    ]
+    const easyUrl = 'http://localhost:3000/easy-leader-board/all-easy-scores'
+    const mediumUrl = 'http://localhost:3000/medium-leader-board/all-medium-scores'
+    const hardUrl = 'http://localhost:3000/hard-leader-board/all-hard-scores'
 
-    const leaderBoardDataHard = [
-        { id: 3, name: 'Pink', time: "20 seconds" },
-        { id: 4, name: "Tinkerbell", time: "35 seconds" },
-        { id: 1, name: "Sam", time: "32 seconds" },
-        { id: 2, name: "Paul", time: "29 seconds" }
-    ]
+    // Fetch leaderboard data based on the selected difficulty
+    const fetchLeaderBoardData = async (url) => {
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+            setLeaderBoardData(data);
+            // Process the data as needed
+        } catch (error) {
+            console.error("Error fetching leaderboard data:", error);
+        }
+    }
 
+    // Sort leaderboard data by time and store in state.
     useEffect(() => {
+        if(!leaderBoardData || leaderBoardData.length === 0) return;
+        setSortedLeaderBoardData(leaderBoardData.sort(sortByTime));
+    }, [leaderBoardData]);
+
+    // Fetch leaderboard data base when the selected difficulty changes.
+    useEffect(() => {
+        // Reset leaderboard data when difficulty changes
+        setLeaderBoardData([]);
         if (selectedDifficulty === "Easy") {
-            setLeaderBoardEntries(leaderBoardDataEasy.sort(sortByTime));
+            fetchLeaderBoardData(easyUrl);
         }
         if (selectedDifficulty === "Medium") {
-            setLeaderBoardEntries(leaderBoardDataMedium.sort(sortByTime));
+            fetchLeaderBoardData(mediumUrl);
         }
         if (selectedDifficulty === "Hard") {
-            setLeaderBoardEntries(leaderBoardDataHard.sort(sortByTime));
+            fetchLeaderBoardData(hardUrl);
         }
     }, [selectedDifficulty]);
 
@@ -48,7 +54,7 @@ function LeaderBoardPage(){
             <Navbar />
             <LeaderBoardHeader selectedDifficulty={selectedDifficulty} />
             <LeaderBoardControls selectedDifficulty={selectedDifficulty} setSelectedDifficulty={setSelectedDifficulty} />
-            <LeaderBoardTable sortedLeaderBoardData={leaderBoardEntries} />
+            <LeaderBoardTable sortedLeaderBoardData={sortedLeaderBoardData} />
         </div>
     )
 }

@@ -27,8 +27,8 @@ function LeaderBoardTable({ sortedLeaderBoardData }) {
                     {sortedLeaderBoardData.map((entry, index) => (
                         <tr key={entry.id} className={styles.leaderBoardRow} data-testid={`row-${index + 1}`} aria-label={`Row ${index + 1}`}>
                             <td className={styles.leaderBoardCell} aria-label={`Leaderboard Position ${index + 1}`}>{index + 1}</td>
-                            <td className={styles.leaderBoardCell} aria-label={`Player Name ${entry.name}`}>{entry.name}</td>
-                            <td className={styles.leaderBoardCell} aria-label={`Finish Time ${entry.time}`}>{entry.time}</td>
+                            <td className={styles.leaderBoardCell} aria-label={`Player Name ${entry.player_name}`}>{entry.player_name}</td>
+                            <td className={styles.leaderBoardCell} aria-label={`Finish Time ${entry.finish_time}`}>{entry.finish_time}</td>
                         </tr>
                     ))}
                 </tbody>
