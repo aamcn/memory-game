@@ -2,7 +2,8 @@ import styles from "./gameWonPopUp.module.css";
 import PropTypes from "prop-types";
 import React from "react";
 
-function GameWonPopUp({ setGameStarted, setGameWon, finalTime }) {
+function GameWonPopUp({ setGameStarted, setGameWon, finalTime, setLeaderBoardFormVisible }) {
+
   /* 
     Setting gameResults to false hides the GameLostWindow component 
     setting gameStarted to false displays the gameMenu component starting the game over
@@ -29,6 +30,9 @@ function GameWonPopUp({ setGameStarted, setGameWon, finalTime }) {
         <button className={styles.newGameButton} onClick={handleClickNewGame}>
           New Game?
         </button>
+        <button className={styles.newGameButton} onClick={() => setLeaderBoardFormVisible(true)}>
+          Submit Score
+        </button>
       </div>
     </div>
   );
@@ -37,7 +41,8 @@ function GameWonPopUp({ setGameStarted, setGameWon, finalTime }) {
 GameWonPopUp.propTypes = {
   setGameStarted: PropTypes.func.isRequired,
   setGameWon: PropTypes.func.isRequired,
-  finalTime: PropTypes.string.isRequired
+  finalTime: PropTypes.string.isRequired,
+  setLeaderBoardFormVisible: PropTypes.func.isRequired
 };
 
 export default GameWonPopUp;
