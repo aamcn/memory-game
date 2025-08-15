@@ -4,8 +4,8 @@ import { describe, it, expect} from "vitest";
 import React from "react";
 
 const mockProps = [
-        { id: 3, name: 'mockPlayerOne', time: "9 seconds" },
-        { id: 4, name: "mockPlayerTwo", time: "15 seconds" },
+        { id: 3, player_name: 'mockPlayerOne', finish_time: "9 seconds" },
+        { id: 4, player_name: "mockPlayerTwo", finish_time: "15 seconds" },
     ]
 
 describe("LeaderBoardTable", () => {

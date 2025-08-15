@@ -19,6 +19,9 @@ function LeaderBoardPage(){
     // Fetch leaderboard data based on the selected difficulty
     const fetchLeaderBoardData = async (url) => {
         try {
+            if (!url) {
+                throw new Error("No URL provided");
+            }
             const response = await fetch(url);
             const data = await response.json();
             setLeaderBoardData(data);
