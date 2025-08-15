@@ -8,6 +8,7 @@ import GameWonPopUp from "../gameWonPopUp/GameWonPopUp";
 import Timer from "../timer/Timer";
 import { useState } from "react";
 import React from "react";
+import LeaderBoardForm from "../leaderBoardForm/LeaderBoardForm";
 
 function GameContainer({
   highScore,
@@ -26,7 +27,7 @@ function GameContainer({
   setGameWon,
 }) {
   const [finalTime, setFinalTime] = useState(null);
-
+  const [leaderBoardFormVisible, setLeaderBoardFormVisible] = useState(false);
   return (
     <div className={styles.gameContainer} data-testid="game-container">
       <div
@@ -64,7 +65,11 @@ function GameContainer({
           setGameStarted={setGameStarted}
           setGameWon={setGameWon}
           finalTime={finalTime}
+          setLeaderBoardFormVisible={setLeaderBoardFormVisible}
         />
+      )}
+      {gameWon && leaderBoardFormVisible && (
+        <LeaderBoardForm finishTime={finalTime} />
       )}
       {gameOver && (
         <GameOverPopUp
