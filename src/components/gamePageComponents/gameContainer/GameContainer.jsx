@@ -69,7 +69,8 @@ function GameContainer({
         />
       )}
       {gameWon && leaderBoardFormVisible && (
-        <LeaderBoardForm finishTime={finalTime} />
+        <LeaderBoardForm finishTime={finalTime} 
+        cardTotal={cardTotal} />
       )}
       {gameOver && (
         <GameOverPopUp

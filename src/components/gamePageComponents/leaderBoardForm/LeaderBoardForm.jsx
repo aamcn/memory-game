@@ -2,23 +2,42 @@ import React from "react";
 import styles from './leaderBoardForm.module.css';
 import PropTypes from "prop-types";
 import axios from 'axios';
+import { useState, useEffect } from "react";
 
-function LeaderBoardForm({ finishTime }) {
+function LeaderBoardForm({ finishTime, cardTotal }) {
+
+  const [leaderBoardUrl, setLeaderBoardUrl] = useState("easyLeaderBoardUrl");
+
+  useEffect(() => {
+    if (cardTotal <= 5) {
+      setLeaderBoardUrl(easyLeaderBoardUrl);
+    }
+    if (cardTotal < 9) {
+      setLeaderBoardUrl(mediumLeaderBoardUrl);
+    }
+    if (cardTotal === 9) {
+      setLeaderBoardUrl(hardLeaderBoardUrl);
+    }
+  }, [cardTotal]);
 
     const handleSubmitScore = (event) => {
       event.preventDefault();
         const formData = new FormData(event.target);
         const formDataToJson = axios.formToJSON(formData);
         postForm(formDataToJson)
+        console.log(cardTotal)
     };
 
-    function postForm(formData) {
+    const easyLeaderBoardUrl = "http://localhost:3000/easy-leader-board/add-easy-top-scorer";
+    const mediumLeaderBoardUrl = "http://localhost:3000/medium-leader-board/add-medium-top-scorer";
+    const hardLeaderBoardUrl = "http://localhost:3000/hard-leader-board/add-hard-top-scorer";
 
+    function postForm(formData) {
         let body = formData;
         console.log(body);
         axios.post(
-        "http://localhost:3000/easy-leader-board/add-easy-top-scorer",
-         body ,
+        leaderBoardUrl,
+         body,
          {method: "cors" },
          { withCredentials: true },
     )
@@ -44,7 +63,8 @@ function LeaderBoardForm({ finishTime }) {
 }
 
 LeaderBoardForm.propTypes = {
-    finishTime: PropTypes.string.isRequired
+    finishTime: PropTypes.string.isRequired,
+    cardTotal: PropTypes.number.isRequired,
 };
 
 export default LeaderBoardForm;
