@@ -46,4 +46,9 @@ describe("LeaderBoardTable", () => {
       });
     });
 
+  it("renders the correct number of rows", () => {
+      render(<LeaderBoardTable sortedLeaderBoardData={mockProps} />);
+      const rows = screen.getAllByRole("row");
+      expect(rows.length).toBe(mockProps.length + 1); // +1 for header row
+    });
 });

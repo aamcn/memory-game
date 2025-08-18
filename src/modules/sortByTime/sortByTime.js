@@ -1,4 +1,5 @@
-// Sorts leaderboard data by finish time
+
+//Turns finish_time strings into numbers and returns input arguments by quickest finish_time.
 function sortByTime(a, b) {
     if (typeof a.finish_time === "string" && typeof b.finish_time === "string") {
         const timeA = a.finish_time.replaceAll(":", "");
@@ -6,5 +7,5 @@ function sortByTime(a, b) {
         return timeA - timeB;
     }
 }
-
+    
 export { sortByTime };
