@@ -51,7 +51,7 @@ function LeaderBoardPage(){
     }, [selectedDifficulty]);
 
     return(
-        <div className={styles.leaderBoardPage}>
+        <div className={styles.leaderBoardPage} data-testid="leaderboard-page">
             <LeaderBoardHeader selectedDifficulty={selectedDifficulty} />
             <LeaderBoardTable setSelectedDifficulty={setSelectedDifficulty} selectedDifficulty={selectedDifficulty} sortedLeaderBoardData={sortedLeaderBoardData} />
         </div>
