@@ -12,6 +12,7 @@ function LeaderBoardHeader({ selectedDifficulty }) {
       <Navbar />      
       <h1
         className={styles.leaderBoardTitle}
+        data-testid="leader-board-title"
         aria-label={`${selectedDifficulty} Leader Board`}
       >
         {selectedDifficulty} Leader Board

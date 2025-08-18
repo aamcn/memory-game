@@ -19,8 +19,8 @@ describe("Header Component", () => {
         const headerElement = screen.getByTestId("header");
         expect(headerElement).toBeInTheDocument();
 
-        const link = screen.getByRole("link");
-        expect(link).toBeInTheDocument();
+        const titleLink = screen.getByTestId("header-title");
+        expect(titleLink).toBeInTheDocument();
 
         const titleContainer = screen.getByTestId("header-title-container");
         expect(titleContainer).toBeInTheDocument();
@@ -34,7 +34,7 @@ describe("Header Component", () => {
 
     it("has proper heading structure", () => {
         renderWithRouter(<Header />);
-        const link = screen.getByRole("link", { name: /poke-mem/i });
+        const link = screen.getByTestId("header-title");
         expect(link).toHaveTextContent("Poke-Mem");
     });
 
@@ -48,7 +48,7 @@ describe("Header Component", () => {
 
     it("Should have a clickable and accessible title link", () => {
         renderWithRouter(<Header />);
-        const titleLink = screen.getByRole("link", { name: /poke-mem/i });
+        const titleLink = screen.getByTestId("header-title");
         expect(titleLink).toBeInTheDocument();
         expect(titleLink).not.toHaveAttribute("disabled");
 
@@ -56,8 +56,8 @@ describe("Header Component", () => {
 
     it("Should have a link to the game page", () => {
         renderWithRouter(<Header />);
-        const titleLink = screen.getByRole("link", { name: /poke-mem/i });
-        expect(titleLink).toHaveAttribute("href", "/game-page"); 
-    });    
+        const titleLink = screen.getByTestId("header-title");
+        expect(titleLink).toHaveAttribute("href", "/game-page");
+    });
 
 })
