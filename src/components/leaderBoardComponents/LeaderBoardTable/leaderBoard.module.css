@@ -2,5 +2,35 @@
 
 
 .leaderBoardContainer{
-    background-color: teal;
+    height:85dvh;
+    background-color: rgb(230, 209, 176);
+    padding:1em;
+    margin:1em;
+    border: double 0.5em #f9cd21;
+    border-radius: 1em ;
+    box-shadow: 0px 0px 1em 0.5em rgba(0, 0, 0, 0.5);
+}
+
+.leaderBoardTable{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.leaderBoardEntryCell{
+    padding: 0.5em;
+    border: 1px solid #7b2cd6;
+    font-size: 4.5vw;
+    color: #360323;
+}
+
+.leaderBoardHeader{
+    background-color: rgb(46, 4, 70);
+    font-size: 5vw;
+    color: wheat;
+    padding: 1em;
+    border: 1px solid #7b2cd6;
+}
+
+.leaderBoardRow{
+    
 }

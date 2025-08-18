@@ -1,9 +1,10 @@
 import React from "react"
 import styles from './leaderBoard.module.css'
 import PropTypes from "prop-types";
+import LeaderBoardControls from "../leaderBoardControls/LeaderBoardControls";
 
 
-function LeaderBoardTable({ sortedLeaderBoardData }) {
+function LeaderBoardTable({ sortedLeaderBoardData, selectedDifficulty, setSelectedDifficulty }) {
 
     if (!sortedLeaderBoardData || sortedLeaderBoardData.length === 0) {
         return (
@@ -15,6 +16,7 @@ function LeaderBoardTable({ sortedLeaderBoardData }) {
 
     return(
         <div className={styles.leaderBoardContainer} data-testid="leaderboard-container">
+            <LeaderBoardControls selectedDifficulty={selectedDifficulty} setSelectedDifficulty={setSelectedDifficulty} />
             <table className={styles.leaderBoardTable} aria-label="Leader Board Table">
                 <thead className={styles.leaderBoardHeader}>
                     <tr className={styles.leaderBoardRow}>
@@ -26,9 +28,9 @@ function LeaderBoardTable({ sortedLeaderBoardData }) {
                 <tbody className={styles.leaderBoardBody} >
                     {sortedLeaderBoardData.map((entry, index) => (
                         <tr key={entry.id} className={styles.leaderBoardRow} data-testid={`row-${index + 1}`} aria-label={`Row ${index + 1}`}>
-                            <td className={styles.leaderBoardCell} aria-label={`Leaderboard Position ${index + 1}`}>{index + 1}</td>
-                            <td className={styles.leaderBoardCell} aria-label={`Player Name ${entry.player_name}`}>{entry.player_name}</td>
-                            <td className={styles.leaderBoardCell} aria-label={`Finish Time ${entry.finish_time}`}>{entry.finish_time}</td>
+                            <td className={styles.leaderBoardEntryCell} aria-label={`Leaderboard Position ${index + 1}`}>{index + 1}</td>
+                            <td className={styles.leaderBoardEntryCell} aria-label={`Player Name ${entry.player_name}`}>{entry.player_name}</td>
+                            <td className={styles.leaderBoardEntryCell} aria-label={`Finish Time ${entry.finish_time}`}>{entry.finish_time}</td>
                         </tr>
                     ))}
                 </tbody>
@@ -38,6 +40,8 @@ function LeaderBoardTable({ sortedLeaderBoardData }) {
 }
 
 LeaderBoardTable.propTypes = {
+    setSelectedDifficulty: PropTypes.func.isRequired,
+    selectedDifficulty: PropTypes.string.isRequired,
     sortedLeaderBoardData: PropTypes.arrayOf(
         PropTypes.shape({
             id: PropTypes.number.isRequired,

@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useState } from "react"
-import LeaderBoardControls from "../leaderBoardControls/LeaderBoardControls"
 import Navbar from "../../navBar/Navbar"
 import LeaderBoardTable from "../LeaderBoardTable/LeaderBoardTable";
 import styles from "./leaderBoardPage.module.css"
@@ -56,8 +55,7 @@ function LeaderBoardPage(){
         <div className={styles.leaderBoardPage}>
             <Navbar />
             <LeaderBoardHeader selectedDifficulty={selectedDifficulty} />
-            <LeaderBoardControls selectedDifficulty={selectedDifficulty} setSelectedDifficulty={setSelectedDifficulty} />
-            <LeaderBoardTable sortedLeaderBoardData={sortedLeaderBoardData} />
+            <LeaderBoardTable setSelectedDifficulty={setSelectedDifficulty} selectedDifficulty={selectedDifficulty} sortedLeaderBoardData={sortedLeaderBoardData} />
         </div>
     )
 }

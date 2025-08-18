@@ -23,13 +23,15 @@ body {
   min-width: 320px;
   height: 100dvh;
   background-color: rgb(0, 0, 0);
-  font-family: "Pixelify Sans", sans-serif;
+  font-family: "VT323", monospace;
+  letter-spacing: 0.05em;
   margin: 0px;
   font-weight: 800;
 }
 
 h1 {
-  font-family: "Pixelify Sans", sans-serif;
+  letter-spacing: 0px;
+  font-family: "VT323", monospace;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;

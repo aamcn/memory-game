@@ -10,7 +10,7 @@ function LeaderBoardControls({ setSelectedDifficulty, selectedDifficulty }) {
   return (
     <div className={styles.leaderBoardControls} data-testid="leaderboard-controls-container">
       <label className={styles.leaderBoardLabel} htmlFor="difficulty-select">
-        Difficulty Selector
+        Difficulty Selector 
       </label>
       <select
         id="difficulty-select"
