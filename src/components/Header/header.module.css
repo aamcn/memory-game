@@ -1,7 +1,5 @@
 .headerContainer {
   grid-row: 1;
-  display: flex;
-  justify-content: center;
   align-items: center;
   min-width: 320px;
   height: 10dvh;

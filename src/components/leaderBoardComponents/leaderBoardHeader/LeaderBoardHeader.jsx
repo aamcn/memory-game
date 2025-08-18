@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./leaderBoardHeader.module.css";
 import PropTypes from "prop-types";
+import Navbar from "../../navBar/Navbar";
 
 function LeaderBoardHeader({ selectedDifficulty }) {
   return (
@@ -8,6 +9,7 @@ function LeaderBoardHeader({ selectedDifficulty }) {
       className={styles.leaderBoardHeadContainer}
       data-testid="leader-board-header"
     >
+      <Navbar />      
       <h1
         className={styles.leaderBoardTitle}
         aria-label={`${selectedDifficulty} Leader Board`}
