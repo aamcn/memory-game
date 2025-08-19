@@ -25,7 +25,6 @@ function LeaderBoardForm({ finishTime, cardTotal }) {
         const formData = new FormData(event.target);
         const formDataToJson = axios.formToJSON(formData);
         postForm(formDataToJson)
-        console.log(cardTotal)
     };
 
     const easyLeaderBoardUrl = "http://localhost:3000/easy-leader-board/add-easy-top-scorer";
@@ -34,16 +33,12 @@ function LeaderBoardForm({ finishTime, cardTotal }) {
 
     function postForm(formData) {
         let body = formData;
-        console.log(body);
         axios.post(
         leaderBoardUrl,
          body,
          {method: "cors" },
          { withCredentials: true },
     )
-      .then((res) => {
-        console.log(res.data);
-      })
       .catch((error) => {
         console.error(error);
       });

@@ -12,7 +12,6 @@ class PokemonCardObject {
     this.isClicked = false;
     this.id = id;
     this.type = type;
-    console.log(this.id)
 
   }
 
