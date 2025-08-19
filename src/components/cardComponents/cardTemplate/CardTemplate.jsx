@@ -42,6 +42,7 @@ function CardTemplate({
               : styles.fourCardContainer
         }
         onClick={handleCardClick}
+        aria-label={`Click to select ${pokemonCardDetails.name} card`}
       >
           <div
             className={
