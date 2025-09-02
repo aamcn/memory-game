@@ -1,35 +1,69 @@
-Poke-Mem
+Memory Game  🎮
 
-A game to test your memory skills
+A card game to test your memory skills. The game includes three difficulty levels and if the player wins the round they can upload their finish time to the leaderboard. 
 
-Project Status:
+🚀 Features
+Card game featuring memorable characters.
+Clickable cards: Score a point if you haven't clicked it before or lose the round if you have.
+Multiple difficulty: Easy (4 cards), Medium (6 cards), and Hard (9 cards) game modes
+Multi-difficulty Leaderboards, one for each difficulty.
 
-This project is currently in development. Users can currently choose from three difficulties and play a round of the game. When the user wis or loses the round a pop up displays their results and the user can choose to play another round.
+📋 Prerequisites
+Before running this project, make sure you have:
 
-Styling is in progress and currently only for portrait mobile screens and desktop landscape dimensions. Landscape styling to come.
+Node.js (v14 or higher)
 
-Further features are to be developed starting with a round timer (to log how quickly the user beats a round) and leader board feature to upload your best score.
+npm or yarn package manager
+🛠️ Installation
+Clone the repository
+
+git clone https://github.com/aamcn/memory-game
+cd memory-game
+Install dependencies
+
+npm install
+Set up environment variables
+
+Update POST and GET URLS for Leaderboards
 
 
-Getting Started:
-
-    Fork and clone respository
-
-    Installation:
-    npm install to install dependencies
-
-    To Run App Locally:
+Run the in development.
     npm run dev
+The app will start on http://localhost:5173
 
-    To Visit App In Browser:
-    localhost:5173
+🔧 Development
 
-    To Run Tests:
-    npm test
+Code Quality Tools
+ESLint: Code linting and style enforcement
+Prettier: Code formatting
 
-Authors:
+Running with Development Tools
+# Run ESLint
+npx eslint .
+
+# Format code with Prettier
+npx prettier --write .
+
+🌐 Backend Integration
+This front end is designed to work with the memory-game-backend application. The frontend makes requests to these endpoints to:
+
+Submit high scores when players complete games
+Retrieve leaderboard data for display in the leaderboard page
+Filter scores by difficulty for different game modes
+
+📊 Database Schema
+Leaderboard Tables
+Each difficulty level has its own table with identical structure:
+
+Column	Type	Description
+id	SERIAL PRIMARY KEY	Unique identifier
+player_name	VARCHAR(50)	Player's name
+finish_time	VARCHAR(8)	Completion time (MM:SS:MS)
+
+👨‍💻 Author
 Aaron McNulty
+Link: https://github.com/aamcn/memory-game
+GitHub: @aamcn
 
-Acknowledgments:
-Built using the PokeApi
-https://pokeapi.co/docs/v2
+🙏 Acknowledgments
+Built using the pokeApi https://pokeapi.co/
