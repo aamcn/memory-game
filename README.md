@@ -18,19 +18,20 @@ Node.js (v14 or higher)
 
 npm or yarn package manager
 🛠️ Installation
+
 Clone the repository
+    git clone https://github.com/aamcn/memory-game
+    cd memory-game
 
-git clone https://github.com/aamcn/memory-game
-cd memory-game
 Install dependencies
+    npm install
 
-npm install
 Set up environment variables
-
-Update POST and GET URLS to your own Leaderboard database.
+    Update POST and GET URLS to your own Leaderboard database.
 
 Run the in development.
     npm run dev
+    
 The app will start on http://localhost:5173
 
 # Development
