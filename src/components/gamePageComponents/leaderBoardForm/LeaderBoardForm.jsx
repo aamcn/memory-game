@@ -54,19 +54,20 @@ function LeaderBoardForm({ finishTime, cardTotal, setLeaderBoardFormVisible }) {
 
   return (
     <form className={styles.leaderBoardForm} onSubmit={handleSubmitScore}>
-      <h2>Submit Your Score</h2>
-      <label htmlFor="playerName">Name: </label>
+      <h2 aria-label="Submit Your Score">Submit Your Score</h2>
+      <label htmlFor="playerName" aria-label="Player Name">Name: </label>
       <input id="playerName" type="text" name="playerName" />
-      <label htmlFor="finishTime">Finish Time: </label>
+      <label htmlFor="finishTime" aria-label="Finish Time">Finish Time: </label>
       <input
         id="finishTime"
         type="string"
         name="finishTime"
         readOnly
         value={finishTime}
+        aria-label="Your finish time, read only"
       />
-      <button type="submit">Submit</button>
-      <button onClick={handleCancelForm} type="button">
+      <button type="submit" aria-label="Submit button">Submit</button>
+      <button onClick={handleCancelForm} type="button" aria-label="Cancel button">
         Cancel
       </button>
     </form>
