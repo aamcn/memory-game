@@ -1,6 +1,6 @@
 import GamePage from "./GamePage";
 import React from "react";
-import { render, screen} from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 import { BrowserRouter } from "react-router-dom";
 
@@ -10,7 +10,6 @@ const renderWithRouter = (component) => {
 };
 
 describe("GamePage Component", () => {
-
   describe("Basic rendering tests", () => {
     it("Should render GamePage", () => {
       renderWithRouter(<GamePage />);
@@ -30,7 +29,4 @@ describe("GamePage Component", () => {
       expect(gameContainerElement).toBeInTheDocument();
     });
   });
-
-  
 });
-

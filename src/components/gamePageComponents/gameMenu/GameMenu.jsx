@@ -18,7 +18,9 @@ function GameMenu({ handleStartClick, cardTotal, setCardTotal }) {
         <h2 id="game-menu-title">Menu</h2>
       </div>
       <div className={styles.difficultyContainer}>
-        <p data-testid="difficulty-title" className={styles.difficultyTitle}>Choose Your Difficulty</p>
+        <p data-testid="difficulty-title" className={styles.difficultyTitle}>
+          Choose Your Difficulty
+        </p>
         <p data-testid="difficultyText">{cardTotal} Cards</p>
         <div className={styles.difficultyButtons}>
           <button
@@ -48,7 +50,11 @@ function GameMenu({ handleStartClick, cardTotal, setCardTotal }) {
         </div>
       </div>
       <div id="menu-buttons-container">
-        <button data-testid="start-button" className={styles.startButton} onClick={handleStartClick}>
+        <button
+          data-testid="start-button"
+          className={styles.startButton}
+          onClick={handleStartClick}
+        >
           Start
         </button>
       </div>

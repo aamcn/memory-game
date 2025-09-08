@@ -86,5 +86,4 @@ describe("sortByTime", () => {
     const result = input.sort(sortByTime);
     expect(result).toEqual(expected);
   });
-  
 });

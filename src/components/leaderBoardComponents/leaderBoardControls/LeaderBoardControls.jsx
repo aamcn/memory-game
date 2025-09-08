@@ -3,14 +3,18 @@ import PropTypes from "prop-types";
 import React from "react";
 
 function LeaderBoardControls({ setSelectedDifficulty, selectedDifficulty }) {
+  // Handle change in difficulty selection
   const handleDifficultyChange = (e) => {
     setSelectedDifficulty(e.target.value);
   };
 
   return (
-    <div className={styles.leaderBoardControls} data-testid="leaderboard-controls-container">
+    <div
+      className={styles.leaderBoardControls}
+      data-testid="leaderboard-controls-container"
+    >
       <label className={styles.leaderBoardLabel} htmlFor="difficulty-select">
-        Difficulty Selector 
+        Difficulty Selector
       </label>
       <select
         id="difficulty-select"

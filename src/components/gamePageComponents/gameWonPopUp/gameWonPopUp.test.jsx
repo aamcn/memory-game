@@ -35,11 +35,9 @@ describe("GameWonPopUp Component", () => {
       expect(finalTimeText).toBeInTheDocument();
       expect(finalTimeText).toHaveTextContent(mockProps.finalTime);
     });
-
   });
 
   describe("button interactions", () => {
-    
     it("Should call setGameStarted and setGameWon when new game button is clicked", async () => {
       const user = userEvent.setup();
       render(<GameWonPopUp {...mockProps} />);

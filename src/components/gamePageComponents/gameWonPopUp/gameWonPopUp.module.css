@@ -43,9 +43,8 @@
   font-size: 5vw;
 }
 
-.winTimeText{
-    font-family: 'Courier New', Courier, monospace;
-
+.winTimeText {
+  font-family: "Courier New", Courier, monospace;
 }
 
 @media screen and (min-width: 768px) {

@@ -1,17 +1,13 @@
 import Navbar from "./Navbar";
-import { render, screen, act  } from "@testing-library/react";
+import { render, screen, act } from "@testing-library/react";
 import { it, describe, expect, vi } from "vitest";
-import { BrowserRouter, MemoryRouter, Routes, Route} from "react-router-dom";
+import { BrowserRouter, MemoryRouter, Routes, Route } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import React from "react";
 
 // Helper function to render component with Router context
 const renderWithRouter = (component) => {
-  return render(
-    <BrowserRouter>
-      {component}
-    </BrowserRouter>
-  );
+  return render(<BrowserRouter>{component}</BrowserRouter>);
 };
 
 describe("Navbar Component", () => {
@@ -35,7 +31,7 @@ describe("Navbar Component", () => {
     const gameLinkSpy = vi.spyOn(gameLink, "click");
     const leaderBoardLink = screen.getByRole("link", { name: /leader board/i });
     const leaderBoardSpy = vi.spyOn(leaderBoardLink, "click");
-    
+
     act(() => {
       gameLink.click();
       leaderBoardLink.click();
@@ -52,27 +48,33 @@ describe("Navbar Component", () => {
     expect(gameLink).toHaveAttribute("id", "game-link");
     expect(leaderBoardLink).toHaveAttribute("href", "/leader-board");
     expect(leaderBoardLink).toHaveAttribute("id", "leaderboard-link");
-  })
-
-})
+  });
+});
 
 describe("Navigation tests", () => {
-
   it("should navigate to game-page path when user clicks the Game Page link", async () => {
     const user = userEvent.setup();
     render(
       <MemoryRouter initialEntries={["/leader-board"]}>
         <Routes>
-          <Route path="/game-page" element={
-            <div>Game Page
-              <Navbar />
-            </div>
-          } />
-          <Route path="/leader-board" element=
-          {
-            <div>Leader Board Page
-              <Navbar />
-            </div>} />
+          <Route
+            path="/game-page"
+            element={
+              <div>
+                Game Page
+                <Navbar />
+              </div>
+            }
+          />
+          <Route
+            path="/leader-board"
+            element={
+              <div>
+                Leader Board Page
+                <Navbar />
+              </div>
+            }
+          />
         </Routes>
       </MemoryRouter>,
     );
@@ -87,16 +89,24 @@ describe("Navigation tests", () => {
     render(
       <MemoryRouter initialEntries={["/game-page"]}>
         <Routes>
-          <Route path="/game-page" element={
-            <div>Game Page
-              <Navbar />
-            </div>
-          } />
-          <Route path="/leader-board" element=
-          {
-            <div>Leader Board Page
-              <Navbar />
-            </div>} />
+          <Route
+            path="/game-page"
+            element={
+              <div>
+                Game Page
+                <Navbar />
+              </div>
+            }
+          />
+          <Route
+            path="/leader-board"
+            element={
+              <div>
+                Leader Board Page
+                <Navbar />
+              </div>
+            }
+          />
         </Routes>
       </MemoryRouter>,
     );
@@ -105,5 +115,4 @@ describe("Navigation tests", () => {
     const LeaderBoardPage = screen.queryByText("Leader Board Page");
     expect(LeaderBoardPage).toBeInTheDocument();
   });
-})
-
+});

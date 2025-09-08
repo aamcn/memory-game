@@ -44,28 +44,26 @@ function CardTemplate({
         onClick={handleCardClick}
         aria-label={`Click to select ${pokemonCardDetails.name} card`}
       >
-          <div
-            className={
-              cardTotal === 9
-                ? styles.nineImageContainer
-                : cardTotal === 6
-                  ? styles.sixImageContainer
-                  : styles.fourImageContainer
-            }
-          >
-            <img
-              className={styles.cardImage}
-              src={pokemonCardDetails.imageUrl}
-              alt={`${pokemonCardDetails.name} Pokemon`}
-              data-testid="card-image"
-            />
-          </div>
-          <div className={styles.cardTitleContainer}>
-            <p data-testid="card-name">
-              {pokemonCardDetails.name}
-            </p>
-          </div>
+        <div
+          className={
+            cardTotal === 9
+              ? styles.nineImageContainer
+              : cardTotal === 6
+                ? styles.sixImageContainer
+                : styles.fourImageContainer
+          }
+        >
+          <img
+            className={styles.cardImage}
+            src={pokemonCardDetails.imageUrl}
+            alt={`${pokemonCardDetails.name} Pokemon`}
+            data-testid="card-image"
+          />
         </div>
+        <div className={styles.cardTitleContainer}>
+          <p data-testid="card-name">{pokemonCardDetails.name}</p>
+        </div>
+      </div>
     )
   );
 }
@@ -77,7 +75,7 @@ CardTemplate.propTypes = {
   setGameOver: PropTypes.func.isRequired, // Should be func, not bool
   setCardObjects: PropTypes.func.isRequired, // Should be func, not object
   setIsHidden: PropTypes.func.isRequired,
-  cardTotal: PropTypes.number.isRequired
+  cardTotal: PropTypes.number.isRequired,
 };
 
 export default CardTemplate;

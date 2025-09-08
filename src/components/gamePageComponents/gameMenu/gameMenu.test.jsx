@@ -4,7 +4,6 @@ import userEvent from "@testing-library/user-event";
 import React from "react";
 import GameMenu from "./GameMenu";
 
-
 describe("GameMenu Component", () => {
   const mockProps = {
     cardTotal: 4,
@@ -94,50 +93,50 @@ describe("GameMenu Component", () => {
     it("Should call setCardTotal with 4 when Easy button is clicked", async () => {
       const user = userEvent.setup();
       render(<GameMenu {...mockProps} />);
-      
+
       const easyButton = screen.getByTestId("easy-button");
       await user.click(easyButton);
-      
+
       expect(mockProps.setCardTotal).toHaveBeenCalledWith(4);
     });
 
     it("Should call setCardTotal with 6 when Medium button is clicked", async () => {
       const user = userEvent.setup();
       render(<GameMenu {...mockProps} />);
-      
+
       const mediumButton = screen.getByTestId("medium-button");
       await user.click(mediumButton);
-      
+
       expect(mockProps.setCardTotal).toHaveBeenCalledWith(6);
     });
 
     it("Should call setCardTotal with 9 when Hard button is clicked", async () => {
       const user = userEvent.setup();
       render(<GameMenu {...mockProps} />);
-      
+
       const hardButton = screen.getByTestId("hard-button");
       await user.click(hardButton);
-      
+
       expect(mockProps.setCardTotal).toHaveBeenCalledWith(9);
     });
 
     it("Should call handleStartClick when Start button is clicked", async () => {
       const user = userEvent.setup();
       render(<GameMenu {...mockProps} />);
-      
+
       const startButton = screen.getByTestId("start-button");
       await user.click(startButton);
-      
+
       expect(mockProps.handleStartClick).toHaveBeenCalledTimes(1);
     });
 
     it("Should not call setCardTotal when Start button is clicked", async () => {
       const user = userEvent.setup();
       render(<GameMenu {...mockProps} />);
-      
+
       const startButton = screen.getByTestId("start-button");
       await user.click(startButton);
-      
+
       expect(mockProps.setCardTotal).not.toHaveBeenCalled();
     });
   });
@@ -145,17 +144,16 @@ describe("GameMenu Component", () => {
   describe("Accessibility", () => {
     it("Should have all buttons accessible by role", () => {
       render(<GameMenu {...mockProps} />);
-      
+
       const buttons = screen.getAllByRole("button");
-      expect(buttons).toHaveLength(4); 
+      expect(buttons).toHaveLength(4);
     });
 
     it("Should have proper heading structure", () => {
       render(<GameMenu {...mockProps} />);
-      
+
       const heading = screen.getByRole("heading", { level: 2 });
       expect(heading).toBeInTheDocument();
     });
   });
-
 });

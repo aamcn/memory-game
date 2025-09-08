@@ -14,14 +14,18 @@ function GameOverPopUp({ setGameOver, setGameStarted, finalTime }) {
 
   return (
     <div className={styles.lostGameWindow} data-testid="game-over-popup">
-      <h3 className={styles.gameOverTitle} data-testid="game-over-title">Game Over</h3>
+      <h3 className={styles.gameOverTitle} data-testid="game-over-title">
+        Game Over
+      </h3>
       <div className={styles.gameOverText}>
         <p>Oh no...</p>
         <p>You already clicked on that</p>
       </div>
       <div>
         <p>Your final time was:</p>
-        <p data-testid="final-time" className={styles.finalTimeText}>{finalTime}</p>
+        <p data-testid="final-time" className={styles.finalTimeText}>
+          {finalTime}
+        </p>
       </div>
       <div>
         <p>Would you like to try again?</p>

@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 function LeaderBoardForm({ finishTime, cardTotal, setLeaderBoardFormVisible }) {
   const [leaderBoardUrl, setLeaderBoardUrl] = useState("easyLeaderBoardUrl");
 
-  //URLS to POST to each database table. 
+  //URLS to POST to each database table.
   const easyLeaderBoardUrl =
     "http://localhost:3000/easy-leader-board/add-easy-top-scorer";
   const mediumLeaderBoardUrl =
@@ -36,7 +36,7 @@ function LeaderBoardForm({ finishTime, cardTotal, setLeaderBoardFormVisible }) {
     postForm(formDataToJson);
   };
 
-  //Post form data to the server. 
+  //Post form data to the server.
   function postForm(formData) {
     let body = formData;
     axios
@@ -55,9 +55,13 @@ function LeaderBoardForm({ finishTime, cardTotal, setLeaderBoardFormVisible }) {
   return (
     <form className={styles.leaderBoardForm} onSubmit={handleSubmitScore}>
       <h2 aria-label="Submit Your Score">Submit Your Score</h2>
-      <label htmlFor="playerName" aria-label="Player Name">Name: </label>
+      <label htmlFor="playerName" aria-label="Player Name">
+        Name:{" "}
+      </label>
       <input id="playerName" type="text" name="playerName" />
-      <label htmlFor="finishTime" aria-label="Finish Time">Finish Time: </label>
+      <label htmlFor="finishTime" aria-label="Finish Time">
+        Finish Time:{" "}
+      </label>
       <input
         id="finishTime"
         type="string"
@@ -66,8 +70,14 @@ function LeaderBoardForm({ finishTime, cardTotal, setLeaderBoardFormVisible }) {
         value={finishTime}
         aria-label="Your finish time, read only"
       />
-      <button type="submit" aria-label="Submit button">Submit</button>
-      <button onClick={handleCancelForm} type="button" aria-label="Cancel button">
+      <button type="submit" aria-label="Submit button">
+        Submit
+      </button>
+      <button
+        onClick={handleCancelForm}
+        type="button"
+        aria-label="Cancel button"
+      >
         Cancel
       </button>
     </form>

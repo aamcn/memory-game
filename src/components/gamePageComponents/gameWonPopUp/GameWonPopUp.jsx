@@ -2,8 +2,12 @@ import styles from "./gameWonPopUp.module.css";
 import PropTypes from "prop-types";
 import React from "react";
 
-function GameWonPopUp({ setGameStarted, setGameWon, finalTime, setLeaderBoardFormVisible }) {
-
+function GameWonPopUp({
+  setGameStarted,
+  setGameWon,
+  finalTime,
+  setLeaderBoardFormVisible,
+}) {
   /* 
     Setting gameResults to false hides the GameLostWindow component 
     setting gameStarted to false displays the gameMenu component starting the game over
@@ -22,7 +26,9 @@ function GameWonPopUp({ setGameStarted, setGameWon, finalTime, setLeaderBoardFor
       </div>
       <div>
         <p>Your final time was:</p>
-        <p data-testid="win-final-time" className={styles.winTimeText}>{finalTime}</p>
+        <p data-testid="win-final-time" className={styles.winTimeText}>
+          {finalTime}
+        </p>
       </div>
       <div>
         <p>Would you like to play again?</p>
@@ -30,7 +36,10 @@ function GameWonPopUp({ setGameStarted, setGameWon, finalTime, setLeaderBoardFor
         <button className={styles.newGameButton} onClick={handleClickNewGame}>
           New Game?
         </button>
-        <button className={styles.newGameButton} onClick={() => setLeaderBoardFormVisible(true)}>
+        <button
+          className={styles.newGameButton}
+          onClick={() => setLeaderBoardFormVisible(true)}
+        >
           Submit Score
         </button>
       </div>
@@ -42,7 +51,7 @@ GameWonPopUp.propTypes = {
   setGameStarted: PropTypes.func.isRequired,
   setGameWon: PropTypes.func.isRequired,
   finalTime: PropTypes.string.isRequired,
-  setLeaderBoardFormVisible: PropTypes.func.isRequired
+  setLeaderBoardFormVisible: PropTypes.func.isRequired,
 };
 
 export default GameWonPopUp;

@@ -29,7 +29,7 @@ describe("Card Element", () => {
     mockProps.pokemonCardDetails.isClicked = false;
     mockProps.cardTotal = 4;
     mockProps.currentScore = 0;
-    
+
     // Clear mock function calls
     vi.clearAllMocks();
   });
@@ -90,16 +90,16 @@ describe("Card Element", () => {
     expect(mockProps.setCardObjects).toHaveBeenCalled();
   });
 
-  it('Should call setGameOver when card is clicked twice', async () => {
+  it("Should call setGameOver when card is clicked twice", async () => {
     const user = userEvent.setup();
-    
+
     // Set up a card that has already been clicked
     const alreadyClickedProps = {
       ...mockProps,
       pokemonCardDetails: {
         ...mockProps.pokemonCardDetails,
-        isClicked: true
-      }
+        isClicked: true,
+      },
     };
 
     render(<CardTemplate {...alreadyClickedProps} />);

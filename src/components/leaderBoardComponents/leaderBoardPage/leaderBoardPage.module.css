@@ -1,10 +1,8 @@
-
-
-.leaderBoardPage{
-    display:flex;
-    flex-direction: column;
-    height: 100dvh;
-      background: linear-gradient(
+.leaderBoardPage {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  background: linear-gradient(
     0deg,
     rgb(148, 56, 56),
     rgb(151, 17, 228),
@@ -12,16 +10,15 @@
   );
 }
 
-
 @media screen and (min-width: 1024px) {
   .gameContainer {
     grid-template-rows: 1fr;
     grid-template-columns: 3fr 9fr;
   }
 
-  .gameInfoContainer{
-  display:grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-}
+  .gameInfoContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+  }
 }

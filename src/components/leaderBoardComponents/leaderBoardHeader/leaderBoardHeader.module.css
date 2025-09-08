@@ -1,11 +1,10 @@
-
-.leaderBoardHeadContainer{
-    grid-row: 1;
-    min-width: 320px;
-    height: 10dvh;
+.leaderBoardHeadContainer {
+  grid-row: 1;
+  min-width: 320px;
+  height: 10dvh;
 }
 
-.leaderBoardTitle{
+.leaderBoardTitle {
   color: rgb(211, 181, 15);
   text-shadow: rgb(138, 5, 45) 0.05em 0.09em 0.05em;
   text-decoration-color: red;
@@ -16,7 +15,7 @@
   font-size: 12vw;
 }
 
-.leaderBoardTitle{
+.leaderBoardTitle {
   padding-top: 0.2em;
 }
 

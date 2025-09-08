@@ -3,7 +3,7 @@ import React from "react";
 import { screen, render } from "@testing-library/react";
 import { describe, expect, it, vi, beforeEach } from "vitest";
 
-// Mock all child components. 
+// Mock all child components.
 vi.mock("../timer/timer", () => ({
   default: ({ gameStarted }) => (
     <div data-testid="timer-component">
@@ -21,26 +21,16 @@ vi.mock("../scoreBoard/ScoreBoard", () => ({
 }));
 
 vi.mock("../gameOverPopUp/GameOverPopUp", () => ({
-  default: () => (
-    <div data-testid="game-over-popup">
-      Game Over!
-    </div>
-  ),
+  default: () => <div data-testid="game-over-popup">Game Over!</div>,
 }));
 
 vi.mock("../gameWonPopUp/GameWonPopUp", () => ({
-  default: () => (
-    <div data-testid="game-won-popup">
-      Game Won!
-    </div>
-  ),
+  default: () => <div data-testid="game-won-popup">Game Won!</div>,
 }));
 
 vi.mock("../gameMenu/GameMenu", () => ({
   default: ({ cardTotal }) => (
-    <div data-testid="game-menu">
-      Menu - Cards: {cardTotal}
-    </div>
+    <div data-testid="game-menu">Menu - Cards: {cardTotal}</div>
   ),
 }));
 
@@ -72,7 +62,6 @@ const mockProps = {
   gameWon: false,
   setGameWon: vi.fn(),
 };
-
 
 describe("GameContainer Component", () => {
   beforeEach(() => {
@@ -168,12 +157,21 @@ describe("GameContainer Component", () => {
 
   describe("Props passing", () => {
     it("passes correct props to ScoreBoard", () => {
-      render(<GameContainer {...mockProps} gameStarted={true} currentScore={7} highScore={15} />);
+      render(
+        <GameContainer
+          {...mockProps}
+          gameStarted={true}
+          currentScore={7}
+          highScore={15}
+        />,
+      );
       expect(screen.getByText("Score: 7/15")).toBeInTheDocument();
     });
 
     it("passes correct props to GameMenu", () => {
-      render(<GameContainer {...mockProps} gameStarted={false} cardTotal={6} />);
+      render(
+        <GameContainer {...mockProps} gameStarted={false} cardTotal={6} />,
+      );
       expect(screen.getByText("Menu - Cards: 6")).toBeInTheDocument();
     });
 
@@ -183,4 +181,3 @@ describe("GameContainer Component", () => {
     });
   });
 });
-

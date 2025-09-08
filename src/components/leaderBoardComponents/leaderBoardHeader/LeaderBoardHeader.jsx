@@ -9,7 +9,7 @@ function LeaderBoardHeader({ selectedDifficulty }) {
       className={styles.leaderBoardHeadContainer}
       data-testid="leader-board-header"
     >
-      <Navbar />      
+      <Navbar />
       <h1
         className={styles.leaderBoardTitle}
         data-testid="leader-board-title"

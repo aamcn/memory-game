@@ -5,19 +5,19 @@ import pluginReact from "eslint-plugin-react";
 /** @type {import('eslint').Linter.Config[]} */
 export default [
   {
-    ignores: ["dist/**/*", "*.config.js"]
+    ignores: ["dist/**/*", "*.config.js"],
   },
-  { 
+  {
     files: ["**/*.{js,mjs,cjs,jsx}"],
-    languageOptions: { globals: globals.browser } 
+    languageOptions: { globals: globals.browser },
   },
   pluginJs.configs.recommended,
   {
     ...pluginReact.configs.flat.recommended,
     settings: {
       react: {
-        version: "detect"
-      }
-    }
+        version: "detect",
+      },
+    },
   },
 ];

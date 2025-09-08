@@ -6,11 +6,11 @@ describe("getRandomInt", () => {
     expect(getRandomInt(1, 10)).toBeTypeOf("number");
   });
 
-   it("Should return a number within the inclusive range", () => {
-  const result = getRandomInt(1, 10);
-  expect(result).toBeGreaterThanOrEqual(1);
-  expect(result).toBeLessThanOrEqual(10);  // More precise than < 11
-});
+  it("Should return a number within the inclusive range", () => {
+    const result = getRandomInt(1, 10);
+    expect(result).toBeGreaterThanOrEqual(1);
+    expect(result).toBeLessThanOrEqual(10); // More precise than < 11
+  });
 
   it("Should return a number greater than 0", () => {
     expect(getRandomInt(1, 10)).toBeGreaterThan(0);
@@ -25,23 +25,27 @@ describe("getRandomInt", () => {
     expect(getRandomInt(9.5, 10.5)).toBe(10);
   });
 
- it("Should be able to return the max value (statistical test)", () => {
-  let foundMax = false;
-  for (let i = 0; i < 50; i++) {
-    if (getRandomInt(5, 5) === 5) {  // Simple case
-      foundMax = true;
-      break;
+  it("Should be able to return the max value (statistical test)", () => {
+    let foundMax = false;
+    for (let i = 0; i < 50; i++) {
+      if (getRandomInt(5, 5) === 5) {
+        // Simple case
+        foundMax = true;
+        break;
+      }
     }
-  }
-  expect(foundMax).toBe(true);
-});
-
-  it("Should handle type errors gracefully", () => {
-    expect(() => {getRandomInt("a", 10)}).toThrow("Invalid input, both min and max must be numbers");
-    expect(() => {getRandomInt(1, "b")}).toThrow("Invalid input, both min and max must be numbers");
-    expect(() => {getRandomInt("a", "b")}).toThrow("Invalid input, both min and max must be numbers");
+    expect(foundMax).toBe(true);
   });
 
-  
+  it("Should handle type errors gracefully", () => {
+    expect(() => {
+      getRandomInt("a", 10);
+    }).toThrow("Invalid input, both min and max must be numbers");
+    expect(() => {
+      getRandomInt(1, "b");
+    }).toThrow("Invalid input, both min and max must be numbers");
+    expect(() => {
+      getRandomInt("a", "b");
+    }).toThrow("Invalid input, both min and max must be numbers");
+  });
 });
-  

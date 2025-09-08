@@ -1,6 +1,8 @@
 function shuffleArray(array, attempts = 0) {
   // Prevent infinite loop in case of failure to shuffle.
-  if (attempts > 20) { return [...array]; }
+  if (attempts > 20) {
+    return [...array];
+  }
   // Validate Array.
   if (!Array.isArray(array)) {
     throw new TypeError("Expected input to be an array");

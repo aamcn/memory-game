@@ -1,12 +1,17 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-
 function Button({ buttonId, buttonText, buttonType, onClick, buttonClass }) {
   return (
-      <button id={buttonId} type={buttonType} onClick={onClick} aria-label={buttonText} className={buttonClass}>
-        {buttonText}
-      </button>
+    <button
+      id={buttonId}
+      type={buttonType}
+      onClick={onClick}
+      aria-label={buttonText}
+      className={buttonClass}
+    >
+      {buttonText}
+    </button>
   );
 }
 

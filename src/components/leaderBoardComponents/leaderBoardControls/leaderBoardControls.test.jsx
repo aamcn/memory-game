@@ -4,14 +4,13 @@ import { expect, vi, it, describe, beforeEach } from "vitest";
 import React from "react";
 
 const mockProps = {
-    selectedDifficulty: "Easy",
-    setSelectedDifficulty: vi.fn(),
+  selectedDifficulty: "Easy",
+  setSelectedDifficulty: vi.fn(),
 };
 
 beforeEach(() => {
   vi.clearAllMocks();
 });
-
 
 describe("LeaderBoardControls", () => {
   describe("Rendering tests", () => {
@@ -40,11 +39,9 @@ describe("LeaderBoardControls", () => {
       const select = screen.getByTestId("difficulty-selector");
       expect(select.value).toBe("Easy");
     });
-
   });
 
   describe("Difficulty option change tests", () => {
-
     it("calls setSelectedDifficulty with 'Easy' when Easy option is selected", () => {
       render(<LeaderBoardControls {...mockProps} />);
       const select = screen.getByTestId("difficulty-selector");
@@ -73,5 +70,4 @@ describe("LeaderBoardControls", () => {
       expect(mockProps.setSelectedDifficulty).not.toHaveBeenCalled();
     });
   });
-
 });

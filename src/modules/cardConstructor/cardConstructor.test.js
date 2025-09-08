@@ -32,24 +32,34 @@ describe("PokemonCardObject Contructor", () => {
     expect(newCard.isClicked).toBe(true);
   });
 
-  it('Should change isClicked back to false when toggled', () => {
+  it("Should change isClicked back to false when toggled", () => {
     newCard.toggleClick();
     expect(newCard.isClicked).toBe(true);
   });
 
   it("Should throw error if any input is missing", () => {
-    expect(() => {new PokemonCardObject("Tom", "mockUrl", 1)}).toThrowError("Invalid input: all fields (name, imageUrl, id, type) are required");
+    expect(() => {
+      new PokemonCardObject("Tom", "mockUrl", 1);
+    }).toThrowError(
+      "Invalid input: all fields (name, imageUrl, id, type) are required",
+    );
   });
 
   it("Should throw error when type of name, imageUrl or type is not a string", () => {
-    expect(() => {new PokemonCardObject(123, "url", 1, "grass")}).toThrowError("Invalid input: name, imageUrl, and type must be strings");
-    expect(() => {new PokemonCardObject("Tom", 456, 1, "grass")}).toThrowError("Invalid input: name, imageUrl, and type must be strings");
-    expect(() => {new PokemonCardObject("Tom", "url", 1, 789) }).toThrowError("Invalid input: name, imageUrl, and type must be strings");
+    expect(() => {
+      new PokemonCardObject(123, "url", 1, "grass");
+    }).toThrowError("Invalid input: name, imageUrl, and type must be strings");
+    expect(() => {
+      new PokemonCardObject("Tom", 456, 1, "grass");
+    }).toThrowError("Invalid input: name, imageUrl, and type must be strings");
+    expect(() => {
+      new PokemonCardObject("Tom", "url", 1, 789);
+    }).toThrowError("Invalid input: name, imageUrl, and type must be strings");
   });
 
   it("Should throw error when id is a negative integer", () => {
-    expect(() => {new PokemonCardObject("Tom", "url", -1, "grass")}).toThrowError("Invalid input: id must be a positive number");
-  })
-
-  
+    expect(() => {
+      new PokemonCardObject("Tom", "url", -1, "grass");
+    }).toThrowError("Invalid input: id must be a positive number");
+  });
 });
