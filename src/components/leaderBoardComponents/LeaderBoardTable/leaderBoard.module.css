@@ -1,14 +1,17 @@
 .leaderBoardContainer {
-  height: 65dvh;
+  height: 85dvh;
   background-color: rgb(230, 209, 176);
   padding: 1em;
   margin: 1em;
   border: double 0.5em #f9cd21;
   border-radius: 1em;
   box-shadow: 0px 0px 1em 0.5em rgba(0, 0, 0, 0.5);
+  justify-self: center;
+  margin-bottom: 2em;
 }
 
 .leaderBoardTable {
+  margin-top: 2em;
   border-collapse: collapse;
   width: 100%;
 }
@@ -29,4 +32,7 @@
 }
 
 .leaderBoardRow {
+
+  
 }
+

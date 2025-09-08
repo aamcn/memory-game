@@ -6,20 +6,25 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin-bottom: 0.5em;
+  margin: 1em 0em 0.5em 0em;
 }
 
 .leaderBoardLabel {
+  font-family: "VT323", monospace;
+  letter-spacing: 0.05em;
+  font-size: 5vw;
 }
 
 .leaderBoardSelect {
   font-family: "VT323", monospace;
   letter-spacing: 0.05em;
-  font-size: 5vw;
+  font-size: 4.5vw;
+  padding: 0.2em 1em 0.2em 1em;
   border: none;
   border-radius: 0.5em;
-  background-color: rgb(46, 60, 139);
   color: rgb(192, 239, 255);
+  background-color: rgb(46, 60, 139); 
+  text-align: center;
 }
 
 .leaderBoardDifficulty {

@@ -1,7 +1,7 @@
 .leaderBoardHeadContainer {
   grid-row: 1;
   min-width: 320px;
-  height: 10dvh;
+  height: 15dvh;
 }
 
 .leaderBoardTitle {
@@ -12,14 +12,12 @@
   text-decoration-line: underline;
   text-decoration-thickness: 0.05em;
   text-underline-offset: 0.1em;
-  font-size: 8vw;
+  align-content: center;
+  font-size: 10vw;
+  padding: 1em 0em 1em 0em;
 }
 
-.leaderBoardTitle {
-  padding-top: 0.2em;
-}
-
-.navbarContainer {
+.navbarContainer {  
   display: flex;
   justify-content: space-evenly;
   grid-column: 1;
@@ -41,3 +39,5 @@
     text-shadow: rgb(138, 5, 45) 0.05em 0.05em 0.05em;
   }
 }
+
+

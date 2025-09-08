@@ -8,6 +8,7 @@
     rgb(151, 17, 228),
     rgb(0, 0, 0)
   );
+  justify-content: space-between;
 }
 
 @media screen and (min-width: 1024px) {
