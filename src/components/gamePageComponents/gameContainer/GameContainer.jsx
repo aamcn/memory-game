@@ -35,19 +35,19 @@ function GameContainer({
         data-testid="game-info-container"
       >
         {gameStarted && (
+          <ScoreBoard
+            highScore={highScore}
+            currentScore={currentScore}
+            data-testid="score-board"
+          />
+        )}
+         {gameStarted && (
           <Timer
             setFinalTime={setFinalTime}
             gameStarted={gameStarted}
             gameWon={gameWon}
             gameOver={gameOver}
             data-testid="timer-component"
-          />
-        )}
-        {gameStarted && (
-          <ScoreBoard
-            highScore={highScore}
-            currentScore={currentScore}
-            data-testid="score-board"
           />
         )}
       </div>
