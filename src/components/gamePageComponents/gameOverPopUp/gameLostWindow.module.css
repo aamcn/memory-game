@@ -14,6 +14,7 @@
   padding: 1em;
   animation: menuAppear 1s;
   box-shadow: 0px 0px 2em 1em rgb(0, 0, 0);
+  text-align: center;
 }
 
 .retryButton {
@@ -56,15 +57,15 @@
 
 @media screen and (min-width: 768px) {
   .lostGameWindow {
-    width: 40dvw;
+    width: 50dvw;
     padding: 1em;
   }
 
   .gameOverTitle {
-    font-size: 4vw;
+    font-size: 4vw; 
   }
   .gameOverText {
-    font-size: 2vw;
+    font-size: 2.5dvw;
   }
 }
 

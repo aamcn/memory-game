@@ -91,6 +91,8 @@
   outline-color: rgb(255, 255, 255);
   color: rgb(114, 87, 19);
   font-size: 1.5dvh;
+    text-align: center;
+
 }
 
 .cardImage {
@@ -140,6 +142,10 @@
     height: 13dvh;
   }
 
+   .cardTitleContainer {
+    font-size: 1.5dvw;
+  }
+
   .sixCardContainer {
     border-radius: 5%;
     border: rgb(87, 65, 11) double 0.2em;
@@ -167,7 +173,7 @@
   }
 
   .cardTitleContainer {
-    font-size: 1dvw;
+    font-size: 4dvw;
   }
 
   .sixCardContainer {

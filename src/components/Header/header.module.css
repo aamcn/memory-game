@@ -14,6 +14,7 @@
 
 .titleContainer {
   grid-row: 1;
+  text-align: center;
 }
 
 .gameTitle {
@@ -39,6 +40,11 @@
     grid-row: 1;
     font-size: 6vw;
     text-shadow: rgb(138, 5, 45) 0.05em 0.05em 0.05em;
+  }
+  
+  .titleContainer{
+    padding-left: 2em;
+    text-align: left;
   }
 
   .headerContainer {
