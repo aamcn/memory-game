@@ -13,7 +13,7 @@ const routes = [
       { path: "/landing-page", element: <LandingPage /> },
       { index: true, element: <LandingPage /> },
       { path: "/game-page", element: <GamePage /> },
-      {path: "leader-board", element: <LeaderBoardPage />}
+      { path: "/leader-board", element: <LeaderBoardPage /> }
     ],
     errorElement: <RouterErrorPage />,
   },
