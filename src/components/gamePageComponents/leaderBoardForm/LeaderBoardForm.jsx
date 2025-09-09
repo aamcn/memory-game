@@ -9,7 +9,7 @@ function LeaderBoardForm({ finishTime, cardTotal, setLeaderBoardFormVisible }) {
 
   //URLS to POST to each database table.
   const easyLeaderBoardUrl =
-    "https://memory-game-backend-production-e873.up.railway.app/easy-leader-board/add-easy-top-scorer";
+    "memory-game-backend-production-e873.up.railway.app/easy-leader-board/add-easy-top-scorer";
   const mediumLeaderBoardUrl =
     "https://memory-game-backend-production-e873.up.railway.app/medium-leader-board/add-medium-top-scorer";
   const hardLeaderBoardUrl =
