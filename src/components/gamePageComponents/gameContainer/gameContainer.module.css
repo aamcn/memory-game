@@ -8,7 +8,7 @@
 @media screen and (min-width: 1024px) {
   .gameContainer {
     grid-template-rows: 1fr;
-    grid-template-columns: 3fr 9fr;
+    grid-template-columns: 4fr 9fr;
   }
 
   .gameInfoContainer {

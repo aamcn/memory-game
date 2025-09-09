@@ -5,8 +5,9 @@
   color: rgb(24, 61, 61);
   font-size: 5vw;
   text-shadow: rgb(65, 165, 165) 0.1em 0.1em 0.1em;
-
+  border: solid 0.5em;
 }
+
 
 .scoreTextContainer {
   display: flex;
@@ -33,9 +34,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    width: 60%;
+    justify-self: center;
     font-size: 2.5vw;
     text-align: left;
-    padding: 1em 0em 0em 1em;
+    padding: 1em;
   }
 
   .scoreTextContainer {
