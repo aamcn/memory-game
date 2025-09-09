@@ -30,21 +30,21 @@
   justify-content: space-around;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(255, 206, 45);
-  border: rgb(87, 65, 11) double 0.3em;
+  background-color: rgb(117, 169, 169);
+  border:  rgb(36, 53, 53) double 0.3em;
   border-radius: 0.5em;
   font-size: 4dvw;
   height: 25dvh;
   aspect-ratio: 3/5;
   transform-style: preserve-3d;
   animation: cardAppear 1s;
-  box-shadow: inset -10px 10px 20px 6px rgb(255, 242, 199);
+  box-shadow: inset -10px 10px 20px 6px rgb(117, 242, 199);
 }
 
 .sixImageContainer {
   background-color: rgb(173, 215, 223);
   display: flex;
-  border: double rgb(139, 106, 21) 5px;
+  border: double  rgb(36, 53, 53) 5px;
   width: 12dvh;
   height: 10dvh;
   box-shadow: inset 0px 0px 10px 10px rgb(217, 249, 255);
@@ -81,17 +81,17 @@
 }
 
 .cardTitleContainer {
-  background-color: rgb(252, 251, 205);
+  background-color: rgb(136, 210, 184);
   width: 80%;
   border-radius: 0.1em;
-  border: solid 1px gold;
-  box-shadow: rgb(156, 108, 19) -2px 2px 5px 1px;
+  border: solid 1px rgb(117, 169, 169);
+  box-shadow: rgb(56, 80, 80) -2px 2px 5px 1px;
   outline-width: 0.1em;
   outline-style: inset;
   outline-color: rgb(255, 255, 255);
-  color: rgb(114, 87, 19);
+  color: rgb(36, 53, 53);
   font-size: 1.5dvh;
-    text-align: center;
+  text-align: center;
 
 }
 
