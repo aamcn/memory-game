@@ -2,9 +2,10 @@
   display: grid;
   align-content: center;
   grid-template-columns: 1fr 1fr;
-  color: rgb(211, 181, 15);
+  color: rgb(24, 61, 61);
   font-size: 5vw;
-  text-shadow: rgb(138, 5, 45) 0.1em 0.1em 0.1em;
+  text-shadow: rgb(65, 165, 165) 0.1em 0.1em 0.1em;
+
 }
 
 .scoreTextContainer {
@@ -35,7 +36,6 @@
     font-size: 2.5vw;
     text-align: left;
     padding: 1em 0em 0em 1em;
-    text-shadow: rgb(138, 5, 45) 0.2em 0.1em 0.1em;
   }
 
   .scoreTextContainer {
