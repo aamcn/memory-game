@@ -21,10 +21,8 @@
   color: rgb(24, 61, 61);
   text-shadow: rgb(65, 165, 165) 0.05em 0.09em 0.05em;
   text-decoration: double;
-  text-decoration-line: underline;
   text-decoration-thickness: 0.05em;
-  text-underline-offset: 0.1em;
-    font-weight: 600;
+  font-weight: 600;
 }
 
 @media screen and (min-width: 768px) {
@@ -41,7 +39,7 @@
   }
   
   .titleContainer{
-    padding-left: 2em;
+    padding-left: 4em;
     text-align: left;
   }
 
