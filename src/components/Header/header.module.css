@@ -18,19 +18,18 @@
 }
 
 .gameTitle {
-  color: rgb(211, 181, 15);
-  text-shadow: rgb(138, 5, 45) 0.05em 0.09em 0.05em;
-  text-decoration-color: red;
+  color: rgb(24, 61, 61);
+  text-shadow: rgb(65, 165, 165) 0.05em 0.09em 0.05em;
   text-decoration: double;
   text-decoration-line: underline;
   text-decoration-thickness: 0.05em;
   text-underline-offset: 0.1em;
+    font-weight: 600;
 }
 
 @media screen and (min-width: 768px) {
   .gameTitle {
     font-size: 9vw;
-    text-shadow: rgb(138, 5, 45) 0.05em 0.05em 0.05em;
   }
 }
 
@@ -39,7 +38,6 @@
     grid-column: 1;
     grid-row: 1;
     font-size: 6vw;
-    text-shadow: rgb(138, 5, 45) 0.05em 0.05em 0.05em;
   }
   
   .titleContainer{
