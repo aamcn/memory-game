@@ -10,10 +10,9 @@ function LeaderBoardPage() {
   const [selectedDifficulty, setSelectedDifficulty] = useState("Easy");
   const [leaderBoardData, setLeaderBoardData] = useState([]);
 
-  const easyUrl = "https:/memory-game-backend-production-e873.up.railway.app/easy-leader-board/all-easy-scores";
-  const mediumUrl =
-    "https:/memory-game-backend-production-e873.up.railway.app/medium-leader-board/all-medium-scores";
-  const hardUrl = "https:/memory-game-backend-production-e873.up.railway.app/hard-leader-board/all-hard-scores";
+  const easyUrl = "https://memory-game-backend-production-e873.up.railway.app/easy-leader-board/all-easy-scores";
+  const mediumUrl = "https://memory-game-backend-production-e873.up.railway.app/medium-leader-board/all-medium-scores";
+  const hardUrl = "https://memory-game-backend-production-e873.up.railway.app/hard-leader-board/all-hard-scores";
 
   // Fetch leaderboard data based on the selected difficulty
   const fetchLeaderBoardData = async (url) => {
