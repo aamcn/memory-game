@@ -1,15 +1,15 @@
 .leaderBoardContainer {
   height: 85dvh;
-  background-color: rgb(230, 209, 176);
+  background-color: rgb(86, 197, 176);
   padding: 1em;
   margin: 1em;
-  border: double 0.5em #f9cd21;
+  border: double 0.5em rgb(24, 61, 61);
   border-radius: 1em;
-  box-shadow: 0px 0px 1em 0.5em rgba(0, 0, 0, 0.5);
   justify-self: center;
   margin-bottom: 2em;
   text-align: center;
 }
+
 
 .leaderBoardTable {
   margin-top: 2em;
@@ -19,17 +19,17 @@
 
 .leaderBoardEntryCell {
   padding: 0.5em;
-  border: 1px solid #7b2cd6;
+  border: 1px solid  rgb(24, 61, 61);
   font-size: 4.5vw;
   color: #360323;
 }
 
 .leaderBoardHeader {
-  background-color: rgb(46, 4, 70);
+  background-color:  rgb(50, 142, 142);
   font-size: 5vw;
-  color: wheat;
+  color: rgb(13, 35, 35);
   padding: 1em;
-  border: 1px solid #7b2cd6;
+  border: 1px solid rgb(24, 61, 61);
 }
 
 .leaderBoardRow {
