@@ -33,7 +33,8 @@ function LeaderBoardTable({
         selectedDifficulty={selectedDifficulty}
         setSelectedDifficulty={setSelectedDifficulty}
       />
-      <table
+      <div className={styles.tableWrapper}>
+        <table
         className={styles.leaderBoardTable}
         aria-label="Leader Board Table"
       >
@@ -83,6 +84,8 @@ function LeaderBoardTable({
           ))}
         </tbody>
       </table>
+      </div>
+      
     </div>
   );
 }
