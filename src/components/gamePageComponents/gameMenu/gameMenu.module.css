@@ -101,7 +101,7 @@ button:hover {
     display: grid;
     grid-row: 2;
     font-size: 3vw;
-    color: wheat;
+    color: rgb(24, 61, 61);
   }
 
   .difficultyButtons {

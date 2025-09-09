@@ -6,25 +6,26 @@
   grid-template-rows: 1fr 1fr 1fr;
   justify-self: center;
   align-self: center;
-  background-color: rgb(201, 230, 255);
+  background-color:rgb(94, 217, 194);
   z-index: 3;
   border: double;
   border-width: 0.5em;
   border-radius: 2em;
   padding: 1em;
   animation: menuAppear 1s;
-  box-shadow: 0px 0px 2em 1em rgb(0, 0, 0);
+  box-shadow: 0px 0px 1em 0.1em rgb(0, 0, 0);
   text-align: center;
 }
 
 .newGameButton {
-  color: wheat;
+  color: rgb(24, 61, 61);
   height: fit-content;
-  background-color: rgb(234, 130, 255);
+  background-color:rgb(94, 217, 194);
   animation: buttonFade 2s;
   border: solid;
   border-radius: 1em;
   box-shadow: 0px 0.1em 0.1em 0px;
+  margin:0.5em;
 }
 
 .newGameButton:active {
@@ -33,7 +34,7 @@
 }
 
 .newGameButton:hover {
-  background-color: rgb(153, 84, 167);
+  background-color: rgb(24, 61, 61);
 }
 
 .gameWonTitle {
