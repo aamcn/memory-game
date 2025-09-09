@@ -9,18 +9,18 @@ function LeaderBoardForm({ finishTime, cardTotal, setLeaderBoardFormVisible }) {
 
   //URLS to POST to each database table.
   const easyLeaderBoardUrl =
-    "http://localhost:3000/easy-leader-board/add-easy-top-scorer";
+    "https://memory-game-backend-production-e873.up.railway.app/easy-leader-board/add-easy-top-scorer";
   const mediumLeaderBoardUrl =
-    "http://localhost:3000/medium-leader-board/add-medium-top-scorer";
+    "https://memory-game-backend-production-e873.up.railway.app/medium-leader-board/add-medium-top-scorer";
   const hardLeaderBoardUrl =
-    "http://localhost:3000/hard-leader-board/add-hard-top-scorer";
+    "https://memory-game-backend-production-e873.up.railway.app/hard-leader-board/add-hard-top-scorer";
 
   //When the card total changes, the url is changed so results are sent to the correct table.
   useEffect(() => {
-    if (cardTotal <= 5) {
+    if (cardTotal < 5) {
       setLeaderBoardUrl(easyLeaderBoardUrl);
     }
-    if (cardTotal < 9) {
+    if (cardTotal < 9 && cardTotal > 5) {
       setLeaderBoardUrl(mediumLeaderBoardUrl);
     }
     if (cardTotal === 9) {
@@ -39,6 +39,8 @@ function LeaderBoardForm({ finishTime, cardTotal, setLeaderBoardFormVisible }) {
   //Post form data to the server.
   function postForm(formData) {
     let body = formData;
+    console.log(cardTotal)
+    console.log(formData);
     axios
       .post(leaderBoardUrl, body, { method: "cors" }, { withCredentials: true })
       .catch((error) => {
