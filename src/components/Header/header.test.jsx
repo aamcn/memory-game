@@ -23,7 +23,7 @@ describe("Header Component", () => {
 
   it("renders the game title", () => {
     renderWithRouter(<Header />);
-    const titleElement = screen.getByLabelText(/game title: poke-mem/i);
+    const titleElement = screen.getByTestId("header-title");
     expect(titleElement).toBeInTheDocument();
   });
 
@@ -37,7 +37,7 @@ describe("Header Component", () => {
     renderWithRouter(<Header />);
     const headerElement = screen.getByTestId("header");
     expect(headerElement).toHaveAttribute("aria-label", "header");
-    const titleElement = screen.getByLabelText(/game title: poke-mem/i);
+    const titleElement = screen.getByTestId("header-title");
     expect(titleElement).toHaveAttribute("aria-label", "Game Title: Poke-Mem");
   });
 
