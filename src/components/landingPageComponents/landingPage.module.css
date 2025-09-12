@@ -29,11 +29,13 @@
   color: rgb(218, 57, 65);
   animation: slideUp 3s;
   font-size: 12vw;
+  text-align: center;
 }
 
 .startButton {
   font-size: 5vw;
   animation: waitAndAppear 4s;
+  text-align: center;
 }
 
 @keyframes appear {
