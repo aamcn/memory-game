@@ -10,10 +10,10 @@ const routes = [
     path: "/",
     element: <App />,
     children: [
-      { path: "/landing-page", element: <LandingPage /> },
+      { path: "/memory-game/landing-page", element: <LandingPage /> },
       { index: true, element: <LandingPage /> },
-      { path: "/game-page", element: <GamePage /> },
-      { path: "/leader-board", element: <LeaderBoardPage /> },
+      { path: "/memory-game/game-page", element: <GamePage /> },
+      { path: "/memory-game/leader-board", element: <LeaderBoardPage /> },
     ],
     errorElement: <RouterErrorPage />,
   },
