@@ -10,12 +10,12 @@ function Navbar() {
       id="navbar"
       aria-label="navbar"
     >
-      <Link id="game-link" to="/memory-game/game-page" aria-label="Game Page Link">
+      <Link id="game-link" to="/game-page" aria-label="Game Page Link">
         Game
       </Link>
       <Link
         id="leaderboard-link"
-        to="/memory-game/leader-board"
+        to="/leader-board"
         aria-label="Leader Board Link"
       >
         Leader Board

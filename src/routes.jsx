@@ -10,13 +10,14 @@ const routes = [
     path: "/",
     element: <App />,
     children: [
-      { path: "/memory-game/landing-page", element: <LandingPage /> },
+      { path: "/landing-page", element: <LandingPage /> },
       { index: true, element: <LandingPage /> },
-      { path: "/memory-game/game-page", element: <GamePage /> },
-      { path: "/memory-game/leader-board", element: <LeaderBoardPage /> },
+      { path: "/game-page", element: <GamePage /> },
+      { path: "/leader-board", element: <LeaderBoardPage /> },
     ],
     errorElement: <RouterErrorPage />,
   },
 ];
 
 export default routes;
+  
