@@ -2,31 +2,32 @@ import React from "react";
 import styles from "./leaderBoardForm.module.css";
 import PropTypes from "prop-types";
 import axios from "axios";
-import { useState, useEffect } from "react";
 
 function LeaderBoardForm({ finishTime, cardTotal, setLeaderBoardFormVisible }) {
-  const [leaderBoardUrl, setLeaderBoardUrl] = useState("easyLeaderBoardUrl");
-
-  //URLS to POST to each database table.
+  //URLs to POST game data to each difficulty database table.
   const easyLeaderBoardUrl =
-    "memory-game-backend-production-e873.up.railway.app/easy-leader-board/add-easy-top-scorer";
+    "https://memory-game-backend-production-e873.up.railway.app/easy-leader-board/add-easy-top-scorer";
   const mediumLeaderBoardUrl =
     "https://memory-game-backend-production-e873.up.railway.app/medium-leader-board/add-medium-top-scorer";
   const hardLeaderBoardUrl =
     "https://memory-game-backend-production-e873.up.railway.app/hard-leader-board/add-hard-top-scorer";
 
-  //When the card total changes, the url is changed so results are sent to the correct table.
-  useEffect(() => {
-    if (cardTotal < 5) {
-      setLeaderBoardUrl(easyLeaderBoardUrl);
-    }
+  //Default URL to easy leader board.
+  let leaderBoardPostUrl = easyLeaderBoardUrl;
+
+  // Sets the leaderBoardPostUrl depending on cardTotal when called.
+  //If cardTotal is 4 it returns without changing the url.
+  function pickUrl(cardTotal) {
     if (cardTotal < 9 && cardTotal > 5) {
-      setLeaderBoardUrl(mediumLeaderBoardUrl);
+      leaderBoardPostUrl = mediumLeaderBoardUrl;
     }
     if (cardTotal === 9) {
-      setLeaderBoardUrl(hardLeaderBoardUrl);
+      leaderBoardPostUrl = hardLeaderBoardUrl;
     }
-  }, [cardTotal]);
+    return;
+  }
+
+  pickUrl(cardTotal);
 
   //Create form data object and convert to JSON, then call post function with the JSON data.
   const handleSubmitScore = (event) => {
@@ -39,10 +40,15 @@ function LeaderBoardForm({ finishTime, cardTotal, setLeaderBoardFormVisible }) {
   //Post form data to the server.
   function postForm(formData) {
     let body = formData;
-    console.log(cardTotal)
+    console.log(cardTotal);
     console.log(formData);
     axios
-      .post(leaderBoardUrl, body, { method: "cors" }, { withCredentials: true })
+      .post(
+        leaderBoardPostUrl,
+        body,
+        { method: "cors" },
+        { withCredentials: true },
+      )
       .catch((error) => {
         console.error(error);
       });
