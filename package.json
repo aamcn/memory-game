@@ -2,7 +2,7 @@
   "name": "memory-game",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://aaronmcnulty.github.io/memory-game/",
+  "homepage": "https://aamcn.github.io/memory-game/",
   "type": "module",
   "scripts": {
     "dev": "vite",
