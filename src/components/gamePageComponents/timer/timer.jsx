@@ -8,11 +8,11 @@ function Timer({ gameStarted, gameOver, gameWon, setFinalTime }) {
   const [time, setTime] = useState(0);
 
   useEffect(() => {
-    const t = new Date();
+    const currentDate = new Date();
     let intervalId;
     if (gameStarted && !gameWon && !gameOver) {
       // setting time from 0 to 1 every 10 milisecond using javascript setInterval method
-      intervalId = setInterval(() => setTime(t - startTime), 10);
+      intervalId = setInterval(() => setTime(currentDate - startTime), 10);
     }
     if (gameStarted && (gameOver || gameWon)) {
       setFinalTime(
