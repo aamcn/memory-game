@@ -1,6 +1,6 @@
 import CardTemplate from "../cardTemplate/CardTemplate";
 import styles from "./cardDisplay.module.css";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -14,8 +14,7 @@ function CardDisplay({
   cardTotal,
 }) {
   const [isHidden, setIsHidden] = useState(false);
-
-  let cardContainerClass = "";
+  const [cardContainerClass, setCardContainerClass] = useState("");
 
   // If isHidden is true, set it back to false after 0.5 seconds to re-render the cards.
   if (isHidden != false) {
@@ -27,17 +26,20 @@ function CardDisplay({
   // Set the class name for the cards container based on the cardTotal prop.
   const setCardClassName = () => {
     if (cardTotal === 9) {
-      cardContainerClass = `${styles.nineCardsContainer}`;
+      setCardContainerClass(`${styles.nineCardsContainer}`);
     }
     if (cardTotal === 6) {
-      cardContainerClass = `${styles.sixCardsContainer}`;
+      setCardContainerClass(`${styles.sixCardsContainer}`);
     }
     if (cardTotal === 4) {
-      cardContainerClass = `${styles.fourCardsContainer}`;
+      setCardContainerClass(`${styles.fourCardsContainer}`);
     }
   };
+
   // Call the function to set the class name when the component renders.
-  setCardClassName();
+  useMemo(() => {
+    setCardClassName();
+  }, [cardTotal]);
 
   return (
     !isHidden && (
