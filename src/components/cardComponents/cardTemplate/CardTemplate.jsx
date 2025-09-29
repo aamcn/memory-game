@@ -6,7 +6,6 @@ import React from "react";
 function CardTemplate({
   pokemonCardDetails,
   setCurrentScore,
-  currentScore,
   setGameOver,
   setCardObjects,
   setIsHidden,
@@ -18,15 +17,22 @@ function CardTemplate({
     If the card has been previously clicked (meaning isClicked is already true) gameResults
     is set to true ending the game which renders the gameOver pop up menu component.
   */
+
   const handleCardClick = () => {
-    if (pokemonCardDetails.isClicked !== true) {
-      setCurrentScore(currentScore + 1);
-      pokemonCardDetails.isClicked = true;
-      setCardObjects((cardObjects) => shuffleArray(cardObjects));
-      setIsHidden(true);
-    } else {
+    if (pokemonCardDetails.isClicked) {
       setGameOver(true);
+      return;
     }
+
+    // Update score
+    setCurrentScore((prev) => prev + 1);
+    pokemonCardDetails.isClicked = true;
+    // Update card objects immutably
+    setCardObjects((prevCards) => {
+      return shuffleArray(prevCards);
+    });
+
+    setIsHidden(true);
   };
 
   return (
