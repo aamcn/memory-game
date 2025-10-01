@@ -2,7 +2,7 @@
   "name": "memory-game",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://aamcn.github.io/memory-game/",
+  "homepage": "https://memory-game-xi-rust.vercel.app/",
   "type": "module",
   "scripts": {
     "dev": "vite",
